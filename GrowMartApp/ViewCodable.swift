@@ -6,7 +6,7 @@
 //
 
 public protocol ViewCodable: AnyObject {
-    func buildHierarchy()
+    func buildViewHierarchy()
     func setupConstraints()
     func setupAdditionalConfiguration()
     func setupView()
@@ -14,8 +14,14 @@ public protocol ViewCodable: AnyObject {
 
 public extension ViewCodable {
     func setupView() {
-        buildHierarchy()
+        buildViewHierarchy()
         setupConstraints()
         setupAdditionalConfiguration()
     }
+    
+    func buildViewHierarchy() {}
+
+    func setupConstraints() {}
+
+    func setupAdditionalConfiguration() {}
 }
