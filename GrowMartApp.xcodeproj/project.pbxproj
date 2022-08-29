@@ -90,13 +90,10 @@
 		96040E8528B432230029B0D7 /* GrowMartApp */ = {
 			isa = PBXGroup;
 			children = (
-				9686997928BD68F40060F512 /* New Group */,
-				9683F78928BA4FF20019EC5F /* Fonts */,
+				9686997928BD68F40060F512 /* Resources */,
 				96B9834E28B59A7A00073871 /* Login */,
 				96B9834D28B59A4200073871 /* Extensions */,
-				96040E8628B432230029B0D7 /* AppDelegate.swift */,
-				96040E8828B432230029B0D7 /* SceneDelegate.swift */,
-				96040E8F28B432230029B0D7 /* Assets.xcassets */,
+				9686998828BD82E00060F512 /* Delegate */,
 				96040E9128B432230029B0D7 /* LaunchScreen.storyboard */,
 				96040E9428B432230029B0D7 /* Info.plist */,
 				96B9834928B5830800073871 /* ViewCodable.swift */,
@@ -113,11 +110,22 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		9686997928BD68F40060F512 /* New Group */ = {
+		9686997928BD68F40060F512 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				96040E8F28B432230029B0D7 /* Assets.xcassets */,
+				9683F78928BA4FF20019EC5F /* Fonts */,
 			);
-			path = "New Group";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9686998828BD82E00060F512 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				96040E8628B432230029B0D7 /* AppDelegate.swift */,
+				96040E8828B432230029B0D7 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		96B9834D28B59A4200073871 /* Extensions */ = {
