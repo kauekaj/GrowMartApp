@@ -38,11 +38,11 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: LoginViewDelegate {
-    func didTapFacebookLogin() {
+    func openFacebookLogin() {
         print("didTapFacebookLogin")
     }
 
-    func didTapGoogleLogin() {
+    func openGoogleLogin() {
         print("didTapGoogleLogin")
     }
 }

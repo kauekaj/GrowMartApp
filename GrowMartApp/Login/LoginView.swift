@@ -8,8 +8,8 @@
 import UIKit
 
 public protocol LoginViewDelegate: AnyObject {
-    func didTapFacebookLogin()
-    func didTapGoogleLogin()
+    func openFacebookLogin()
+    func openGoogleLogin()
 }
 
 class LoginView: UIView {
@@ -58,7 +58,6 @@ class LoginView: UIView {
     private lazy var googleLoginButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("ENTRAR COM GOOGLE", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8
         button.setImage(UIImage(named: "google-logo"), for: .normal)
@@ -75,6 +74,7 @@ class LoginView: UIView {
                                          icon: UIImage?) -> UIButton.Configuration {
         var configuration = UIButton.Configuration.filled()
         configuration.title = title
+        configuration.attributedTitle = AttributedString(title, attributes: getFontAttributes())
         configuration.image = icon
         configuration.titlePadding = 10
         configuration.imagePadding = 30
@@ -93,17 +93,21 @@ class LoginView: UIView {
         super.init(coder: coder)
         setupView()
     }
+    
+    private func getFontAttributes() -> AttributeContainer {
+        AttributeContainer([NSAttributedString.Key.font : UIFont.nunito(style: .semiBold, size: 12)])
+    }
 
     // MARK: - Actions
 
     @objc
     private func didTapFacebookLogin() {
-        delegate?.didTapFacebookLogin()
+        delegate?.openFacebookLogin()
     }
 
     @objc
     private func didTapGoogleLogin() {
-        delegate?.didTapGoogleLogin()
+        delegate?.openGoogleLogin()
     }
 }
 
