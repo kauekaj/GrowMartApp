@@ -93,7 +93,7 @@ class LoginView: UIView {
         super.init(coder: coder)
         setupView()
     }
-    
+
     private func getFontAttributes() -> AttributeContainer {
         AttributeContainer([NSAttributedString.Key.font : UIFont.nunito(style: .semiBold, size: 12)])
     }
