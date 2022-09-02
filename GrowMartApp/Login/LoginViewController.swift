@@ -40,9 +40,12 @@ class LoginViewController: UIViewController {
 extension LoginViewController: LoginViewDelegate {
     func openFacebookLogin() {
         print("didTapFacebookLogin")
+        navigationController?.setViewControllers([SelectorViewController()], animated: true)
     }
 
     func openGoogleLogin() {
         print("didTapGoogleLogin")
+        navigationController?.setViewControllers([SelectorViewController()], animated: true)
+
     }
 }

@@ -75,6 +75,5 @@ class SelectorView: UIView {
 
         func setupAdditionalConfiguration() {
             backgroundColor = .white
-
         }
 }

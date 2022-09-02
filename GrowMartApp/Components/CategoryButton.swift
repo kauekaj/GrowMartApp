@@ -42,6 +42,7 @@ class CategoryButton: UIControl {
         self.imageSide = imageSide
         self.image = image
         super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        setupView()
     }
 
     required init?(coder: NSCoder) {
@@ -86,7 +87,7 @@ extension CategoryButton: ViewCodable {
 
     private func configureButtonLeft() {
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -10),
             
             label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor),
             label.trailingAnchor.constraint(equalTo: trailingAnchor)
