@@ -8,7 +8,7 @@
 import UIKit
 
 class CategoryButton: UIControl {
-    
+
     enum ImageSide {
         case left
         case right
