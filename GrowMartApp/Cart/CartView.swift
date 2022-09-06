@@ -13,6 +13,9 @@ protocol CartViewDelegate: AnyObject {
 
 public final class CartView: UIView {
 
+    // MARK: - Public Propoerties
+    weak var delegate: CartViewDelegate?
+    
     // MARK: - Private Propoerties
 
     private lazy var lineView: UIView = {
@@ -66,20 +69,20 @@ extension CartView: ViewCodable {
 
     public func setupConstraints() {
         NSLayoutConstraint.activate([
-            lineView.topAnchor.constraint(equalTo: topAnchor, constant:  24),
-            lineView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            lineView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            lineView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant:  24),
+            lineView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            lineView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             lineView.heightAnchor.constraint(equalToConstant: 2),
 
             yellowBarView.bottomAnchor.constraint(equalTo: lineView.bottomAnchor),
-            yellowBarView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-            yellowBarView.trailingAnchor.constraint(equalTo: trailingAnchor, constant:  -32),
+            yellowBarView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            yellowBarView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant:  -32),
             yellowBarView.heightAnchor.constraint(equalToConstant: 5),
         
             tableView.topAnchor.constraint(equalTo: lineView.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
         ])
     }
     

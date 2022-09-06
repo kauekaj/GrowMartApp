@@ -43,3 +43,13 @@ extension SelectorViewController: ViewCodable {
 
     }
 }
+
+extension SelectorViewController: SelectorViewDelegate {
+    func didSelectCategory(id: Int) {
+            print("Category \(id)")
+        
+        let controller = CartViewController()
+        navigationController?.pushViewController(controller, animated: true)
+
+        }
+}
