@@ -14,6 +14,7 @@ class CategoryButton: UIControl {
         case right
     }
 
+    let categoryId: Int
     private let title: String
     private let imageSide: ImageSide
     private let image: UIImage?
@@ -37,7 +38,8 @@ class CategoryButton: UIControl {
     }()
 
     // MARK: - Inits
-    internal init(title: String, imageSide: CategoryButton.ImageSide, image: UIImage?) {
+    internal init(categoryId: Int, title: String, imageSide: CategoryButton.ImageSide, image: UIImage?) {
+        self.categoryId = categoryId
         self.title = title
         self.imageSide = imageSide
         self.image = image
