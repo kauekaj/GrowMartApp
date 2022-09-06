@@ -23,6 +23,7 @@
 		96B9834A28B5830800073871 /* ViewCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9834928B5830800073871 /* ViewCodable.swift */; };
 		96B9834C28B5923E00073871 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9834B28B5923E00073871 /* UIColor+Extensions.swift */; };
 		96B9835028B59A9E00073871 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9834F28B59A9E00073871 /* LoginView.swift */; };
+		96C8384328C7589D00E76F1D /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C8384228C7589D00E76F1D /* CartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		96B9834928B5830800073871 /* ViewCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodable.swift; sourceTree = "<group>"; };
 		96B9834B28B5923E00073871 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		96B9834F28B59A9E00073871 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		96C8384228C7589D00E76F1D /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				969B9D8E28C3892E0065A0DE /* CartView.swift */,
+				96C8384228C7589D00E76F1D /* CartViewController.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */,
 				96A66F1F28C20F6600497050 /* SelectorView.swift in Sources */,
 				96040E8B28B432230029B0D7 /* LoginViewController.swift in Sources */,
+				96C8384328C7589D00E76F1D /* CartViewController.swift in Sources */,
 				96B9834C28B5923E00073871 /* UIColor+Extensions.swift in Sources */,
 				96B9834A28B5830800073871 /* ViewCodable.swift in Sources */,
 				969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */,

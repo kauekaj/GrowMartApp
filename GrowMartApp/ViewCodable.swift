@@ -19,9 +19,9 @@ public extension ViewCodable {
         setupAdditionalConfiguration()
     }
 
-    func buildViewHierarchy() {}
-
-    func setupConstraints() {}
-
-    func setupAdditionalConfiguration() {}
+//    func buildViewHierarchy() {}
+//
+//    func setupConstraints() {}
+//
+//    func setupAdditionalConfiguration() {}
 }

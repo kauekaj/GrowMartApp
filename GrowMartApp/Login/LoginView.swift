@@ -113,6 +113,7 @@ class LoginView: UIView {
 
 // MARK: - View Code
 extension LoginView: ViewCodable {
+    
     func setupView() {
         backgroundColor = .white
         buildViewHierarchy()
@@ -140,5 +141,9 @@ extension LoginView: ViewCodable {
             facebookLoginButton.heightAnchor.constraint(equalToConstant: 41),
             googleLoginButton.heightAnchor.constraint(equalToConstant: 41)
         ])
+    }
+    
+    func setupAdditionalConfiguration() {
+        
     }
 }
