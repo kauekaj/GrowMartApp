@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CartViewDelegate: AnyObject {
-    
+    func didTapButton()
 }
 
 public final class CartView: UIView {
@@ -40,10 +40,8 @@ public final class CartView: UIView {
         element.separatorStyle = .none
         return element
     }()
-    
 
     // MARK: - Private Methods
-
 
     // MARK: - Inits
 
@@ -56,7 +54,6 @@ public final class CartView: UIView {
         super.init(coder: coder)
         setupView()
     }
-
 
 }
 
@@ -78,17 +75,16 @@ extension CartView: ViewCodable {
             yellowBarView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 32),
             yellowBarView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant:  -32),
             yellowBarView.heightAnchor.constraint(equalToConstant: 5),
-        
+
             tableView.topAnchor.constraint(equalTo: lineView.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
+
     public func setupAdditionalConfiguration() {
-        
+        backgroundColor = .white
     }
-    
-    
+
 }

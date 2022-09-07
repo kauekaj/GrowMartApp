@@ -28,7 +28,7 @@ extension SelectorViewController: ViewCodable {
     func buildViewHierarchy() {
         view.addSubview(selectorView)
     }
-    
+
     func setupConstraints() {
         NSLayoutConstraint.activate([
             selectorView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -37,17 +37,17 @@ extension SelectorViewController: ViewCodable {
             selectorView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
+
     func setupAdditionalConfiguration() {
         view.backgroundColor = .white
-
+        selectorView.delegate = self
     }
 }
 
 extension SelectorViewController: SelectorViewDelegate {
     func didSelectCategory(id: Int) {
             print("Category \(id)")
-        
+
         let controller = CartViewController()
         navigationController?.pushViewController(controller, animated: true)
 
