@@ -20,7 +20,7 @@ class CartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        cartView?.delegate = self
     }
 
 }
@@ -29,7 +29,7 @@ extension CartViewController: CartViewDelegate {
     func numberOfRowa() -> Int {
         10
     }
-    
+
     func didTapButton() {
         print("didTapButton")
     }

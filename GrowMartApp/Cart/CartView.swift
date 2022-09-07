@@ -8,9 +8,9 @@
 import UIKit
 
 protocol CartViewDelegate: AnyObject {
-    
+
     func numberOfRowa() -> Int
-    
+
     func didTapButton()
 }
 
@@ -18,7 +18,7 @@ public final class CartView: UIView {
 
     // MARK: - Public Propoerties
     weak var delegate: CartViewDelegate?
-    
+
     // MARK: - Private Propoerties
 
     private lazy var lineView: UIView = {
@@ -91,6 +91,11 @@ extension CartView: ViewCodable {
 
     public func setupAdditionalConfiguration() {
         backgroundColor = .white
+        registerTableViewCells()
+    }
+
+    private func registerTableViewCells() {
+        tableView.register(ButtonCell.self, forCellReuseIdentifier: String(describing: ButtonCell.self))
     }
 
 }
@@ -103,10 +108,23 @@ extension CartView: UITableViewDelegate, UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath)
+
+        if let buttoncell = cell as? ButtonCell {
+            buttoncell.delegate = self
+        }
+
+        return cell
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+}
+
+extension CartView: ButtonCellDelegate {
+    public func didTapButton() {
+        print("didTapButton")
+    }
+    
 }
