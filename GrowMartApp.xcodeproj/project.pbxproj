@@ -19,6 +19,7 @@
 		969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B9D8E28C3892E0065A0DE /* CartView.swift */; };
 		96A66F1F28C20F6600497050 /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A66F1E28C20F6600497050 /* SelectorView.swift */; };
 		96A66F2128C20F7400497050 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A66F2028C20F7400497050 /* SelectorViewController.swift */; };
+		96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A914BE28C8B054008ABFB1 /* ButtonCell.swift */; };
 		96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE558428BEB3D100EC7295 /* CategoryButton.swift */; };
 		96B9834A28B5830800073871 /* ViewCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9834928B5830800073871 /* ViewCodable.swift */; };
 		96B9834C28B5923E00073871 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9834B28B5923E00073871 /* UIColor+Extensions.swift */; };
@@ -43,6 +44,7 @@
 		969B9D8E28C3892E0065A0DE /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		96A66F1E28C20F6600497050 /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
 		96A66F2028C20F7400497050 /* SelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
+		96A914BE28C8B054008ABFB1 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		96AE558428BEB3D100EC7295 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		96B9834928B5830800073871 /* ViewCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodable.swift; sourceTree = "<group>"; };
 		96B9834B28B5923E00073871 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		969B9D8D28C3891E0065A0DE /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				96A914BD28C8B03F008ABFB1 /* Cell */,
 				969B9D8E28C3892E0065A0DE /* CartView.swift */,
 				96C8384228C7589D00E76F1D /* CartViewController.swift */,
 			);
@@ -157,6 +160,14 @@
 				96A66F2028C20F7400497050 /* SelectorViewController.swift */,
 			);
 			path = Selector;
+			sourceTree = "<group>";
+		};
+		96A914BD28C8B03F008ABFB1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				96A914BE28C8B054008ABFB1 /* ButtonCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		96AE558328BEB33000EC7295 /* Components */ = {
@@ -303,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96B9835028B59A9E00073871 /* LoginView.swift in Sources */,
+				96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */,
 				96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */,
 				96A66F1F28C20F6600497050 /* SelectorView.swift in Sources */,
 				96040E8B28B432230029B0D7 /* LoginViewController.swift in Sources */,

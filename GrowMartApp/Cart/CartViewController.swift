@@ -26,6 +26,10 @@ class CartViewController: UIViewController {
 }
 
 extension CartViewController: CartViewDelegate {
+    func numberOfRowa() -> Int {
+        10
+    }
+    
     func didTapButton() {
         print("didTapButton")
     }

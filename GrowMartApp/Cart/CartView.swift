@@ -8,6 +8,9 @@
 import UIKit
 
 protocol CartViewDelegate: AnyObject {
+    
+    func numberOfRowa() -> Int
+    
     func didTapButton()
 }
 
@@ -36,7 +39,8 @@ public final class CartView: UIView {
         let element = UITableView()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.backgroundColor = .white
-
+        element.dataSource = self
+        element.delegate = self
         element.separatorStyle = .none
         return element
     }()
@@ -56,6 +60,8 @@ public final class CartView: UIView {
     }
 
 }
+
+// MARK: - ViewCodable
 
 extension CartView: ViewCodable {
     public func buildViewHierarchy() {
@@ -87,4 +93,20 @@ extension CartView: ViewCodable {
         backgroundColor = .white
     }
 
+}
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
+
+extension CartView: UITableViewDelegate, UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        delegate?.numberOfRowa() ?? 0
+    }
+
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        UITableViewCell()
+    }
+
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
