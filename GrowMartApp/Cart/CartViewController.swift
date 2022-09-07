@@ -95,6 +95,12 @@ extension CartViewController: CartViewDelegate {
     func remove(product: Product) {
         print("Removeu o produto: \(product.name)")
 
+        cells.removeAll { cell in
+            if let productCell = cell.data as? Product {
+                return productCell.name == product.name
+            }
+            return false
+        }
+        cartView?.reloadTableView()
     }
-
 }

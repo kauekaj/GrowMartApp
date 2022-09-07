@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 public final class TotalCell: UITableViewCell {
 
     // MARK: - Private Properties
@@ -19,7 +17,7 @@ public final class TotalCell: UITableViewCell {
         element.backgroundColor = UIColor(rgb: 0xFF6E40)
         return element
     }()
-    
+
     private lazy var label: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -30,7 +28,7 @@ public final class TotalCell: UITableViewCell {
         element.text = "total: R$ 0.00"
         return element
     }()
-    
+
     // MARK: - Inits
 
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -41,6 +39,12 @@ public final class TotalCell: UITableViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()
+    }
+
+    // MARK: - Public Methods
+
+    public func setTotal(_ value: String) {
+        label.text = value
     }
 
 }

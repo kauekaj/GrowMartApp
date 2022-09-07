@@ -12,13 +12,13 @@ public protocol ProductCellDelegate: AnyObject {
 }
 
 public class ProductCell: UITableViewCell {
-    
+
     public weak var delegate: ProductCellDelegate?
 
     // MARK: - Private Properties
     
     private var product: Product?
-    
+
     private lazy var containerView: UIView = {
         let element = UIView()
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +29,7 @@ public class ProductCell: UITableViewCell {
         element.clipsToBounds = true
         return element
     }()
-    
+
     private lazy var productImageView: UIImageView = {
         let element = UIImageView()
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ public class ProductCell: UITableViewCell {
         element.layer.borderColor = UIColor(rgb: 0xFFC13B).cgColor
         return element
     }()
-    
+
     private lazy var nameLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -59,15 +59,16 @@ public class ProductCell: UITableViewCell {
         element.textAlignment = .left
         return element
     }()
-    
+
     private lazy var removeButton: UIButton = {
         let element = UIButton()
         element.translatesAutoresizingMaskIntoConstraints = false
+        element.setTitle("remover", for: .normal)
         element.setTitleColor(.init(rgb: 0x4267B2), for: .normal)
         element.addTarget(self, action: #selector(didTapRemoveButton), for: .touchUpInside)
-        element.configuration = .makeWith(backgroundColor: .clear,
-                                          title: "remover",
-                                          font: .nunito(style: .regular, size: 14))
+//        element.configuration = .makeWith(backgroundColor: .clear,
+//                                          title: "remover",
+//                                          font: .nunito(style: .regular, size: 14))
         return element
     }()
 
@@ -81,7 +82,7 @@ public class ProductCell: UITableViewCell {
         super.init(coder: coder)
         setupView()
     }
-    
+
     // MARK: - Public Methods
     public func setProduct(_ product: Product) {
         self.product = product
@@ -112,7 +113,7 @@ extension ProductCell: ViewCodable {
         containerView.addSubview(priceLabel)
         containerView.addSubview(removeButton)
     }
-    
+
     public func setupConstraints() {
         NSLayoutConstraint.activate([
             containerView.heightAnchor.constraint(equalToConstant: 80),
@@ -144,7 +145,7 @@ extension ProductCell: ViewCodable {
             removeButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
     }
-    
+
     public func setupAdditionalConfiguration() {
         selectionStyle = .none
     }
