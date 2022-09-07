@@ -9,9 +9,13 @@ import UIKit
 
 protocol CartViewDelegate: AnyObject {
 
-    func numberOfRowa() -> Int
-
+    func numberOfRows() -> Int
+    func getCartCellType(at index: Int) -> CartCellType?
+    func getProduct(at index: Int) -> Product?
+    func getTotal() -> String
+    func getButtonTitle() -> String
     func didTapButton()
+    func remove(product: Product)
 }
 
 public final class CartView: UIView {
@@ -97,6 +101,8 @@ extension CartView: ViewCodable {
     private func registerTableViewCells() {
         tableView.register(ButtonCell.self, forCellReuseIdentifier: String(describing: ButtonCell.self))
         tableView.register(TotalCell.self, forCellReuseIdentifier: String(describing: TotalCell.self))
+        tableView.register(ProductCell.self, forCellReuseIdentifier: String(describing: ProductCell.self))
+
 
     }
 
@@ -106,7 +112,7 @@ extension CartView: ViewCodable {
 
 extension CartView: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        delegate?.numberOfRowa() ?? 0
+        delegate?.numberOfRows() ?? 0
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -116,7 +122,10 @@ extension CartView: UITableViewDelegate, UITableViewDataSource {
 //            buttoncell.delegate = self
 //        }
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TotalCell.self), for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TotalCell.self), for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ProductCell.self), for: indexPath)
+
 
         return cell
     }

@@ -63,11 +63,11 @@ public class ProductCell: UITableViewCell {
     private lazy var removeButton: UIButton = {
         let element = UIButton()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.setTitle("remover", for: .normal)
         element.setTitleColor(.init(rgb: 0x4267B2), for: .normal)
         element.addTarget(self, action: #selector(didTapRemoveButton), for: .touchUpInside)
-//        element.configuration = .makeWith(backgroundColor: .clear,
-//                                          font: .nunito(style: .regular, size: 14))
+        element.configuration = .makeWith(backgroundColor: .clear,
+                                          title: "remover",
+                                          font: .nunito(style: .regular, size: 14))
         return element
     }()
 
