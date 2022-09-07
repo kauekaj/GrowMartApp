@@ -16,6 +16,8 @@
 		9686997D28BD6AC20060F512 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686997C28BD6AC20060F512 /* UIFont+Extensions.swift */; };
 		9686998628BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */; };
 		9686998728BD82020060F512 /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */; };
+		9699C18F28C8D19D00481568 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9699C18E28C8D19D00481568 /* ProductCell.swift */; };
+		9699C19128C8D27400481568 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9699C19028C8D27400481568 /* Product.swift */; };
 		969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B9D8E28C3892E0065A0DE /* CartView.swift */; };
 		96A66F1F28C20F6600497050 /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A66F1E28C20F6600497050 /* SelectorView.swift */; };
 		96A66F2128C20F7400497050 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A66F2028C20F7400497050 /* SelectorViewController.swift */; };
@@ -43,6 +45,8 @@
 		9686997C28BD6AC20060F512 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		9699C18E28C8D19D00481568 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		9699C19028C8D27400481568 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		969B9D8E28C3892E0065A0DE /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		96A66F1E28C20F6600497050 /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
 		96A66F2028C20F7400497050 /* SelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 			children = (
 				96A914BE28C8B054008ABFB1 /* ButtonCell.swift */,
 				96A914C228C8BA33008ABFB1 /* TotalCell.swift */,
+				9699C18E28C8D19D00481568 /* ProductCell.swift */,
+				9699C19028C8D27400481568 /* Product.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 				96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */,
 				96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */,
 				96A66F1F28C20F6600497050 /* SelectorView.swift in Sources */,
+				9699C19128C8D27400481568 /* Product.swift in Sources */,
 				96040E8B28B432230029B0D7 /* LoginViewController.swift in Sources */,
 				96C8384328C7589D00E76F1D /* CartViewController.swift in Sources */,
 				96B9834C28B5923E00073871 /* UIColor+Extensions.swift in Sources */,
@@ -332,6 +339,7 @@
 				96040E8728B432230029B0D7 /* AppDelegate.swift in Sources */,
 				96A914C128C8B1FD008ABFB1 /* UIButton.Configuration+Extension.swift in Sources */,
 				96040E8928B432230029B0D7 /* SceneDelegate.swift in Sources */,
+				9699C18F28C8D19D00481568 /* ProductCell.swift in Sources */,
 				9686997D28BD6AC20060F512 /* UIFont+Extensions.swift in Sources */,
 				96A66F2128C20F7400497050 /* SelectorViewController.swift in Sources */,
 			);
