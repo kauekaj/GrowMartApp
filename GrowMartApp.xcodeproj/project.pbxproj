@@ -21,6 +21,7 @@
 		96A66F2128C20F7400497050 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A66F2028C20F7400497050 /* SelectorViewController.swift */; };
 		96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A914BE28C8B054008ABFB1 /* ButtonCell.swift */; };
 		96A914C128C8B1FD008ABFB1 /* UIButton.Configuration+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A914C028C8B1FD008ABFB1 /* UIButton.Configuration+Extension.swift */; };
+		96A914C328C8BA33008ABFB1 /* TotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A914C228C8BA33008ABFB1 /* TotalCell.swift */; };
 		96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE558428BEB3D100EC7295 /* CategoryButton.swift */; };
 		96B9834A28B5830800073871 /* ViewCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9834928B5830800073871 /* ViewCodable.swift */; };
 		96B9834C28B5923E00073871 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9834B28B5923E00073871 /* UIColor+Extensions.swift */; };
@@ -47,6 +48,7 @@
 		96A66F2028C20F7400497050 /* SelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
 		96A914BE28C8B054008ABFB1 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		96A914C028C8B1FD008ABFB1 /* UIButton.Configuration+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton.Configuration+Extension.swift"; sourceTree = "<group>"; };
+		96A914C228C8BA33008ABFB1 /* TotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCell.swift; sourceTree = "<group>"; };
 		96AE558428BEB3D100EC7295 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		96B9834928B5830800073871 /* ViewCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodable.swift; sourceTree = "<group>"; };
 		96B9834B28B5923E00073871 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				96A914BE28C8B054008ABFB1 /* ButtonCell.swift */,
+				96A914C228C8BA33008ABFB1 /* TotalCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96B9835028B59A9E00073871 /* LoginView.swift in Sources */,
+				96A914C328C8BA33008ABFB1 /* TotalCell.swift in Sources */,
 				96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */,
 				96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */,
 				96A66F1F28C20F6600497050 /* SelectorView.swift in Sources */,

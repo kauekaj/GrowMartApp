@@ -96,6 +96,8 @@ extension CartView: ViewCodable {
 
     private func registerTableViewCells() {
         tableView.register(ButtonCell.self, forCellReuseIdentifier: String(describing: ButtonCell.self))
+        tableView.register(TotalCell.self, forCellReuseIdentifier: String(describing: TotalCell.self))
+
     }
 
 }
@@ -108,11 +110,13 @@ extension CartView: UITableViewDelegate, UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath)
+//
+//        if let buttoncell = cell as? ButtonCell {
+//            buttoncell.delegate = self
+//        }
 
-        if let buttoncell = cell as? ButtonCell {
-            buttoncell.delegate = self
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TotalCell.self), for: indexPath)
 
         return cell
     }
