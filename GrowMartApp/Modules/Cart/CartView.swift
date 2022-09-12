@@ -100,7 +100,8 @@ extension CartView: ViewCodable {
     public func setupAdditionalConfiguration() {
         backgroundColor = .white
         registerTableViewCells()
-        tableView.contentInset = .init(top: 32, left: 0, bottom: 0, right: 0)
+        setupTableContentInset()
+        //setupFooter()
     }
 
     private func registerTableViewCells() {
@@ -109,6 +110,22 @@ extension CartView: ViewCodable {
         tableView.register(ProductCell.self, forCellReuseIdentifier: String(describing: ProductCell.self))
 
     }
+    
+    private func setupFooter() {
+        tableView.tableFooterView = CartFooterView(total: delegate?.getTotal() ?? "",
+                                                       buttonTitle: delegate?.getButtonTitle() ?? "",
+                                                       delegate: self)
+        tableView.tableFooterView?.clipsToBounds = true
+        }
+        
+        private func setupTableContentInset() {
+            let tableSpaceFromTop: CGFloat = 32
+            let footerViewHeight: CGFloat = 145
+            tableView.contentInset = .init(top: tableSpaceFromTop,
+                                           left: 0,
+                                           bottom: footerViewHeight,
+                                           right: 0)
+        }
 
 }
 
@@ -164,7 +181,7 @@ extension CartView: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - ButtonCellDelegate
 
-extension CartView: ButtonCellDelegate {
+extension CartView: ButtonCellDelegate,  CartFooterViewDelegate {
     public func didTapButton() {
         delegate?.didTapButton()
     }
