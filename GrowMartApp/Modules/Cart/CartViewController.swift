@@ -18,7 +18,7 @@ struct CartCell {
     let data: Any?
 }
 
-class CartViewController: UIViewController {
+class CartViewController: BaseViewController {
 
     private var cartView: CartView?
 
@@ -47,6 +47,11 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cartView?.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
 
 }

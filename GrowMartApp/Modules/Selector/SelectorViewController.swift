@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectorViewController: UIViewController {
+class SelectorViewController: BaseViewController {
     // MARK: - Internal Properties
     private lazy var selectorView: SelectorView = {
         let element = SelectorView()
@@ -19,6 +19,11 @@ class SelectorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
 
     // MARK: - Private Methods
