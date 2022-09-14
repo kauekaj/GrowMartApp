@@ -53,7 +53,7 @@ extension SelectorViewController: SelectorViewDelegate {
     func didSelectCategory(id: Int) {
             print("Category \(id)")
 
-        let controller = CartViewController()
+        let controller = CatalogViewController()
         navigationController?.pushViewController(controller, animated: true)
 
         }
