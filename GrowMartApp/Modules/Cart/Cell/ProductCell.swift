@@ -87,7 +87,7 @@ public class ProductCell: UITableViewCell {
     public func setProduct(_ product: Product) {
         self.product = product
 
-        productImageView.image = UIImage(named: product.imageName)
+        productImageView.image = UIImage(named: product.imageUrl)
         nameLabel.text = product.name
         priceLabel.text = product.price
     }

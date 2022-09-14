@@ -8,5 +8,5 @@
 public struct Product {
     let name: String
     let price: String
-    let imageName: String
+    let imageUrl: String
 }

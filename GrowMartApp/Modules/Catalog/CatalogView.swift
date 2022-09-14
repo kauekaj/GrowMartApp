@@ -8,7 +8,13 @@
 import UIKit
 
 public protocol CatalogViewDelegate: AnyObject {
-    
+    func numberOfItems() -> Int
+       func getProduct(at index: Int) -> Product?
+
+       func didTapButtonClothes()
+       func didTapButtonAcessories()
+       func didTapButtonOthers()
+       func didTapProduct(at index: Int)
 }
 
 class CatalogView: UIView {
@@ -41,9 +47,8 @@ class CatalogView: UIView {
         return element
     }()
     
-    private lazy var categoriesSegmented: UISegmentedControl = {
-        //            let element = CategoriesSegmentedControl(items: ["roupas", "acessórios", "outros"])
-        let element = UISegmentedControl()
+    private lazy var categoriesSegmented: CategoriesSegmentedControl = {
+        let element = CategoriesSegmentedControl(items: ["roupas", "acessórios", "outros"])
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
@@ -60,8 +65,8 @@ class CatalogView: UIView {
                                        collectionViewLayout: viewLayout)
         element.translatesAutoresizingMaskIntoConstraints = false
         element.showsVerticalScrollIndicator = false
-        //  element.delegate = self
-        //  element.dataSource = self
+        element.delegate = self
+        element.dataSource = self
         return element
     }()
     
@@ -110,12 +115,34 @@ extension CatalogView: ViewCodable {
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
+
     public func setupAdditionalConfiguration() {
         backgroundColor = .white
-        
-//        bannerImageView.addImageFromURL(urlString: "https://www.designi.com.br/images/preview/10236255.jpg")
-//        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
-//        collectionView.register(CatalogItemCell.self, forCellWithReuseIdentifier: CatalogItemCell.identifier)
+
+        //bannerImageView.addImageFromURL(urlString: "https://www.designi.com.br/images/preview/10236255.jpg")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
+        collectionView.register(CatalogItemCell.self, forCellWithReuseIdentifier: CatalogItemCell.identifier)
+    }
+}
+
+extension CatalogView: UICollectionViewDataSource, UICollectionViewDelegate {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        delegate?.numberOfItems() ?? 0
+        return 10
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let product = delegate?.getProduct(at: indexPath.row),
+              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CatalogItemCell.identifier, for: indexPath) as? CatalogItemCell else {
+            return UICollectionViewCell()
+        }
+
+        cell.setup(with: product)
+        return cell
+       
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didTapProduct(at: indexPath.row)
     }
 }
