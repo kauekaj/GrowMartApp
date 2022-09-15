@@ -29,7 +29,7 @@ class CatalogViewController: BaseViewController {
             navigationController?.isNavigationBarHidden = false
             
             addFakeProducts(name: "Item categoria roupas", imageUrl: clothesUrl)
-            //catalogView.reloadData()
+            catalogView.reloadData()
         }
         
         override func viewWillAppear(_ animated: Bool) {
@@ -63,24 +63,23 @@ class CatalogViewController: BaseViewController {
             guard index < products.count else {
                 return nil
             }
-            
+
             return products[index]
         }
         
         func didTapButtonClothes() {
-            
+
         }
-        
+
         func didTapButtonAcessories() {
-            
+
         }
-        
+
         func didTapButtonOthers() {
-            
+
         }
-        
+
         func didTapProduct(at index: Int) {
             navigationController?.pushViewController(CartViewController(), animated: true)
         }
     }
- 

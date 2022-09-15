@@ -70,9 +70,9 @@ class CatalogView: UIView {
         element.dataSource = self
         return element
     }()
-    
+
     // MARK: - Inits
-    
+
     init() {
         super.init(frame: .zero)
         setupView()
@@ -80,6 +80,10 @@ class CatalogView: UIView {
     
     required init?(coder: NSCoder) {
         nil
+    }
+    
+    public func reloadData() {
+        collectionView.reloadData()
     }
     
 }
