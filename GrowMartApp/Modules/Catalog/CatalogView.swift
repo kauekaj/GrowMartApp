@@ -8,7 +8,7 @@
 import UIKit
 
 public protocol CatalogViewDelegate: AnyObject {
-    func numberOfItems() -> Int
+       func numberOfItems() -> Int
        func getProduct(at index: Int) -> Product?
 
        func didTapButtonClothes()
@@ -127,8 +127,8 @@ extension CatalogView: ViewCodable {
 
 extension CatalogView: UICollectionViewDataSource, UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        delegate?.numberOfItems() ?? 0
-        return 10
+        delegate?.numberOfItems() ?? 0
+
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
