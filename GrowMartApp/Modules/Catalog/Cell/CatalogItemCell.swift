@@ -62,7 +62,7 @@ class CatalogItemCell: UICollectionViewCell {
 
        // MARK: - Public Methods
        public func setup(with product: Product) {
-           //productImageView.addImageFromURL(urlString: product.imageUrl)
+           productImageView.addImageFromURL(urlString: product.imageUrl)
            priceLabel.text = product.price
            nameLabel.text = product.name
        }

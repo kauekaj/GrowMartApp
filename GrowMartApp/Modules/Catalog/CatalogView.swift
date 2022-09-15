@@ -44,6 +44,7 @@ class CatalogView: UIView {
         element.isUserInteractionEnabled = true
         element.layer.cornerRadius = 5
         element.backgroundColor = .lightGray
+        element.image = UIImage(named: "bannerImage")
         return element
     }()
     
