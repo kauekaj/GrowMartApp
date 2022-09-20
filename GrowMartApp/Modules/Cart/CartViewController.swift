@@ -26,13 +26,6 @@ class CartViewController: BaseViewController {
             .init(cellType: .product, data: Product(name:"título produto 1", price:"R$ 0,00", imageUrl: "produto-exemplo")),
             .init(cellType: .product, data: Product(name:"título produto 2", price:"R$ 0,00", imageUrl: "produto-exemplo")),
             .init(cellType: .product, data: Product(name:"título produto 3", price:"R$ 0,00", imageUrl: "produto-exemplo")),
-//            .init(cellType: .product, data: Product(name:"título produto 4", price:"R$ 0,00", imageUrl: "produto-exemplo")),
-//            .init(cellType: .product, data: Product(name:"título produto 5", price:"R$ 0,00", imageUrl: "produto-exemplo")),
-//            .init(cellType: .product, data: Product(name:"título produto 6", price:"R$ 0,00", imageUrl: "produto-exemplo")),
-//            .init(cellType: .product, data: Product(name:"título produto 7", price:"R$ 0,00", imageUrl: "produto-exemplo")),
-//            .init(cellType: .product, data: Product(name:"título produto 8", price:"R$ 0,00", imageUrl: "produto-exemplo")),
-//            .init(cellType: .product, data: Product(name:"título produto 9", price:"R$ 0,00", imageUrl: "produto-exemplo")),
-//            .init(cellType: .product, data: Product(name:"título produto 10", price:"R$ 0,00", imageUrl: "produto-exemplo")),
             .init(cellType: .total, data: "total: R$ 0.00"),
             .init(cellType: .button, data: "check-out")
         ]

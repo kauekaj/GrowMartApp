@@ -28,4 +28,25 @@ class BaseViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         navigationItem.titleView = imageView
     }
+    
+    // MARK: - Internal Methods
+    internal func addCartButton() {
+        guard let image = UIImage(named: "cart")?.withRenderingMode(.alwaysOriginal) else {
+            return
+        }
+        
+        navigationItem.rightBarButtonItem = .init(image: image,
+                                                  style: .plain,
+                                                  target: self,
+                                                  action: #selector(openCart))
+    }
+    
+    // MARK: - Actions
+    
+    @objc
+    private func openCart() {
+        let controller = SelectorViewController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
 }

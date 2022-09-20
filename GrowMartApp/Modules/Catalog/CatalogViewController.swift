@@ -30,6 +30,7 @@ class CatalogViewController: BaseViewController {
         
         addFakeProducts(name: "Item categoria roupas", imageUrl: clothesUrl)
         catalogView.reloadData()
+        addCartButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
