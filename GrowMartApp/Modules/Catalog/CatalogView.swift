@@ -10,20 +10,24 @@ import UIKit
 public protocol CatalogViewDelegate: AnyObject {
        func numberOfItems() -> Int
        func getProduct(at index: Int) -> Product?
-
-       func didTapButtonClothes()
-       func didTapButtonAcessories()
-       func didTapButtonOthers()
+//
+//       func didTapButtonClothes()
+//       func didTapButtonAcessories()
+//       func didTapButtonOthers()
+//
+    func didSelectCategory(index: Int, name: String)
        func didTapProduct(at index: Int)
 }
 
 class CatalogView: UIView {
-    
+
     // MARK: - Public Properties
     weak var delegate: CatalogViewDelegate?
     
-    // MARK: - Private Properties
+    private let categories = ["roupas", "acessórios", "outros"]
     
+    // MARK: - Private Properties
+
     private lazy var searchTextField: SearchTextField = {
         let element = SearchTextField()
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +39,7 @@ class CatalogView: UIView {
         element.rightViewMode = .always
         return element
     }()
-    
+
     private lazy var bannerImageView: UIImageView = {
         let element = UIImageView()
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -47,13 +51,14 @@ class CatalogView: UIView {
         element.image = UIImage(named: "bannerImage")
         return element
     }()
-    
+
     private lazy var categoriesSegmented: CategoriesSegmentedControl = {
-        let element = CategoriesSegmentedControl(items: ["roupas", "acessórios", "outros"])
+        let element = CategoriesSegmentedControl(items: categories)
         element.translatesAutoresizingMaskIntoConstraints = false
+        element.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
         return element
     }()
-    
+
     private lazy var collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         viewLayout.sectionInset = .init(top: 32, left: 0, bottom: 16, right: 0)
@@ -61,7 +66,7 @@ class CatalogView: UIView {
         viewLayout.itemSize = .init(width: (UIScreen.main.bounds.width - spacesBetweenItens) / 2, height: 230)
         viewLayout.minimumInteritemSpacing = 16
         viewLayout.minimumLineSpacing = 16
-        
+
         let element = UICollectionView(frame: .zero,
                                        collectionViewLayout: viewLayout)
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -77,13 +82,20 @@ class CatalogView: UIView {
         super.init(frame: .zero)
         setupView()
     }
-    
+
     required init?(coder: NSCoder) {
         nil
     }
-    
+
     public func reloadData() {
         collectionView.reloadData()
+    }
+    
+    // MARK: - Actions
+    @objc
+    func segmentedValueChanged() {
+        let index = categoriesSegmented.selectedSegmentIndex
+        delegate?.didSelectCategory(index: index, name: categories[index])
     }
     
 }
@@ -135,7 +147,7 @@ extension CatalogView: UICollectionViewDataSource, UICollectionViewDelegate {
         delegate?.numberOfItems() ?? 0
 
     }
-    
+
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let product = delegate?.getProduct(at: indexPath.row),
               let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CatalogItemCell.identifier, for: indexPath) as? CatalogItemCell else {
@@ -144,9 +156,9 @@ extension CatalogView: UICollectionViewDataSource, UICollectionViewDelegate {
 
         cell.setup(with: product)
         return cell
-       
+
     }
-    
+
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.didTapProduct(at: indexPath.row)
     }
