@@ -27,6 +27,9 @@
 		96A28E3228DB52CE00D39621 /* InfoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3128DB52CE00D39621 /* InfoDataView.swift */; };
 		96A28E3428DB534F00D39621 /* LabelValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3328DB534F00D39621 /* LabelValueView.swift */; };
 		96A28E3628DB596B00D39621 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3528DB596B00D39621 /* HeaderView.swift */; };
+		96A28E3828DB5C5800D39621 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3728DB5C5800D39621 /* EditProfileView.swift */; };
+		96A28E3A28DB5C6700D39621 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3928DB5C6700D39621 /* EditProfileViewController.swift */; };
+		96A28E3C28DB5C7000D39621 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3B28DB5C7000D39621 /* Profile.swift */; };
 		96A66F1F28C20F6600497050 /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A66F1E28C20F6600497050 /* SelectorView.swift */; };
 		96A66F2128C20F7400497050 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A66F2028C20F7400497050 /* SelectorViewController.swift */; };
 		96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A914BE28C8B054008ABFB1 /* ButtonCell.swift */; };
@@ -69,6 +72,9 @@
 		96A28E3128DB52CE00D39621 /* InfoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDataView.swift; sourceTree = "<group>"; };
 		96A28E3328DB534F00D39621 /* LabelValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelValueView.swift; sourceTree = "<group>"; };
 		96A28E3528DB596B00D39621 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		96A28E3728DB5C5800D39621 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		96A28E3928DB5C6700D39621 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		96A28E3B28DB5C7000D39621 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		96A66F1E28C20F6600497050 /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
 		96A66F2028C20F7400497050 /* SelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
 		96A914BE28C8B054008ABFB1 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
@@ -192,6 +198,9 @@
 			children = (
 				96A0180E28DA7EF300B19AB8 /* ProfileView.swift */,
 				96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */,
+				96A28E3728DB5C5800D39621 /* EditProfileView.swift */,
+				96A28E3928DB5C6700D39621 /* EditProfileViewController.swift */,
+				96A28E3B28DB5C7000D39621 /* Profile.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -412,11 +421,14 @@
 				96BD138E28D3347000406BB4 /* UIImageView+Extensions.swift in Sources */,
 				96B1C27728D2813A003AA7ED /* CatalogItemCell.swift in Sources */,
 				96C8384328C7589D00E76F1D /* CartViewController.swift in Sources */,
+				96A28E3A28DB5C6700D39621 /* EditProfileViewController.swift in Sources */,
 				96B9834C28B5923E00073871 /* UIColor+Extensions.swift in Sources */,
 				96A0180F28DA7EF300B19AB8 /* ProfileView.swift in Sources */,
+				96A28E3C28DB5C7000D39621 /* Profile.swift in Sources */,
 				96B9834A28B5830800073871 /* ViewCodable.swift in Sources */,
 				969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */,
 				96D16DE728CCC40200B65B23 /* CartFooterView.swift in Sources */,
+				96A28E3828DB5C5800D39621 /* EditProfileView.swift in Sources */,
 				96040E8728B432230029B0D7 /* AppDelegate.swift in Sources */,
 				9692A82628D27B6400D040AA /* CategoriesSegmentedControl.swift in Sources */,
 				96D16DED28CCC95400B65B23 /* CatalogView.swift in Sources */,
