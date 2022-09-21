@@ -9,7 +9,7 @@ import UIKit
 
 extension UIButton.Configuration {
     public static func makeWith(backgroundColor: UIColor,
-                                title: String,
+                                title: String = "",
                                 font: UIFont,
                                 icon: UIImage? = nil) -> UIButton.Configuration {
         var configuration = UIButton.Configuration.filled()
