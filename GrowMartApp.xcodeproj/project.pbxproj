@@ -22,6 +22,8 @@
 		969A85A728D1E219009059C2 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A85A628D1E219009059C2 /* CatalogViewController.swift */; };
 		969A85A928D1E9A5009059C2 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A85A828D1E9A5009059C2 /* SearchTextField.swift */; };
 		969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B9D8E28C3892E0065A0DE /* CartView.swift */; };
+		96A0180F28DA7EF300B19AB8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0180E28DA7EF300B19AB8 /* ProfileView.swift */; };
+		96A0181128DA7F0400B19AB8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */; };
 		96A66F1F28C20F6600497050 /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A66F1E28C20F6600497050 /* SelectorView.swift */; };
 		96A66F2128C20F7400497050 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A66F2028C20F7400497050 /* SelectorViewController.swift */; };
 		96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A914BE28C8B054008ABFB1 /* ButtonCell.swift */; };
@@ -59,6 +61,8 @@
 		969A85A628D1E219009059C2 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		969A85A828D1E9A5009059C2 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		969B9D8E28C3892E0065A0DE /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		96A0180E28DA7EF300B19AB8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		96A66F1E28C20F6600497050 /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
 		96A66F2028C20F7400497050 /* SelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
 		96A914BE28C8B054008ABFB1 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
@@ -177,6 +181,15 @@
 			path = Cart;
 			sourceTree = "<group>";
 		};
+		96A0180D28DA7EE200B19AB8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				96A0180E28DA7EF300B19AB8 /* ProfileView.swift */,
+				96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		96A66F1D28C20F3C00497050 /* Selector */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +251,7 @@
 		96D16DEA28CCC92D00B65B23 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				96A0180D28DA7EE200B19AB8 /* Profile */,
 				96D16DEB28CCC94100B65B23 /* Catalog */,
 				96B9834E28B59A7A00073871 /* Login */,
 				969B9D8D28C3891E0065A0DE /* Cart */,
@@ -379,6 +393,7 @@
 				96A914C328C8BA33008ABFB1 /* TotalCell.swift in Sources */,
 				96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */,
 				96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */,
+				96A0181128DA7F0400B19AB8 /* ProfileViewController.swift in Sources */,
 				96D16DE928CCC57400B65B23 /* BaseViewController.swift in Sources */,
 				96A66F1F28C20F6600497050 /* SelectorView.swift in Sources */,
 				9699C19128C8D27400481568 /* Product.swift in Sources */,
@@ -387,6 +402,7 @@
 				96B1C27728D2813A003AA7ED /* CatalogItemCell.swift in Sources */,
 				96C8384328C7589D00E76F1D /* CartViewController.swift in Sources */,
 				96B9834C28B5923E00073871 /* UIColor+Extensions.swift in Sources */,
+				96A0180F28DA7EF300B19AB8 /* ProfileView.swift in Sources */,
 				96B9834A28B5830800073871 /* ViewCodable.swift in Sources */,
 				969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */,
 				96D16DE728CCC40200B65B23 /* CartFooterView.swift in Sources */,

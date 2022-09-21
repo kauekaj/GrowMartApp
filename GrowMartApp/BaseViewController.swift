@@ -45,7 +45,7 @@ class BaseViewController: UIViewController {
     
     @objc
     private func openCart() {
-        let controller = SelectorViewController()
+        let controller = ProfileViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
     
