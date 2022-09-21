@@ -26,6 +26,7 @@
 		96A0181128DA7F0400B19AB8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */; };
 		96A28E3228DB52CE00D39621 /* InfoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3128DB52CE00D39621 /* InfoDataView.swift */; };
 		96A28E3428DB534F00D39621 /* LabelValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3328DB534F00D39621 /* LabelValueView.swift */; };
+		96A28E3628DB596B00D39621 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3528DB596B00D39621 /* HeaderView.swift */; };
 		96A66F1F28C20F6600497050 /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A66F1E28C20F6600497050 /* SelectorView.swift */; };
 		96A66F2128C20F7400497050 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A66F2028C20F7400497050 /* SelectorViewController.swift */; };
 		96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A914BE28C8B054008ABFB1 /* ButtonCell.swift */; };
@@ -67,6 +68,7 @@
 		96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		96A28E3128DB52CE00D39621 /* InfoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDataView.swift; sourceTree = "<group>"; };
 		96A28E3328DB534F00D39621 /* LabelValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelValueView.swift; sourceTree = "<group>"; };
+		96A28E3528DB596B00D39621 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		96A66F1E28C20F6600497050 /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
 		96A66F2028C20F7400497050 /* SelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
 		96A914BE28C8B054008ABFB1 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */,
 				96A28E3128DB52CE00D39621 /* InfoDataView.swift */,
 				96A28E3328DB534F00D39621 /* LabelValueView.swift */,
+				96A28E3528DB596B00D39621 /* HeaderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				9692A82628D27B6400D040AA /* CategoriesSegmentedControl.swift in Sources */,
 				96D16DED28CCC95400B65B23 /* CatalogView.swift in Sources */,
 				96A914C128C8B1FD008ABFB1 /* UIButton.Configuration+Extension.swift in Sources */,
+				96A28E3628DB596B00D39621 /* HeaderView.swift in Sources */,
 				96040E8928B432230029B0D7 /* SceneDelegate.swift in Sources */,
 				9699C18F28C8D19D00481568 /* ProductCell.swift in Sources */,
 				9686997D28BD6AC20060F512 /* UIFont+Extensions.swift in Sources */,

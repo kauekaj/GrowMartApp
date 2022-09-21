@@ -33,5 +33,30 @@ class ProfileViewController: BaseViewController {
 // MARK: - ProfileViewDelegate
 
 extension ProfileViewController: ProfileViewDelegate {
+    func didTapProfileImageView() {
+        let controller = UIImagePickerController()
+        controller.allowsEditing = false
+        controller.sourceType = .photoLibrary
+        controller.delegate = self
+        present(controller, animated: true)
+    }
     
+    func didTapButton() {
+//        let controller = EditProfileViewController()
+//        navigationController?.present(UINavigationController(rootViewController: controller), animated: true)
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            dismiss(animated: true)
+            return
+        }
+        
+        profileView.updateProfileView(image: image)
+        dismiss(animated: true)
+    }
 }
