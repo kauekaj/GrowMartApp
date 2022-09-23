@@ -42,8 +42,8 @@ extension ProfileViewController: ProfileViewDelegate {
     }
     
     func didTapButton() {
-//        let controller = EditProfileViewController()
-//        navigationController?.present(UINavigationController(rootViewController: controller), animated: true)
+        let controller = EditProfileViewController()
+        navigationController?.present(UINavigationController(rootViewController: controller), animated: true)
     }
 }
 
