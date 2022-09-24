@@ -13,6 +13,7 @@
 		96040E8B28B432230029B0D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96040E8A28B432230029B0D7 /* LoginViewController.swift */; };
 		96040E9028B432230029B0D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96040E8F28B432230029B0D7 /* Assets.xcassets */; };
 		96040E9328B432230029B0D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96040E9128B432230029B0D7 /* LaunchScreen.storyboard */; };
+		967ACF1528DF39CB00854CA7 /* CustomTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ACF1428DF39CB00854CA7 /* CustomTextFieldCell.swift */; };
 		9686997D28BD6AC20060F512 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686997C28BD6AC20060F512 /* UIFont+Extensions.swift */; };
 		9686998628BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */; };
 		9686998728BD82020060F512 /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */; };
@@ -59,6 +60,7 @@
 		96040E8F28B432230029B0D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96040E9228B432230029B0D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96040E9428B432230029B0D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		967ACF1428DF39CB00854CA7 /* CustomTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldCell.swift; sourceTree = "<group>"; };
 		9686997C28BD6AC20060F512 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		96040E8528B432230029B0D7 /* GrowMartApp */ = {
 			isa = PBXGroup;
 			children = (
+				967ACF1128DF382B00854CA7 /* Commons */,
 				96D16DEA28CCC92D00B65B23 /* Modules */,
 				96AE558328BEB33000EC7295 /* Components */,
 				9686997928BD68F40060F512 /* Resources */,
@@ -154,6 +157,15 @@
 				96D16DE828CCC57400B65B23 /* BaseViewController.swift */,
 			);
 			path = GrowMartApp;
+			sourceTree = "<group>";
+		};
+		967ACF1128DF382B00854CA7 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				96A914BE28C8B054008ABFB1 /* ButtonCell.swift */,
+				967ACF1428DF39CB00854CA7 /* CustomTextFieldCell.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 		9683F78928BA4FF20019EC5F /* Fonts */ = {
@@ -219,7 +231,6 @@
 		96A914BD28C8B03F008ABFB1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				96A914BE28C8B054008ABFB1 /* ButtonCell.swift */,
 				96A914C228C8BA33008ABFB1 /* TotalCell.swift */,
 				9699C18E28C8D19D00481568 /* ProductCell.swift */,
 			);
@@ -414,6 +425,7 @@
 				96A28E3228DB52CE00D39621 /* InfoDataView.swift in Sources */,
 				96B9835028B59A9E00073871 /* LoginView.swift in Sources */,
 				96A914C328C8BA33008ABFB1 /* TotalCell.swift in Sources */,
+				967ACF1528DF39CB00854CA7 /* CustomTextFieldCell.swift in Sources */,
 				96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */,
 				96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */,
 				96A0181128DA7F0400B19AB8 /* ProfileViewController.swift in Sources */,
