@@ -12,7 +12,13 @@ class EditProfileViewController: BaseViewController {
     // MARK: - Private Properties
     private lazy var editProfileView: EditProfileView = {
         let element = EditProfileView(delegate: self,
-                                      profile: .init())
+                                      profile: .init(name: "Michelli Cristina",
+                                                     address: "Rua das Flores",
+                                                     number: "099",
+                                                     complement: "00000-000",
+                                                     email: "teste@teste.com",
+                                                     cellphone: "(00) 00000-0000",
+                                                     canShareWhatsapp: true))
         element.delegate = self
         return element
     }()

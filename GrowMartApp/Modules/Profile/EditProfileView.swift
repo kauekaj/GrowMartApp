@@ -8,7 +8,7 @@
 import UIKit
 
 protocol EditProfileViewDelegate: AnyObject {
-
+    
 }
 
 public final class EditProfileView: UIView {
@@ -43,7 +43,7 @@ public final class EditProfileView: UIView {
         element.separatorStyle = .none
         return element
     }()
-
+    
     // MARK: - Inits
     init(delegate: EditProfileViewDelegate?, profile: Profile) {
         self.delegate = delegate
@@ -53,7 +53,7 @@ public final class EditProfileView: UIView {
         setupValues()
         setupCells()
     }
-
+    
     required init?(coder: NSCoder) {
         nil
     }
@@ -63,9 +63,9 @@ public final class EditProfileView: UIView {
     private func registerTableViewCells() {
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
         tableview.register(ButtonCell.self, forCellReuseIdentifier: ButtonCell.reuseIdentifier)
-//        tableview.register(CheckboxCell.self, forCellReuseIdentifier: CheckboxCell.reuseIdentifier)
+        //        tableview.register(CheckboxCell.self, forCellReuseIdentifier: CheckboxCell.reuseIdentifier)
         tableview.register(CustomTextFieldCell.self, forCellReuseIdentifier: CustomTextFieldCell.reuseIdentifier)
-//        tableview.register(DoubleTextFieldCell.self, forCellReuseIdentifier: DoubleTextFieldCell.reuseIdentifier)
+        //        tableview.register(DoubleTextFieldCell.self, forCellReuseIdentifier: DoubleTextFieldCell.reuseIdentifier)
     }
     
     private func cellType(for index: IndexPath) -> CellType? {
@@ -97,6 +97,25 @@ public final class EditProfileView: UIView {
         }
         cells.append(.button)
     }
+    
+    private func getFieldValue(field: Profile.Field) -> Any? {
+            switch field {
+            case .name:
+                return profile?.name
+            case .address:
+                return profile?.address
+            case .number:
+                return profile?.number
+            case .complement:
+                return profile?.complement
+            case .email:
+                return profile?.email
+            case .cellphone:
+                return profile?.cellphone
+            case .canShareWhatsapp:
+                return profile?.canShareWhatsapp
+            }
+        }
     
     private func updateProfile(field: Profile.Field, value: Any?) {
         switch field {
@@ -132,7 +151,7 @@ extension EditProfileView: ViewCodable {
             lineView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             lineView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             lineView.heightAnchor.constraint(equalToConstant: 2),
-
+            
             yellowBarView.bottomAnchor.constraint(equalTo: lineView.bottomAnchor),
             yellowBarView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 32),
             yellowBarView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -32),
@@ -180,15 +199,24 @@ extension EditProfileView: UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell: CustomTextFieldCell = .createCell(for: tableView, at: indexPath) else {
+        guard let cellType = cellType(for: indexPath) else {
             return UITableViewCell()
         }
         
-        cell.propertyName = "name"
-        cell.delegate = self
-        cell.setData(title: "nome",
-                     value: "")
-        return cell
+        switch cellType {
+        case let .textField(field):
+            guard let cell: CustomTextFieldCell = .createCell(for: tableView, at: indexPath) else {
+                return UITableViewCell()
+            }
+            
+            cell.propertyName = field.rawValue
+            cell.delegate = self
+            cell.setData(title: field.getFormattedName(),
+                         value: getFieldValue(field: field) as? String)
+            return cell
+        default:
+            return UITableViewCell()
+        }
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -206,20 +234,20 @@ extension EditProfileView: UITableViewDataSource, UITableViewDelegate {
         
         NSLayoutConstraint.activate([
             view.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-
+            
             header.topAnchor.constraint(equalTo: view.topAnchor),
             header.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
         ])
-
+        
         return view
     }
 }
 
 extension EditProfileView: CustomTextFieldCellDelegate {
     public func didChangeValue(propertyName: String?, value: String) {
-        print("value: \(value)")
+        print("propertyName \(propertyName) ---- value: \(value)")
     }
     
 }
