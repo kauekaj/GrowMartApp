@@ -63,7 +63,7 @@ public final class EditProfileView: UIView {
     private func registerTableViewCells() {
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
         tableview.register(ButtonCell.self, forCellReuseIdentifier: ButtonCell.reuseIdentifier)
-        //        tableview.register(CheckboxCell.self, forCellReuseIdentifier: CheckboxCell.reuseIdentifier)
+        tableview.register(CheckboxCell.self, forCellReuseIdentifier: CheckboxCell.reuseIdentifier)
         tableview.register(CustomTextFieldCell.self, forCellReuseIdentifier: CustomTextFieldCell.reuseIdentifier)
         tableview.register(DoubleCustomTextFieldCell.self, forCellReuseIdentifier: DoubleCustomTextFieldCell.reuseIdentifier)
     }
@@ -134,6 +134,15 @@ public final class EditProfileView: UIView {
         case .canShareWhatsapp:
             profile?.canShareWhatsapp = value as? Bool
         }
+    }
+    
+    private func validateDelegates(propertyName: String?, value: Any?) {
+        guard let propertyName = propertyName,
+        let field = Profile.Field(rawValue: propertyName) else {
+            return
+        }
+        
+        updateProfile(field: field, value: value)
     }
 }
 
@@ -227,6 +236,17 @@ extension EditProfileView: UITableViewDataSource, UITableViewDelegate {
                          rightTitle: rightField.getFormattedName(),
                          rightValue: getFieldValue(field: rightField) as? String)
             return cell
+            
+        case let .checkbox(field):
+            guard let cell: CheckboxCell = .createCell(for: tableView, at: indexPath) else {
+                return UITableViewCell()
+            }
+            
+            cell.propertyName = field.rawValue
+            cell.delegate = self
+            cell.setData(text: field.getFormattedName(), isChecked: true)
+
+            return cell
         case .button:
             guard let cell: ButtonCell = .createCell(for: tableView, at: indexPath) else {
                 return UITableViewCell()
@@ -269,13 +289,21 @@ extension EditProfileView: UITableViewDataSource, UITableViewDelegate {
 
 extension EditProfileView: CustomTextFieldCellDelegate, DoubleCustomTextFieldCellDelegate {
     public func didChangeValue(propertyName: String?, value: String) {
-        guard let propertyName = propertyName,
-              let field = Profile.Field(rawValue: propertyName) else {
-            return
-        }
-        updateProfile(field: field, value: value)
+        validateDelegates(propertyName: propertyName, value: value)
     }
 }
+
+// MARK: - CheckboxCellDelegate
+
+extension EditProfileView: CheckboxCellDelegate {
+    public func didChangeCheckbox(propertyName: String?, isChecked: Bool) {
+        validateDelegates(propertyName: propertyName, value: isChecked)
+    }
+    
+}
+
+
+
 
 // MARK: - ButtonCellDelegate
 
