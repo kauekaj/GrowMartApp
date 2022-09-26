@@ -65,7 +65,7 @@ public final class EditProfileView: UIView {
         tableview.register(ButtonCell.self, forCellReuseIdentifier: ButtonCell.reuseIdentifier)
         //        tableview.register(CheckboxCell.self, forCellReuseIdentifier: CheckboxCell.reuseIdentifier)
         tableview.register(CustomTextFieldCell.self, forCellReuseIdentifier: CustomTextFieldCell.reuseIdentifier)
-        //        tableview.register(DoubleTextFieldCell.self, forCellReuseIdentifier: DoubleTextFieldCell.reuseIdentifier)
+        tableview.register(DoubleCustomTextFieldCell.self, forCellReuseIdentifier: DoubleCustomTextFieldCell.reuseIdentifier)
     }
     
     private func cellType(for index: IndexPath) -> CellType? {
@@ -214,6 +214,19 @@ extension EditProfileView: UITableViewDataSource, UITableViewDelegate {
             cell.setData(title: field.getFormattedName(),
                          value: getFieldValue(field: field) as? String)
             return cell
+        case let .doubleTextField(leftField, rightField):
+            guard let cell: DoubleCustomTextFieldCell = .createCell(for: tableView, at: indexPath) else {
+                return UITableViewCell()
+            }
+            
+            cell.leftFieldPropertyName = leftField.rawValue
+            cell.rightFieldPropertyName = rightField.rawValue
+            cell.delegate = self
+            cell.setData(leftTitle: leftField.getFormattedName(),
+                         leftValue: getFieldValue(field: leftField) as? String,
+                         rightTitle: rightField.getFormattedName(),
+                         rightValue: getFieldValue(field: rightField) as? String)
+            return cell
         case .button:
             guard let cell: ButtonCell = .createCell(for: tableView, at: indexPath) else {
                 return UITableViewCell()
@@ -254,7 +267,7 @@ extension EditProfileView: UITableViewDataSource, UITableViewDelegate {
 
 // MARK: - CustomTextFieldCellDelegate
 
-extension EditProfileView: CustomTextFieldCellDelegate {
+extension EditProfileView: CustomTextFieldCellDelegate, DoubleCustomTextFieldCellDelegate {
     public func didChangeValue(propertyName: String?, value: String) {
         guard let propertyName = propertyName,
               let field = Profile.Field(rawValue: propertyName) else {
@@ -262,7 +275,6 @@ extension EditProfileView: CustomTextFieldCellDelegate {
         }
         updateProfile(field: field, value: value)
     }
-    
 }
 
 // MARK: - ButtonCellDelegate
@@ -271,7 +283,5 @@ extension EditProfileView: ButtonCellDelegate {
     public func didTapButton() {
         print("profile \(profile)")
 
-    }
-    
-    
+    }    
 }
