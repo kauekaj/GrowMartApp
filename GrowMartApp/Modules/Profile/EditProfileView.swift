@@ -214,6 +214,13 @@ extension EditProfileView: UITableViewDataSource, UITableViewDelegate {
             cell.setData(title: field.getFormattedName(),
                          value: getFieldValue(field: field) as? String)
             return cell
+        case .button:
+            guard let cell: ButtonCell = .createCell(for: tableView, at: indexPath) else {
+                return UITableViewCell()
+            }
+            cell.setTitle("atualizar dados", color: .black)
+            cell.delegate = self
+            return cell
         default:
             return UITableViewCell()
         }
@@ -245,9 +252,26 @@ extension EditProfileView: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+// MARK: - CustomTextFieldCellDelegate
+
 extension EditProfileView: CustomTextFieldCellDelegate {
     public func didChangeValue(propertyName: String?, value: String) {
-        print("propertyName \(propertyName) ---- value: \(value)")
+        guard let propertyName = propertyName,
+              let field = Profile.Field(rawValue: propertyName) else {
+            return
+        }
+        updateProfile(field: field, value: value)
     }
+    
+}
+
+// MARK: - ButtonCellDelegate
+
+extension EditProfileView: ButtonCellDelegate {
+    public func didTapButton() {
+        print("profile \(profile)")
+
+    }
+    
     
 }
