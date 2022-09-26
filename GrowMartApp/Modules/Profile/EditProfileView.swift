@@ -64,7 +64,7 @@ public final class EditProfileView: UIView {
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
         tableview.register(ButtonCell.self, forCellReuseIdentifier: ButtonCell.reuseIdentifier)
 //        tableview.register(CheckboxCell.self, forCellReuseIdentifier: CheckboxCell.reuseIdentifier)
-//        tableview.register(TextFieldCell.self, forCellReuseIdentifier: TextFieldCell.reuseIdentifier)
+        tableview.register(CustomTextFieldCell.self, forCellReuseIdentifier: CustomTextFieldCell.reuseIdentifier)
 //        tableview.register(DoubleTextFieldCell.self, forCellReuseIdentifier: DoubleTextFieldCell.reuseIdentifier)
     }
     
@@ -180,7 +180,15 @@ extension EditProfileView: UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        return .init()
+        guard let cell: CustomTextFieldCell = .createCell(for: tableView, at: indexPath) else {
+            return UITableViewCell()
+        }
+        
+        cell.propertyName = "name"
+        cell.delegate = self
+        cell.setData(title: "nome",
+                     value: "")
+        return cell
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -207,4 +215,11 @@ extension EditProfileView: UITableViewDataSource, UITableViewDelegate {
 
         return view
     }
+}
+
+extension EditProfileView: CustomTextFieldCellDelegate {
+    public func didChangeValue(propertyName: String?, value: String) {
+        print("value: \(value)")
+    }
+    
 }
