@@ -24,7 +24,6 @@
 		9699C18F28C8D19D00481568 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9699C18E28C8D19D00481568 /* ProductCell.swift */; };
 		9699C19128C8D27400481568 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9699C19028C8D27400481568 /* Product.swift */; };
 		969A85A728D1E219009059C2 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A85A628D1E219009059C2 /* CatalogViewController.swift */; };
-		969A85A928D1E9A5009059C2 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A85A828D1E9A5009059C2 /* SearchTextField.swift */; };
 		969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B9D8E28C3892E0065A0DE /* CartView.swift */; };
 		96A0180F28DA7EF300B19AB8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0180E28DA7EF300B19AB8 /* ProfileView.swift */; };
 		96A0181128DA7F0400B19AB8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */; };
@@ -38,6 +37,11 @@
 		96A58E2B28E75EAA00A71090 /* BaseViewWithTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E2A28E75EAA00A71090 /* BaseViewWithTableView.swift */; };
 		96A58E3228E764EA00A71090 /* ProductDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E3128E764EA00A71090 /* ProductDataView.swift */; };
 		96A58E3428E7669D00A71090 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E3328E7669D00A71090 /* AddProductViewController.swift */; };
+		96A58E3628E7686600A71090 /* SimpleTextfieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E3528E7686600A71090 /* SimpleTextfieldCell.swift */; };
+		96A58E3828E7689000A71090 /* SelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E3728E7689000A71090 /* SelectorCell.swift */; };
+		96A58E3A28E76B4700A71090 /* RightIconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E3928E76B4700A71090 /* RightIconTextField.swift */; };
+		96A58E3C28E76D8E00A71090 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E3B28E76D8E00A71090 /* UITextField+Extensions.swift */; };
+		96A58E3E28E76DEE00A71090 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E3D28E76DEE00A71090 /* PickerView.swift */; };
 		96A66F1F28C20F6600497050 /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A66F1E28C20F6600497050 /* SelectorView.swift */; };
 		96A66F2128C20F7400497050 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A66F2028C20F7400497050 /* SelectorViewController.swift */; };
 		96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A914BE28C8B054008ABFB1 /* ButtonCell.swift */; };
@@ -77,7 +81,6 @@
 		9699C18E28C8D19D00481568 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		9699C19028C8D27400481568 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		969A85A628D1E219009059C2 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
-		969A85A828D1E9A5009059C2 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		969B9D8E28C3892E0065A0DE /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		96A0180E28DA7EF300B19AB8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +94,11 @@
 		96A58E2A28E75EAA00A71090 /* BaseViewWithTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewWithTableView.swift; sourceTree = "<group>"; };
 		96A58E3128E764EA00A71090 /* ProductDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataView.swift; sourceTree = "<group>"; };
 		96A58E3328E7669D00A71090 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		96A58E3528E7686600A71090 /* SimpleTextfieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextfieldCell.swift; sourceTree = "<group>"; };
+		96A58E3728E7689000A71090 /* SelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorCell.swift; sourceTree = "<group>"; };
+		96A58E3928E76B4700A71090 /* RightIconTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightIconTextField.swift; sourceTree = "<group>"; };
+		96A58E3B28E76D8E00A71090 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		96A58E3D28E76DEE00A71090 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		96A66F1E28C20F6600497050 /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
 		96A66F2028C20F7400497050 /* SelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
 		96A914BE28C8B054008ABFB1 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
@@ -177,6 +185,8 @@
 				967ACF1428DF39CB00854CA7 /* CustomTextFieldCell.swift */,
 				9698BF0C28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift */,
 				9698BF0E28E21331008DFF41 /* CheckboxCell.swift */,
+				96A58E3528E7686600A71090 /* SimpleTextfieldCell.swift */,
+				96A58E3728E7689000A71090 /* SelectorCell.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -274,11 +284,12 @@
 			children = (
 				96B9834928B5830800073871 /* ViewCodable.swift */,
 				96AE558428BEB3D100EC7295 /* CategoryButton.swift */,
-				969A85A828D1E9A5009059C2 /* SearchTextField.swift */,
 				9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */,
 				96A28E3128DB52CE00D39621 /* InfoDataView.swift */,
 				96A28E3328DB534F00D39621 /* LabelValueView.swift */,
 				96A28E3528DB596B00D39621 /* HeaderView.swift */,
+				96A58E3928E76B4700A71090 /* RightIconTextField.swift */,
+				96A58E3D28E76DEE00A71090 /* PickerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -299,6 +310,7 @@
 				96A914C028C8B1FD008ABFB1 /* UIButton.Configuration+Extension.swift */,
 				96BD138D28D3347000406BB4 /* UIImageView+Extensions.swift */,
 				96A06BE228DB7AF000846A4D /* UITableViewCell+Extensions.swift */,
+				96A58E3B28E76D8E00A71090 /* UITextField+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -473,7 +485,6 @@
 			files = (
 				96A28E3428DB534F00D39621 /* LabelValueView.swift in Sources */,
 				969A85A728D1E219009059C2 /* CatalogViewController.swift in Sources */,
-				969A85A928D1E9A5009059C2 /* SearchTextField.swift in Sources */,
 				9698BF0F28E21331008DFF41 /* CheckboxCell.swift in Sources */,
 				96A28E3228DB52CE00D39621 /* InfoDataView.swift in Sources */,
 				96B9835028B59A9E00073871 /* LoginView.swift in Sources */,
@@ -482,6 +493,7 @@
 				967ACF1528DF39CB00854CA7 /* CustomTextFieldCell.swift in Sources */,
 				96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */,
 				96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */,
+				96A58E3828E7689000A71090 /* SelectorCell.swift in Sources */,
 				96A0181128DA7F0400B19AB8 /* ProfileViewController.swift in Sources */,
 				96A58E3428E7669D00A71090 /* AddProductViewController.swift in Sources */,
 				96A58E2B28E75EAA00A71090 /* BaseViewWithTableView.swift in Sources */,
@@ -492,17 +504,21 @@
 				96BD138E28D3347000406BB4 /* UIImageView+Extensions.swift in Sources */,
 				96B1C27728D2813A003AA7ED /* CatalogItemCell.swift in Sources */,
 				96C8384328C7589D00E76F1D /* CartViewController.swift in Sources */,
+				96A58E3628E7686600A71090 /* SimpleTextfieldCell.swift in Sources */,
 				96A06BE328DB7AF100846A4D /* UITableViewCell+Extensions.swift in Sources */,
 				96A28E3A28DB5C6700D39621 /* EditProfileViewController.swift in Sources */,
 				96B9834C28B5923E00073871 /* UIColor+Extensions.swift in Sources */,
 				96A0180F28DA7EF300B19AB8 /* ProfileView.swift in Sources */,
+				96A58E3A28E76B4700A71090 /* RightIconTextField.swift in Sources */,
 				96A28E3C28DB5C7000D39621 /* Profile.swift in Sources */,
 				96B9834A28B5830800073871 /* ViewCodable.swift in Sources */,
 				969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */,
 				96D16DE728CCC40200B65B23 /* CartFooterView.swift in Sources */,
 				96A28E3828DB5C5800D39621 /* EditProfileView.swift in Sources */,
+				96A58E3C28E76D8E00A71090 /* UITextField+Extensions.swift in Sources */,
 				96040E8728B432230029B0D7 /* AppDelegate.swift in Sources */,
 				9692A82628D27B6400D040AA /* CategoriesSegmentedControl.swift in Sources */,
+				96A58E3E28E76DEE00A71090 /* PickerView.swift in Sources */,
 				96D16DED28CCC95400B65B23 /* CatalogView.swift in Sources */,
 				96A914C128C8B1FD008ABFB1 /* UIButton.Configuration+Extension.swift in Sources */,
 				96A28E3628DB596B00D39621 /* HeaderView.swift in Sources */,

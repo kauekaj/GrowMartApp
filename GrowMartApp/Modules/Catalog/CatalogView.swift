@@ -28,8 +28,8 @@ class CatalogView: UIView {
     
     // MARK: - Private Properties
 
-    private lazy var searchTextField: SearchTextField = {
-        let element = SearchTextField()
+    private lazy var searchTextField: RightIconTextField = {
+        let element = RightIconTextField()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.placeholder = "buscar"
         element.borderStyle = .roundedRect
