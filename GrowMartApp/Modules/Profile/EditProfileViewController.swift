@@ -7,19 +7,20 @@
 
 import UIKit
 
+protocol EditProfileViewControllerDelegate: AnyObject {
+    func updateProfile(data: Profile)
+}
+
 class EditProfileViewController: BaseViewController {
+    
+    weak var delegate: EditProfileViewControllerDelegate?
+    var profile: Profile?
     
     // MARK: - Private Properties
     private lazy var editProfileView: EditProfileView = {
         let element = EditProfileView(delegate: self,
-                                      profile: .init(name: "Michelli Cristina",
-                                                     address: "Rua das Flores",
-                                                     number: "099",
-                                                     complement: "00000-000",
-                                                     email: "teste@teste.com",
-                                                     cellphone: "(00) 00000-0000",
-                                                     canShareWhatsapp: true))
-        element.delegate = self
+                                      profile: profile)
+        element.translatesAutoresizingMaskIntoConstraints = true
         return element
     }()
     
@@ -40,5 +41,8 @@ class EditProfileViewController: BaseViewController {
 
 // MARK: - EditProfileViewDelegate
 extension EditProfileViewController: EditProfileViewDelegate {
-
+    func updateProfile(data: Profile) {
+        delegate?.updateProfile(data: data)
+        dismiss(animated: true)
+    }
 }

@@ -9,9 +9,9 @@ import UIKit
 
 class InfoDataView: UIStackView {
     
-    private let title: String
-    private let infos: [(leftValue: String, rightValue: String)]
-    private let footerMessage: String?
+    private var title: String
+    private var infos: [(leftValue: String, rightValue: String)]
+    private var footerMessage: String?
     
     private var labelValues = [LabelValueView]()
 
@@ -56,6 +56,18 @@ class InfoDataView: UIStackView {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Public Methods
+        
+        func updateData(infos: [(String, String)],
+                        footerMessage: String? = nil) {
+            self.infos = infos
+            self.footerMessage = footerMessage
+            arrangedSubviews.forEach({ $0.removeFromSuperview() })
+            labelValues.removeAll()
+            setupView()
+        }
+    
 }
 
 extension InfoDataView: ViewCodable {

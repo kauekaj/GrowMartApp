@@ -8,7 +8,7 @@
 import UIKit
 
 protocol EditProfileViewDelegate: AnyObject {
-    
+    func updateProfile(data: Profile)
 }
 
 public final class EditProfileView: UIView {
@@ -45,9 +45,9 @@ public final class EditProfileView: UIView {
     }()
     
     // MARK: - Inits
-    init(delegate: EditProfileViewDelegate?, profile: Profile) {
+    init(delegate: EditProfileViewDelegate?, profile: Profile?) {
         self.delegate = delegate
-        self.profile = profile
+        self.profile = profile ?? .init()
         super.init(frame: .zero)
         setupView()
         setupValues()
@@ -285,6 +285,18 @@ extension EditProfileView: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+// MARK: - ButtonCellDelegate
+
+extension EditProfileView: ButtonCellDelegate {
+    public func didTapButton() {
+        guard let profile = profile else {
+            return
+        }
+        
+        delegate?.updateProfile(data: profile)
+    }
+}
+
 // MARK: - CustomTextFieldCellDelegate
 
 extension EditProfileView: CustomTextFieldCellDelegate, DoubleCustomTextFieldCellDelegate {
@@ -302,14 +314,3 @@ extension EditProfileView: CheckboxCellDelegate {
     
 }
 
-
-
-
-// MARK: - ButtonCellDelegate
-
-extension EditProfileView: ButtonCellDelegate {
-    public func didTapButton() {
-        print("profile \(profile)")
-
-    }    
-}

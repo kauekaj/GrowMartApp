@@ -7,30 +7,19 @@
 
 import UIKit
 
-public protocol ProfileViewDelegate: AnyObject {
-    func didTapProfileImageView()
+protocol ProfileViewDelegate: AnyObject {
+    func didTapProfileImage()
     func didTapButton()
 }
 
-class ProfileView: UIView {
+public final class ProfileView: BaseView {
     // MARK: - Public Properties
     weak var delegate: ProfileViewDelegate?
-
+    
     // MARK: - Private Properties
     
-    private lazy var lineView: UIView = {
-        let element = UIView()
-        element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = UIColor(rgb: 0xE8E8E8)
-        return element
-    }()
-    
-    private lazy var yellowBarView: UIView = {
-        let element = UIView()
-        element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = UIColor(rgb: 0xFFC13B)
-        return element
-    }()
+    private var profile: Profile
+    private let memberSince: String?
     
     private lazy var headerView: HeaderView = {
         let element = HeaderView(title: "meu perfil",
@@ -41,13 +30,10 @@ class ProfileView: UIView {
         return element
     }()
     
-    private lazy var profileDataView: InfoDataView = {
+    private lazy var infoDataView: InfoDataView = {
         let element = InfoDataView(title: "Dados pessoais",
-                                   infos: [
-                                    ("nome", "Michelli Cristina"),
-                                    ("celular", "(00) 00000-0000")
-                                   ],
-                                   footerMessage: "membro desde: dd/mm/yy")
+                                   infos: getProfileInfo(),
+                                   footerMessage: memberSince)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
@@ -57,6 +43,7 @@ class ProfileView: UIView {
         element.translatesAutoresizingMaskIntoConstraints = false
         element.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         element.tintColor = .black
+        element.setTitle("editar dados", for: .normal)
         element.setTitleColor(.black, for: .normal)
         element.configuration = .makeWith(backgroundColor: .white,
                                           font: .nunito(style: .regular, size: 18))
@@ -67,14 +54,25 @@ class ProfileView: UIView {
     }()
     
     // MARK: - Inits
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(delegate: ProfileViewDelegate?,
+         profile: Profile,
+         memberSince: String? = nil) {
+        self.delegate = delegate
+        self.profile = profile
+        self.memberSince = memberSince
+        super.init()
         setupView()
     }
-
+    
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupView()
+        nil
+    }
+    
+    // MARK: Actions
+    
+    @objc
+    func didTapButton() {
+        delegate?.didTapButton()
     }
     
     // MARK: - Public Methods
@@ -82,66 +80,65 @@ class ProfileView: UIView {
     func updateProfileView(image: UIImage) {
         headerView.updateIconImageView(image: image)
     }
-
-    // MARK: - Actions
-    @objc
-    func didTapButton() {
-        delegate?.didTapButton()
+    
+    func reloadData(profile: Profile) {
+        self.profile = profile
+        infoDataView.updateData(infos: getProfileInfo(),
+                                footerMessage: memberSince)
     }
     
-    @objc
-    private func didTapProfileImageView() {
-        delegate?.didTapProfileImageView()
+    // MARK: Private Methods
+    
+    private func getProfileInfo() -> [(String, String)] {
+        return [
+            ("nome", profile.name ?? ""),
+            ("endereço", profile.address ?? ""),
+            ("número", profile.number ?? ""),
+            ("complemento", profile.complement ?? ""),
+            ("email", profile.email ?? ""),
+            ("celular", profile.cellphone ?? "")
+        ]
     }
 }
 
-// MARK: - View Code
-extension ProfileView: ViewCodable {
-    func buildViewHierarchy() {
-        addSubview(lineView)
-        addSubview(yellowBarView)
+// MARK: - Overriding ViewCodable
+extension ProfileView {
+    override public func buildViewHierarchy() {
+        super.buildViewHierarchy()
+        
         addSubview(headerView)
-        addSubview(profileDataView)
+        addSubview(infoDataView)
         addSubview(button)
     }
 
-    func setupConstraints() {
+    override public func setupConstraints() {
+        super.setupConstraints()
+        let lg = safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            lineView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24),
-            lineView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            lineView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            lineView.heightAnchor.constraint(equalToConstant: 2),
+            headerView.topAnchor.constraint(equalTo: topYellowBarView.bottomAnchor, constant: 24),
+            headerView.leadingAnchor.constraint(equalTo: lg.leadingAnchor, constant: 32),
+            headerView.trailingAnchor.constraint(equalTo: lg.trailingAnchor, constant: -32),
 
-            yellowBarView.bottomAnchor.constraint(equalTo: lineView.bottomAnchor),
-            yellowBarView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 32),
-            yellowBarView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -32),
-            yellowBarView.heightAnchor.constraint(equalToConstant: 5),
-
-            headerView.topAnchor.constraint(equalTo: yellowBarView.bottomAnchor, constant: 24),
-            headerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 32),
-            headerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -32),
-
-            profileDataView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 32),
-            profileDataView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 32),
-            profileDataView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -32),
+            infoDataView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 32),
+            infoDataView.leadingAnchor.constraint(equalTo: lg.leadingAnchor, constant: 32),
+            infoDataView.trailingAnchor.constraint(equalTo: lg.trailingAnchor, constant: -32),
             
-            button.topAnchor.constraint(equalTo: profileDataView.bottomAnchor, constant: 32),
-            button.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 32),
-            button.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -32),
+            button.topAnchor.constraint(equalTo: infoDataView.bottomAnchor, constant: 32),
+            button.leadingAnchor.constraint(equalTo: lg.leadingAnchor, constant: 32),
+            button.trailingAnchor.constraint(equalTo: lg.trailingAnchor, constant: -32),
             button.heightAnchor.constraint(equalToConstant: 45)
         ])
     }
 
-    func setupAdditionalConfiguration() {
-        backgroundColor = .white
-        button.setTitle("editar dados", for: .normal)
+    override public func setupAdditionalConfiguration() {
+        super.setupAdditionalConfiguration()
     }
 }
 
 // MARK: - HeaderViewDelegate
 extension ProfileView: HeaderViewDelegate {
     func didTapIconImageView() {
-        delegate?.didTapProfileImageView()
+        delegate?.didTapProfileImage()
     }
 }
