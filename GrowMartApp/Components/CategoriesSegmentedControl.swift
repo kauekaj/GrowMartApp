@@ -57,7 +57,6 @@ class CategoriesSegmentedControl: UISegmentedControl {
             
             let rect = CGRect(x: 0, y: size.height - lineWidth, width: size.width, height: lineWidth)
             UIRectFill(rect)
-            // TODO: fazer a borda arredondada apenas superior da linha amarela
         }
     }
 

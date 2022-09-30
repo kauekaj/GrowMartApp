@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class CatalogViewController: BaseViewController {
     
     // MARK: - Private Properties

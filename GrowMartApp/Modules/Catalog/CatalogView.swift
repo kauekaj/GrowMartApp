@@ -136,7 +136,6 @@ extension CatalogView: ViewCodable {
     public func setupAdditionalConfiguration() {
         backgroundColor = .white
 
-        //bannerImageView.addImageFromURL(urlString: "https://www.designi.com.br/images/preview/10236255.jpg")
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
         collectionView.register(CatalogItemCell.self, forCellWithReuseIdentifier: CatalogItemCell.identifier)
     }

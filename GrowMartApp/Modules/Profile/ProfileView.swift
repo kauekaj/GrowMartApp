@@ -113,20 +113,19 @@ extension ProfileView {
 
     override public func setupConstraints() {
         super.setupConstraints()
-        let lg = safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: topYellowBarView.bottomAnchor, constant: 24),
-            headerView.leadingAnchor.constraint(equalTo: lg.leadingAnchor, constant: 32),
-            headerView.trailingAnchor.constraint(equalTo: lg.trailingAnchor, constant: -32),
+            headerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            headerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -32),
 
             infoDataView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 32),
-            infoDataView.leadingAnchor.constraint(equalTo: lg.leadingAnchor, constant: 32),
-            infoDataView.trailingAnchor.constraint(equalTo: lg.trailingAnchor, constant: -32),
+            infoDataView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            infoDataView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -32),
             
             button.topAnchor.constraint(equalTo: infoDataView.bottomAnchor, constant: 32),
-            button.leadingAnchor.constraint(equalTo: lg.leadingAnchor, constant: 32),
-            button.trailingAnchor.constraint(equalTo: lg.trailingAnchor, constant: -32),
+            button.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            button.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -32),
             button.heightAnchor.constraint(equalToConstant: 45)
         ])
     }

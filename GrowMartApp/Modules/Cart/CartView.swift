@@ -101,7 +101,6 @@ extension CartView: ViewCodable {
         backgroundColor = .white
         registerTableViewCells()
         setupTableContentInset()
-        //setupFooter()
     }
 
     private func registerTableViewCells() {
