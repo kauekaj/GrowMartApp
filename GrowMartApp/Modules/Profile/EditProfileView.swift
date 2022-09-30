@@ -313,4 +313,3 @@ extension EditProfileView: CheckboxCellDelegate {
     }
     
 }
-
