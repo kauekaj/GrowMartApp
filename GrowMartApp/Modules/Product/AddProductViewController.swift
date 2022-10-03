@@ -33,4 +33,11 @@ extension AddProductViewController: ProductDataViewDelegate {
     func addProduct(_ product: Product) {
         
     }
+    func didTapAddPhotoButton() {
+        
+    }
+    
+    func didTapPhoto(at index: Int) {
+        
+    }
 }

@@ -9,6 +9,8 @@ import UIKit
 
 protocol ProductDataViewDelegate: AnyObject {
     func addProduct(_ product: Product)
+    func didTapAddPhotoButton()
+    func didTapPhoto(at index: Int)
 }
 
 public final class ProductDataView: BaseViewWithTableView {
@@ -124,6 +126,7 @@ public final class ProductDataView: BaseViewWithTableView {
 // MARK: - TableView cell types
 extension ProductDataView {
     private enum CellType {
+        case photos([Photo])
         case textField(Product.Field)
         case selector(Product.Field)
         case button
@@ -141,13 +144,6 @@ extension ProductDataView {
 
 // MARK: - Overriding ViewCodable
 extension ProductDataView {
-    //    public override func buildViewHierarchy() {
-    //        super.buildViewHierarchy()
-    //    }
-    //
-    //    public override func setupConstraints() {
-    //        super.setupConstraints()
-    //    }
     
     public override func setupAdditionalConfiguration() {
         super.setupAdditionalConfiguration()
@@ -171,6 +167,12 @@ extension ProductDataView: UITableViewDataSource, UITableViewDelegate {
         }
         
         switch cellType {
+        case let .photos(photos):
+            guard let cell: CarouselPhotosCell = .createCell(for: tableView, at: indexPath) else {
+                return UITableViewCell()
+            }
+            cell.delegate = self
+            return cell
         case let .textField(field):
             guard let cell: SimpleTextfieldCell = .createCell(for: tableView, at: indexPath) else {
                 return UITableViewCell()
@@ -220,5 +222,16 @@ extension ProductDataView: SimpleTextfieldCellDelegate, SelectorCellDelegate {
         }
         
         updateProduct(field: field, value: value)
+    }
+}
+
+extension ProductDataView: CarouselPhotosCellDelegate {
+    public func didTapAddPhotoButton() {
+        endEditing(true)
+        delegate?.didTapAddPhotoButton()
+    }
+    
+    public func didTapPhoto(at index: Int) {
+        delegate?.didTapPhoto(at: index)
     }
 }

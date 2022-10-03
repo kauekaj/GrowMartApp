@@ -50,5 +50,5 @@ public struct Product {
 public struct Photo {
     var id: String?
     var imageUrl: String?
-    var imageToUpLoad: UIImage?
+    var imageToUpload: UIImage?
 }

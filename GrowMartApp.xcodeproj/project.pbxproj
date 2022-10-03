@@ -53,6 +53,9 @@
 		96B9834C28B5923E00073871 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9834B28B5923E00073871 /* UIColor+Extensions.swift */; };
 		96B9835028B59A9E00073871 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9834F28B59A9E00073871 /* LoginView.swift */; };
 		96BD138E28D3347000406BB4 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD138D28D3347000406BB4 /* UIImageView+Extensions.swift */; };
+		96C2DFEA28EB4A3E00819AE5 /* AddPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C2DFE928EB4A3E00819AE5 /* AddPhotoCell.swift */; };
+		96C2DFEC28EB4AF200819AE5 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C2DFEB28EB4AF200819AE5 /* PhotoCell.swift */; };
+		96C2DFEE28EB4C1100819AE5 /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C2DFED28EB4C1100819AE5 /* UICollectionViewCell.swift */; };
 		96C8384328C7589D00E76F1D /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C8384228C7589D00E76F1D /* CartViewController.swift */; };
 		96D16DE728CCC40200B65B23 /* CartFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D16DE628CCC40200B65B23 /* CartFooterView.swift */; };
 		96D16DE928CCC57400B65B23 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D16DE828CCC57400B65B23 /* BaseViewController.swift */; };
@@ -111,6 +114,9 @@
 		96B9834B28B5923E00073871 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		96B9834F28B59A9E00073871 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		96BD138D28D3347000406BB4 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		96C2DFE928EB4A3E00819AE5 /* AddPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoCell.swift; sourceTree = "<group>"; };
+		96C2DFEB28EB4AF200819AE5 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		96C2DFED28EB4C1100819AE5 /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		96C8384228C7589D00E76F1D /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		96D16DE628CCC40200B65B23 /* CartFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFooterView.swift; sourceTree = "<group>"; };
 		96D16DE828CCC57400B65B23 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -314,6 +320,7 @@
 				96BD138D28D3347000406BB4 /* UIImageView+Extensions.swift */,
 				96A06BE228DB7AF000846A4D /* UITableViewCell+Extensions.swift */,
 				96A58E3B28E76D8E00A71090 /* UITextField+Extensions.swift */,
+				96C2DFED28EB4C1100819AE5 /* UICollectionViewCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -355,6 +362,8 @@
 			isa = PBXGroup;
 			children = (
 				96F66EF128EAF7AE00A795E2 /* CarouselPhotosCell.swift */,
+				96C2DFE928EB4A3E00819AE5 /* AddPhotoCell.swift */,
+				96C2DFEB28EB4AF200819AE5 /* PhotoCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -498,6 +507,7 @@
 				969A85A728D1E219009059C2 /* CatalogViewController.swift in Sources */,
 				9698BF0F28E21331008DFF41 /* CheckboxCell.swift in Sources */,
 				96A28E3228DB52CE00D39621 /* InfoDataView.swift in Sources */,
+				96C2DFEC28EB4AF200819AE5 /* PhotoCell.swift in Sources */,
 				96B9835028B59A9E00073871 /* LoginView.swift in Sources */,
 				96A58E3228E764EA00A71090 /* ProductDataView.swift in Sources */,
 				96A914C328C8BA33008ABFB1 /* TotalCell.swift in Sources */,
@@ -515,6 +525,7 @@
 				96040E8B28B432230029B0D7 /* LoginViewController.swift in Sources */,
 				96BD138E28D3347000406BB4 /* UIImageView+Extensions.swift in Sources */,
 				96B1C27728D2813A003AA7ED /* CatalogItemCell.swift in Sources */,
+				96C2DFEE28EB4C1100819AE5 /* UICollectionViewCell.swift in Sources */,
 				96C8384328C7589D00E76F1D /* CartViewController.swift in Sources */,
 				96A58E3628E7686600A71090 /* SimpleTextfieldCell.swift in Sources */,
 				96A06BE328DB7AF100846A4D /* UITableViewCell+Extensions.swift in Sources */,
@@ -531,6 +542,7 @@
 				96040E8728B432230029B0D7 /* AppDelegate.swift in Sources */,
 				9692A82628D27B6400D040AA /* CategoriesSegmentedControl.swift in Sources */,
 				96A58E3E28E76DEE00A71090 /* PickerView.swift in Sources */,
+				96C2DFEA28EB4A3E00819AE5 /* AddPhotoCell.swift in Sources */,
 				96D16DED28CCC95400B65B23 /* CatalogView.swift in Sources */,
 				96A914C128C8B1FD008ABFB1 /* UIButton.Configuration+Extension.swift in Sources */,
 				96A28E3628DB596B00D39621 /* HeaderView.swift in Sources */,
