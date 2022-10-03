@@ -18,11 +18,13 @@ public final class SimpleTextfieldCell: UITableViewCell {
     public var propertyName: String?
 
     // MARK: Private Properties
-    private lazy var textField: UITextField = {
-        let element = UITextField()
+    private lazy var textField: RightIconTextField = {
+        let element = RightIconTextField()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.borderStyle = .roundedRect
-        element.tintColor = .black
+        element.layer.borderColor = UIColor(rgb: 0x252828) .cgColor
+        element.layer.borderWidth = 1
+        element.layer.cornerRadius = 5
         element.font = .nunito(style: .regular, size: 18)
         element.delegate = self
         return element
