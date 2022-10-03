@@ -43,11 +43,11 @@ class ProfileViewController: BaseViewController {
 
 extension ProfileViewController: ProfileViewDelegate {
     func didTapProfileImage() {
-        let controller = UIImagePickerController()
-        controller.allowsEditing = false
-        controller.sourceType = .photoLibrary
-        controller.delegate = self
-        present(controller, animated: true)
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.allowsEditing = false
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true)
     }
     
     func didTapButton() {
@@ -58,7 +58,7 @@ extension ProfileViewController: ProfileViewDelegate {
     }
 }
 
-// MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
+// MARK: - UIImagePickerControllerDelegate
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

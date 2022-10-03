@@ -36,11 +36,34 @@ public final class ProductDataView: BaseViewWithTableView {
         nil
     }
     
+    
+    public func addPhotos(image: UIImage) {
+        if product.photos == nil {
+            product.photos = []
+        }
+        
+        product.photos?.insert(
+            .init(
+                id: nil,
+                imageUrl: nil,
+                imageToUpload: image
+            ),
+            at: 0
+        )
+        reloadPhotos()
+    }
+    
+    public func removePhoto(index: Int) {
+        product.photos?.remove(at: index)
+        reloadPhotos()
+    }
+    
     // MARK: - Private Methods
     private func registerTableViewCells() {
         tableView.register(ButtonCell.self, forCellReuseIdentifier: ButtonCell.reuseIdentifier)
         tableView.register(SimpleTextfieldCell.self, forCellReuseIdentifier: SimpleTextfieldCell.reuseIdentifier)
         tableView.register(SelectorCell.self, forCellReuseIdentifier: SelectorCell.reuseIdentifier)
+        tableView.register(CarouselPhotosCell.self, forCellReuseIdentifier: CarouselPhotosCell.reuseIdentifier)
     }
     
     private func cellType(for index: IndexPath) -> CellType? {
@@ -65,6 +88,7 @@ public final class ProductDataView: BaseViewWithTableView {
     
     private func setupCells() {
         cells.removeAll()
+        cells.append(.photos(product.photos ?? []))
         values.forEach { item in
             if let cellType: CellType = .getCellType(from: item.field) {
                 cells.append(cellType)
@@ -119,6 +143,13 @@ public final class ProductDataView: BaseViewWithTableView {
             return ["Roupas", "Acessórios", "Outros"]
         default:
             return []
+        }
+    }
+    
+    private func reloadPhotos() {
+        setupCells()
+        if tableView.visibleCells.contains(where: { $0 is CarouselPhotosCell }) {
+            tableView.reloadRows(at: [.init(row: 0, section: 0)], with: .right)
         }
     }
 }

@@ -29,6 +29,33 @@ class AddProductViewController: BaseViewController {
 }
 
 // MARK: - EditProfileViewDelegate
+
+extension AddProductViewController {
+    
+    private func openGallery() {
+        let imagePickerViewController = UIImagePickerController()
+        imagePickerViewController.allowsEditing = false
+        imagePickerViewController.sourceType = .photoLibrary
+        imagePickerViewController.delegate = self
+        present(imagePickerViewController, animated: true, completion: nil)
+    }
+    
+    private func confirmPhotoDeletion(index: Int) {
+        let confirmAlert = UIAlertController(title: "Atenção!",
+                                             message: "Deseja realemente remover esta foto?",
+                                             preferredStyle: .alert)
+        confirmAlert.addAction(.init(title: "OK", style: .default, handler: { [weak self] _ in
+           // self?.productDataView.removePhoto(index: index)
+        }))
+        
+        confirmAlert.addAction(.init(title: "Cancelar", style: .cancel, handler: nil))
+        
+        present(confirmAlert, animated: true, completion: nil)
+    }
+
+}
+
+// MARK: - EditProfileViewDelegate
 extension AddProductViewController: ProductDataViewDelegate {
     func addProduct(_ product: Product) {
         
@@ -39,5 +66,19 @@ extension AddProductViewController: ProductDataViewDelegate {
     
     func didTapPhoto(at index: Int) {
         
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension AddProductViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            dismiss(animated: true)
+            return
+        }
+        
+        productDataView.addPhotos(image: image)
+        dismiss(animated: true, completion: nil)
     }
 }
