@@ -5,6 +5,8 @@
 //  Created by Kaue de Assis Jacyntho on 07/09/22.
 //
 
+import UIKit
+
 public struct Product {
     enum Field: String {
         case name
@@ -43,4 +45,10 @@ public struct Product {
     var brand: String?
     var description: String?
     var imageUrl: String?
+}
+
+public struct Photo {
+    var id: String?
+    var imageUrl: String?
+    var imageToUpLoad: UIImage?
 }

@@ -57,6 +57,7 @@
 		96D16DE728CCC40200B65B23 /* CartFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D16DE628CCC40200B65B23 /* CartFooterView.swift */; };
 		96D16DE928CCC57400B65B23 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D16DE828CCC57400B65B23 /* BaseViewController.swift */; };
 		96D16DED28CCC95400B65B23 /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D16DEC28CCC95400B65B23 /* CatalogView.swift */; };
+		96F66EF228EAF7AE00A795E2 /* CarouselPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F66EF128EAF7AE00A795E2 /* CarouselPhotosCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		96D16DE628CCC40200B65B23 /* CartFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFooterView.swift; sourceTree = "<group>"; };
 		96D16DE828CCC57400B65B23 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		96D16DEC28CCC95400B65B23 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
+		96F66EF128EAF7AE00A795E2 /* CarouselPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPhotosCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +257,7 @@
 		96A58E2C28E7613C00A71090 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				96F66EF028EAF78800A795E2 /* Cells */,
 				96A58E3128E764EA00A71090 /* ProductDataView.swift */,
 				96A58E3328E7669D00A71090 /* AddProductViewController.swift */,
 			);
@@ -346,6 +349,14 @@
 				969A85A628D1E219009059C2 /* CatalogViewController.swift */,
 			);
 			path = Catalog;
+			sourceTree = "<group>";
+		};
+		96F66EF028EAF78800A795E2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				96F66EF128EAF7AE00A795E2 /* CarouselPhotosCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,6 +508,7 @@
 				96A0181128DA7F0400B19AB8 /* ProfileViewController.swift in Sources */,
 				96A58E3428E7669D00A71090 /* AddProductViewController.swift in Sources */,
 				96A58E2B28E75EAA00A71090 /* BaseViewWithTableView.swift in Sources */,
+				96F66EF228EAF7AE00A795E2 /* CarouselPhotosCell.swift in Sources */,
 				96D16DE928CCC57400B65B23 /* BaseViewController.swift in Sources */,
 				96A66F1F28C20F6600497050 /* SelectorView.swift in Sources */,
 				9699C19128C8D27400481568 /* Product.swift in Sources */,
