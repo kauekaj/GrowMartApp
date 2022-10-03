@@ -45,7 +45,7 @@ extension AddProductViewController {
                                              message: "Deseja realemente remover esta foto?",
                                              preferredStyle: .alert)
         confirmAlert.addAction(.init(title: "OK", style: .default, handler: { [weak self] _ in
-           // self?.productDataView.removePhoto(index: index)
+            self?.productDataView.removePhoto(index: index)
         }))
         
         confirmAlert.addAction(.init(title: "Cancelar", style: .cancel, handler: nil))
@@ -61,11 +61,11 @@ extension AddProductViewController: ProductDataViewDelegate {
         
     }
     func didTapAddPhotoButton() {
-        
+        openGallery()
     }
     
     func didTapPhoto(at index: Int) {
-        
+        confirmPhotoDeletion(index: index)
     }
 }
 
@@ -74,7 +74,7 @@ extension AddProductViewController: UIImagePickerControllerDelegate, UINavigatio
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-            dismiss(animated: true)
+            dismiss(animated: true, completion: nil)
             return
         }
         

@@ -36,7 +36,6 @@ public final class ProductDataView: BaseViewWithTableView {
         nil
     }
     
-    
     public func addPhotos(image: UIImage) {
         if product.photos == nil {
             product.photos = []
@@ -203,6 +202,7 @@ extension ProductDataView: UITableViewDataSource, UITableViewDelegate {
                 return UITableViewCell()
             }
             cell.delegate = self
+            cell.setPhotos(photos: photos)
             return cell
         case let .textField(field):
             guard let cell: SimpleTextfieldCell = .createCell(for: tableView, at: indexPath) else {
