@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08206159BEE733D15A15719F /* Pods_GrowMartApp_GrowMartAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E35110097D65EE99A215E6 /* Pods_GrowMartApp_GrowMartAppTests.framework */; };
 		77346EAD8BD1966F0F806DAD /* Pods_GrowMartApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 863531FCC84AA402890227B9 /* Pods_GrowMartApp.framework */; };
 		96040E8728B432230029B0D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96040E8628B432230029B0D7 /* AppDelegate.swift */; };
 		96040E8928B432230029B0D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96040E8828B432230029B0D7 /* SceneDelegate.swift */; };
@@ -76,8 +77,10 @@
 
 /* Begin PBXFileReference section */
 		20CF47227B3446193022427B /* Pods-GrowMartApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowMartApp.release.xcconfig"; path = "Target Support Files/Pods-GrowMartApp/Pods-GrowMartApp.release.xcconfig"; sourceTree = "<group>"; };
+		43CA39B493B7C6779F8A5D96 /* Pods-GrowMartApp-GrowMartAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowMartApp-GrowMartAppTests.release.xcconfig"; path = "Target Support Files/Pods-GrowMartApp-GrowMartAppTests/Pods-GrowMartApp-GrowMartAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		6316936F36703CD9189B025D /* Pods-GrowMartApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowMartApp.debug.xcconfig"; path = "Target Support Files/Pods-GrowMartApp/Pods-GrowMartApp.debug.xcconfig"; sourceTree = "<group>"; };
 		863531FCC84AA402890227B9 /* Pods_GrowMartApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrowMartApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DF7C5C03BFF84320949E1FA /* Pods-GrowMartApp-GrowMartAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowMartApp-GrowMartAppTests.debug.xcconfig"; path = "Target Support Files/Pods-GrowMartApp-GrowMartAppTests/Pods-GrowMartApp-GrowMartAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		96040E8328B432230029B0D7 /* GrowMartApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrowMartApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96040E8628B432230029B0D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96040E8828B432230029B0D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 		96D16DE828CCC57400B65B23 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		96D16DEC28CCC95400B65B23 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
 		96F66EF128EAF7AE00A795E2 /* CarouselPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPhotosCell.swift; sourceTree = "<group>"; };
+		E6E35110097D65EE99A215E6 /* Pods_GrowMartApp_GrowMartAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrowMartApp_GrowMartAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08206159BEE733D15A15719F /* Pods_GrowMartApp_GrowMartAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +166,8 @@
 			children = (
 				6316936F36703CD9189B025D /* Pods-GrowMartApp.debug.xcconfig */,
 				20CF47227B3446193022427B /* Pods-GrowMartApp.release.xcconfig */,
+				8DF7C5C03BFF84320949E1FA /* Pods-GrowMartApp-GrowMartAppTests.debug.xcconfig */,
+				43CA39B493B7C6779F8A5D96 /* Pods-GrowMartApp-GrowMartAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -169,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				863531FCC84AA402890227B9 /* Pods_GrowMartApp.framework */,
+				E6E35110097D65EE99A215E6 /* Pods_GrowMartApp_GrowMartAppTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -425,9 +433,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96ACEE2B28EC430500BE8D80 /* Build configuration list for PBXNativeTarget "GrowMartAppTests" */;
 			buildPhases = (
+				9D482C6D38E1480629F64840 /* [CP] Check Pods Manifest.lock */,
 				96ACEE1F28EC430500BE8D80 /* Sources */,
 				96ACEE2028EC430500BE8D80 /* Frameworks */,
 				96ACEE2128EC430500BE8D80 /* Resources */,
+				292BA913DEF741B9E480CEDE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -516,6 +526,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GrowMartApp/Pods-GrowMartApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		292BA913DEF741B9E480CEDE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrowMartApp-GrowMartAppTests/Pods-GrowMartApp-GrowMartAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrowMartApp-GrowMartAppTests/Pods-GrowMartApp-GrowMartAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GrowMartApp-GrowMartAppTests/Pods-GrowMartApp-GrowMartAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4AF9DC2AB8B51AF709FF5900 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -555,6 +582,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		9D482C6D38E1480629F64840 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GrowMartApp-GrowMartAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -821,6 +870,7 @@
 		};
 		96ACEE2928EC430500BE8D80 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DF7C5C03BFF84320949E1FA /* Pods-GrowMartApp-GrowMartAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -839,6 +889,7 @@
 		};
 		96ACEE2A28EC430500BE8D80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43CA39B493B7C6779F8A5D96 /* Pods-GrowMartApp-GrowMartAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
