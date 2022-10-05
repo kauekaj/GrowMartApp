@@ -54,6 +54,8 @@
 		96A914C328C8BA33008ABFB1 /* TotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A914C228C8BA33008ABFB1 /* TotalCell.swift */; };
 		96ACEE2628EC430500BE8D80 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ACEE2528EC430500BE8D80 /* BaseTests.swift */; };
 		96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE558428BEB3D100EC7295 /* CategoryButton.swift */; };
+		96B0EDFA28EDF47100E0E4B9 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0EDF928EDF47100E0E4B9 /* LoginViewControllerTests.swift */; };
+		96B0EDFC28EDF48600E0E4B9 /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0EDFB28EDF48600E0E4B9 /* LoginViewTests.swift */; };
 		96B1C27728D2813A003AA7ED /* CatalogItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1C27628D2813A003AA7ED /* CatalogItemCell.swift */; };
 		96B9834A28B5830800073871 /* ViewCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9834928B5830800073871 /* ViewCodable.swift */; };
 		96B9834C28B5923E00073871 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9834B28B5923E00073871 /* UIColor+Extensions.swift */; };
@@ -133,6 +135,8 @@
 		96ACEE2328EC430500BE8D80 /* GrowMartAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrowMartAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96ACEE2528EC430500BE8D80 /* BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
 		96AE558428BEB3D100EC7295 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
+		96B0EDF928EDF47100E0E4B9 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
+		96B0EDFB28EDF48600E0E4B9 /* LoginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
 		96B1C27628D2813A003AA7ED /* CatalogItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItemCell.swift; sourceTree = "<group>"; };
 		96B9834928B5830800073871 /* ViewCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodable.swift; sourceTree = "<group>"; };
 		96B9834B28B5923E00073871 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 		96ACEE2428EC430500BE8D80 /* GrowMartAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				96B0EDF828EDF45500E0E4B9 /* Modules */,
 				969C3EAB28ED93F200B8CDCA /* Extensions */,
 				969C3EA828ED92E200B8CDCA /* Commons */,
 				969C3EA328ED890500B8CDCA /* Components */,
@@ -383,6 +388,23 @@
 				96A58E3D28E76DEE00A71090 /* PickerView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		96B0EDF828EDF45500E0E4B9 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				96B0EDFD28EDF4A100E0E4B9 /* Login */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		96B0EDFD28EDF4A100E0E4B9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				96B0EDF928EDF47100E0E4B9 /* LoginViewControllerTests.swift */,
+				96B0EDFB28EDF48600E0E4B9 /* LoginViewTests.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		96B1C27528D28118003AA7ED /* Cell */ = {
@@ -712,7 +734,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96B0EDFA28EDF47100E0E4B9 /* LoginViewControllerTests.swift in Sources */,
 				969C3EAD28ED948400B8CDCA /* Mirror+Extensions.swift in Sources */,
+				96B0EDFC28EDF48600E0E4B9 /* LoginViewTests.swift in Sources */,
 				96ACEE2628EC430500BE8D80 /* BaseTests.swift in Sources */,
 				969C3EA528ED895B00B8CDCA /* CategoryButtonTests.swift in Sources */,
 				969C3EA728ED90A200B8CDCA /* CategoriesSegmentedControlTests.swift in Sources */,
