@@ -11,7 +11,7 @@ import SnapshotTesting
 
 class BaseTests: XCTestCase {
 
-    override func setUpWithError() throws {
+    override func setUp() {
 //        SnapshotTesting.isRecording = true
     }
 }

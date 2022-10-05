@@ -26,6 +26,7 @@
 		9699C19128C8D27400481568 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9699C19028C8D27400481568 /* Product.swift */; };
 		969A85A728D1E219009059C2 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A85A628D1E219009059C2 /* CatalogViewController.swift */; };
 		969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B9D8E28C3892E0065A0DE /* CartView.swift */; };
+		969C3EA528ED895B00B8CDCA /* CategoryButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C3EA428ED895B00B8CDCA /* CategoryButtonTests.swift */; };
 		96A0180F28DA7EF300B19AB8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0180E28DA7EF300B19AB8 /* ProfileView.swift */; };
 		96A0181128DA7F0400B19AB8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */; };
 		96A06BE328DB7AF100846A4D /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A06BE228DB7AF000846A4D /* UITableViewCell+Extensions.swift */; };
@@ -100,6 +101,7 @@
 		9699C19028C8D27400481568 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		969A85A628D1E219009059C2 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		969B9D8E28C3892E0065A0DE /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		969C3EA428ED895B00B8CDCA /* CategoryButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonTests.swift; sourceTree = "<group>"; };
 		96A0180E28DA7EF300B19AB8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		96A06BE228DB7AF000846A4D /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
@@ -278,6 +280,14 @@
 			path = Cart;
 			sourceTree = "<group>";
 		};
+		969C3EA328ED890500B8CDCA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				969C3EA428ED895B00B8CDCA /* CategoryButtonTests.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		96A0180D28DA7EE200B19AB8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +331,7 @@
 		96ACEE2428EC430500BE8D80 /* GrowMartAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				969C3EA328ED890500B8CDCA /* Components */,
 				96ACEE2528EC430500BE8D80 /* BaseTests.swift */,
 			);
 			path = GrowMartAppTests;
@@ -669,6 +680,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96ACEE2628EC430500BE8D80 /* BaseTests.swift in Sources */,
+				969C3EA528ED895B00B8CDCA /* CategoryButtonTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
