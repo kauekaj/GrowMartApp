@@ -28,6 +28,8 @@
 		969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B9D8E28C3892E0065A0DE /* CartView.swift */; };
 		969C3EA528ED895B00B8CDCA /* CategoryButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C3EA428ED895B00B8CDCA /* CategoryButtonTests.swift */; };
 		969C3EA728ED90A200B8CDCA /* CategoriesSegmentedControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C3EA628ED90A200B8CDCA /* CategoriesSegmentedControlTests.swift */; };
+		969C3EAA28ED92F800B8CDCA /* ButtonCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C3EA928ED92F800B8CDCA /* ButtonCellTests.swift */; };
+		969C3EAD28ED948400B8CDCA /* Mirror+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C3EAC28ED948400B8CDCA /* Mirror+Extensions.swift */; };
 		96A0180F28DA7EF300B19AB8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0180E28DA7EF300B19AB8 /* ProfileView.swift */; };
 		96A0181128DA7F0400B19AB8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */; };
 		96A06BE328DB7AF100846A4D /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A06BE228DB7AF000846A4D /* UITableViewCell+Extensions.swift */; };
@@ -104,6 +106,8 @@
 		969B9D8E28C3892E0065A0DE /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		969C3EA428ED895B00B8CDCA /* CategoryButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonTests.swift; sourceTree = "<group>"; };
 		969C3EA628ED90A200B8CDCA /* CategoriesSegmentedControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSegmentedControlTests.swift; sourceTree = "<group>"; };
+		969C3EA928ED92F800B8CDCA /* ButtonCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellTests.swift; sourceTree = "<group>"; };
+		969C3EAC28ED948400B8CDCA /* Mirror+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mirror+Extensions.swift"; sourceTree = "<group>"; };
 		96A0180E28DA7EF300B19AB8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		96A06BE228DB7AF000846A4D /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
@@ -291,6 +295,30 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		969C3EA828ED92E200B8CDCA /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				969C3EAE28ED96AA00B8CDCA /* Cells */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		969C3EAB28ED93F200B8CDCA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				969C3EAC28ED948400B8CDCA /* Mirror+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		969C3EAE28ED96AA00B8CDCA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				969C3EA928ED92F800B8CDCA /* ButtonCellTests.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		96A0180D28DA7EE200B19AB8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +362,8 @@
 		96ACEE2428EC430500BE8D80 /* GrowMartAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				969C3EAB28ED93F200B8CDCA /* Extensions */,
+				969C3EA828ED92E200B8CDCA /* Commons */,
 				969C3EA328ED890500B8CDCA /* Components */,
 				96ACEE2528EC430500BE8D80 /* BaseTests.swift */,
 			);
@@ -682,9 +712,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969C3EAD28ED948400B8CDCA /* Mirror+Extensions.swift in Sources */,
 				96ACEE2628EC430500BE8D80 /* BaseTests.swift in Sources */,
 				969C3EA528ED895B00B8CDCA /* CategoryButtonTests.swift in Sources */,
 				969C3EA728ED90A200B8CDCA /* CategoriesSegmentedControlTests.swift in Sources */,
+				969C3EAA28ED92F800B8CDCA /* ButtonCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

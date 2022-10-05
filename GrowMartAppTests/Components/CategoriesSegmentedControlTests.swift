@@ -16,6 +16,11 @@ class CategoriesSegmentedControlTests: BaseTests {
 //        SnapshotTesting.isRecording = true
     }
   
+    func testInitButtonWithCoderInitShouldReturnNil() {
+        let component = CategoriesSegmentedControl(coder: .init())
+        XCTAssertNil(component)
+    }
+    
     func testRenderSegmentedWithTwoElements() {
         let component = CategoriesSegmentedControl(items: ["roupas", "acessórios"])
         assertSnapshot(matching: component, as: .image(size: componentSize))
