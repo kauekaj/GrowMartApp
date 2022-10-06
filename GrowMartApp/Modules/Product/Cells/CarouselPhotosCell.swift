@@ -54,6 +54,7 @@ public final class CarouselPhotosCell: UITableViewCell {
         let element = UIImageView()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.image = .init(named: "add-photo")
+        element.tintColor = UIColor(rgb: 0xFF6E40)
         element.isUserInteractionEnabled = false
         return element
     }()
