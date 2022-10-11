@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SelectorViewController: BaseViewController {
     // MARK: - Internal Properties
@@ -19,6 +20,25 @@ class SelectorViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        callAlamofire()
+    }
+    
+    func callAlamofire() {
+        
+        guard let url = URL(string: "https://growmart-api.herokuapp.com/v1/categories") else { return }
+        
+        AF.request(url,
+                   method: .get,
+                   headers: []).response { response in
+            guard let data = response.data else { return }
+            
+            do {
+                let result = try JSONDecoder().decode(CategoriesResponse.self, from: data)
+                print(result)
+            } catch (let error) {
+                print(error)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
