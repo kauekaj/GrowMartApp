@@ -20,9 +20,26 @@ class SelectorViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        callAlamofire()
+        callAPI()
     }
     
+    func callAPI() {
+        
+        guard let url = URL(string: "https://growmart-api.herokuapp.com/v1/categories") else { return }
+        
+        URLSession.shared.dataTask(with: URLRequest(url: url),
+                                   completionHandler: { data, _, _ in
+            guard let data = data else { return }
+            
+            do {
+                let result = try JSONDecoder().decode(CategoriesResponse.self, from: data)
+                print(result)
+            } catch (let error) {
+                print(error)
+            }
+        }).resume()
+    }
+
     func callAlamofire() {
         
         guard let url = URL(string: "https://growmart-api.herokuapp.com/v1/categories") else { return }
