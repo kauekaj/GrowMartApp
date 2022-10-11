@@ -18,9 +18,8 @@ public class BaseViewWithTableView: BaseView {
     }()
         
     // MARK: - Inits
-    override init() {
-        super.init()
-        setupView()
+    override init(shouldAddHeaderLines: Bool = true) {
+        super.init(shouldAddHeaderLines: shouldAddHeaderLines)
     }
 
     required init?(coder: NSCoder) {
@@ -75,8 +74,11 @@ extension BaseViewWithTableView {
     
     public override func setupConstraints() {
         super.setupConstraints()
+        
+        let topAnchor = shouldAddHeaderLines ? topLineView.bottomAnchor : safeAreaLayoutGuide.topAnchor
+        
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topLineView.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: topAnchor),
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)

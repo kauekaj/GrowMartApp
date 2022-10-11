@@ -20,6 +20,8 @@
 		9686998728BD82020060F512 /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */; };
 		9692A82628D27B6400D040AA /* CategoriesSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */; };
 		9697398528F6255400AA029F /* Categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 9697398428F6255400AA029F /* Categories.json */; };
+		9697398728F6260E00AA029F /* CategoryButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697398628F6260E00AA029F /* CategoryButtonCell.swift */; };
+		9697398928F62C2300AA029F /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697398828F62C2300AA029F /* LoadingCell.swift */; };
 		9698BF0D28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698BF0C28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift */; };
 		9698BF0F28E21331008DFF41 /* CheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698BF0E28E21331008DFF41 /* CheckboxCell.swift */; };
 		9698CC8D28E3090A00E9DBB7 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698CC8C28E3090A00E9DBB7 /* BaseView.swift */; };
@@ -102,6 +104,8 @@
 		9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSegmentedControl.swift; sourceTree = "<group>"; };
 		9697398428F6255400AA029F /* Categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Categories.json; sourceTree = "<group>"; };
+		9697398628F6260E00AA029F /* CategoryButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonCell.swift; sourceTree = "<group>"; };
+		9697398828F62C2300AA029F /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		9698BF0C28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCustomTextFieldCell.swift; sourceTree = "<group>"; };
 		9698BF0E28E21331008DFF41 /* CheckboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxCell.swift; sourceTree = "<group>"; };
 		9698CC8C28E3090A00E9DBB7 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -235,12 +239,7 @@
 		967ACF1128DF382B00854CA7 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				96A914BE28C8B054008ABFB1 /* ButtonCell.swift */,
-				967ACF1428DF39CB00854CA7 /* CustomTextFieldCell.swift */,
-				9698BF0C28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift */,
-				9698BF0E28E21331008DFF41 /* CheckboxCell.swift */,
-				96A58E3528E7686600A71090 /* SimpleTextfieldCell.swift */,
-				96A58E3728E7689000A71090 /* SelectorCell.swift */,
+				9697398C28F62CA900AA029F /* Cells */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -275,6 +274,21 @@
 		9697398328F624F100AA029F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				9697398628F6260E00AA029F /* CategoryButtonCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9697398C28F62CA900AA029F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				96A914BE28C8B054008ABFB1 /* ButtonCell.swift */,
+				967ACF1428DF39CB00854CA7 /* CustomTextFieldCell.swift */,
+				9698BF0C28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift */,
+				9698BF0E28E21331008DFF41 /* CheckboxCell.swift */,
+				96A58E3528E7686600A71090 /* SimpleTextfieldCell.swift */,
+				96A58E3728E7689000A71090 /* SelectorCell.swift */,
+				9697398828F62C2300AA029F /* LoadingCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -728,6 +742,7 @@
 				969C25CD28F57A0000AA44B1 /* CategoriesResponse.swift in Sources */,
 				969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */,
 				96D16DE728CCC40200B65B23 /* CartFooterView.swift in Sources */,
+				9697398728F6260E00AA029F /* CategoryButtonCell.swift in Sources */,
 				96A28E3828DB5C5800D39621 /* EditProfileView.swift in Sources */,
 				96A58E3C28E76D8E00A71090 /* UITextField+Extensions.swift in Sources */,
 				96040E8728B432230029B0D7 /* AppDelegate.swift in Sources */,
@@ -738,6 +753,7 @@
 				96A914C128C8B1FD008ABFB1 /* UIButton.Configuration+Extension.swift in Sources */,
 				96A28E3628DB596B00D39621 /* HeaderView.swift in Sources */,
 				96040E8928B432230029B0D7 /* SceneDelegate.swift in Sources */,
+				9697398928F62C2300AA029F /* LoadingCell.swift in Sources */,
 				9699C18F28C8D19D00481568 /* ProductCell.swift in Sources */,
 				9698BF0D28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift in Sources */,
 				9698CC8D28E3090A00E9DBB7 /* BaseView.swift in Sources */,

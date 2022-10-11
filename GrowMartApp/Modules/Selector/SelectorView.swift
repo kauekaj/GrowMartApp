@@ -8,94 +8,120 @@
 import UIKit
 
 public protocol SelectorViewDelegate: AnyObject {
-    func didSelectCategory(id: Int)
+    func didSelectCategory(id: String)
 }
 
-class SelectorView: UIView {
+class SelectorView: BaseViewWithTableView {
 
     // MARK: - Public Properties
     weak var delegate: SelectorViewDelegate?
 
     // MARK: - Private Properties
-    private lazy var stackView: UIStackView = {
-        let element = UIStackView()
-        element.translatesAutoresizingMaskIntoConstraints = false
-        element.axis = .vertical
-        element.spacing = 32
-        return element
-    }()
+    private var categories: [CategoriesResponse] = []
 
-    private lazy var titleLabel: UILabel = {
-        let element = UILabel()
-        element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = UIFont.nunito(style: .extraBold, size: 30)
-        element.textColor = UIColor(rgb: 0x1E3D59)
-        element.text = "O que voce quer comprar?"
-        element.numberOfLines = 0
-        element.textAlignment = .left
-        return element
-    }()
-
-    private lazy var buttonClothes = CategoryButton(categoryId: 1,
-                                                    title: "roupas",
-                                                    imageSide: .right,
-                                                    image: UIImage(named: "roupas"))
-    private lazy var buttonAcessories = CategoryButton(categoryId: 2,
-                                                       title: "acessórios",
-                                                       imageSide: .left,
-                                                       image: UIImage(named: "acessorios"))
-    private lazy var buttonOthers = CategoryButton(categoryId: 3,
-                                                   title: "outros",
-                                                   imageSide: .right,
-                                                   image: UIImage(named: "outros"))
-
-    // MARK: - Private Methods
-
+    // MARK: - Public Methods
+    
+    func renderButtons(categories: [CategoriesResponse]) {
+        viewState = .loaded
+        self.categories = categories
+        tableView.reloadData()
+    }
+        
     // MARK: - Inits
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
+    override init(shouldAddHeaderLines: Bool = false) {
+        super.init(shouldAddHeaderLines: shouldAddHeaderLines)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupView()
     }
 
     // MARK: - Actions
     @objc
     private func didTapButton(_ sender: UITapGestureRecognizer) {
         guard let button = sender.view as? CategoryButton else { return }
-        delegate?.didSelectCategory(id: button.categoryId)
+        delegate?.didSelectCategory(id: button.categoryId ?? "")
+    }
+    
+    // MARK: - Private Methods
+    private func registerTableViewCells() {
+        tableView.register(CategoryButtonCell.self, forCellReuseIdentifier: CategoryButtonCell.reuseIdentifier)
+        tableView.register(LoadingCell.self, forCellReuseIdentifier: LoadingCell.reuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
+
     }
 }
 
-// MARK: - View Code
-extension SelectorView: ViewCodable {
-    func buildViewHierarchy() {
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(buttonClothes)
-        stackView.addArrangedSubview(buttonAcessories)
-        stackView.addArrangedSubview(buttonOthers)
-        stackView.setCustomSpacing(74, after: titleLabel)
+// MARK: - View Code Overrides
 
-        addSubview(stackView)
+extension SelectorView {
+
+    override func setupAdditionalConfiguration() {
+        super.setupAdditionalConfiguration()
+        setTableViewDelegate(delegate: self)
+        setTableViewDataSource(dataSource: self)
+        registerTableViewCells()
+        setupTableContentInset()
     }
+}
 
-    func setupConstraints() {
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 92),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60)
-        ])
+// MARK: - UITableViewDataSource, UITableViewDelegate
+
+extension SelectorView: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewState == .loaded ? categories.count : 1
     }
-
-    func setupAdditionalConfiguration() {
-        backgroundColor = .white
-
-        [buttonClothes, buttonAcessories, buttonOthers].forEach { button in
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapButton(_:)))
-            button.addGestureRecognizer(tapGesture)
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if viewState == .loaded {
+//            guard let cell: CategoryButtonCell = .createCell(for: tableView, at: indexPath) else {
+//                return UITableViewCell()
+//            }
+            
+            return UITableViewCell()
+            
+//            let category = categories[indexPath.row]
+//            cell.setData(categoryId: category.id ?? "",
+//                         title: category.name?.capitalized ?? "",
+//                         imageSide: indexPath.row % 2 == 0 ? .right : .left,
+//                         imageUrl: category.image)
+//            cell.delegate = self
+//            return cell
+        } else {
+            guard let cell: LoadingCell = .createCell(for: tableView, at: indexPath) else {
+                return UITableViewCell()
+            }
+            
+            return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.nunito(style: .extraBold, size: 30)
+        label.textColor = UIColor(rgb: 0x1E3D59)
+        label.text = "O que você quer comprar?"
+        label.numberOfLines = 0
+        label.textAlignment = .left
+        
+        headerView.addSubview(label)
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: headerView.topAnchor),
+            label.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 60),
+            label.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -60),
+            label.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -60)
+        ])
+
+        return headerView
+    }
+}
+
+// MARK: - CategoryButtonCellDelegate
+extension SelectorView: CategoryButtonCellDelegate {
+    func didTapCategoryButton(categoryId: String) {
+        delegate?.didSelectCategory(id: categoryId)
     }
 }

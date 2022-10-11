@@ -8,23 +8,19 @@
 import UIKit
 
 class CategoryButton: UIControl {
-
     enum ImageSide {
         case left
         case right
     }
 
-    let categoryId: Int
-    private let title: String
-    private let imageSide: ImageSide
-    private let image: UIImage?
+    private var imageSide: ImageSide = .right
+    var categoryId: String?
 
-    // MARK: - Private Properties
-    private lazy var label: UILabel = {
+    lazy var label: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.font = UIFont.nunito(style: .extraBold, size: 25)
-        element.textColor = UIColor(red: 1, green: 0.431, blue: 0.251, alpha: 1)
+        element.textColor = UIColor(rgb: 0xFF6E40)
         element.textAlignment = .center
         return element
     }()
@@ -37,12 +33,7 @@ class CategoryButton: UIControl {
         return element
     }()
 
-    // MARK: - Inits
-    internal init(categoryId: Int, title: String, imageSide: CategoryButton.ImageSide, image: UIImage?) {
-        self.categoryId = categoryId
-        self.title = title
-        self.imageSide = imageSide
-        self.image = image
+    init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         setupView()
     }
@@ -50,9 +41,66 @@ class CategoryButton: UIControl {
     required init?(coder: NSCoder) {
         nil
     }
+    
+    // MARK: - Public Methods
+    func setData(categoryId: String, title: String, imageSide: ImageSide, imageUrl: String?) {
+        self.categoryId = categoryId
+        self.imageSide = imageSide
+        
+        if let imageUrl = imageUrl {
+            imageView.addImageFromURL(urlString: imageUrl)
+        }
+        label.text = title
+        
+        switch imageSide {
+        case .left:
+            configureButtonForLeft()
+        case .right:
+            configureButtonForRight()
+        }
+    }
+    
+    // MARK: - Private Methods
+    private func configureButtonForLeft() {
+        label.constraints.forEach({ $0.isActive = false })
+        imageView.constraints.forEach({ $0.isActive = false })
 
+        NSLayoutConstraint.activate([
+            label.centerYAnchor.constraint(equalTo: centerYAnchor),
+            label.heightAnchor.constraint(equalToConstant: 45),
+
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 140),
+            imageView.widthAnchor.constraint(equalToConstant: 140),
+            
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -8),
+
+            label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+
+    private func configureButtonForRight() {
+        label.constraints.forEach({ $0.isActive = false })
+        imageView.constraints.forEach({ $0.isActive = false })
+        
+        NSLayoutConstraint.activate([
+            label.centerYAnchor.constraint(equalTo: centerYAnchor),
+            label.heightAnchor.constraint(equalToConstant: 45),
+
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 140),
+            imageView.widthAnchor.constraint(equalToConstant: 140),
+            
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 8),
+
+            label.leadingAnchor.constraint(equalTo: leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: imageView.leadingAnchor)
+        ])
+    }
 }
 
+// MARK: - View Code
 extension CategoryButton: ViewCodable {
     func buildViewHierarchy() {
         addSubview(label)
@@ -61,48 +109,12 @@ extension CategoryButton: ViewCodable {
 
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 100),
-        
-            label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.heightAnchor.constraint(equalToConstant: 45),
-
-            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 140),
-            imageView.widthAnchor.constraint(equalToConstant: 140)
-
+            heightAnchor.constraint(equalToConstant: 100)
         ])
-        
-        switch imageSide {
-        case .left:
-            configureButtonLeft()
-        case .right:
-            configureButtonRight()
-        }
     }
 
     func setupAdditionalConfiguration() {
-        backgroundColor = UIColor(red: 0.961, green: 0.941, blue: 0.882, alpha: 1)
+        backgroundColor = UIColor(rgb: 0xF5F0E1)
         layer.cornerRadius = 35
-        label.text = title
-        imageView.image = image
     }
-
-    private func configureButtonLeft() {
-        NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -10),
-            
-            label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ])
-    }
-
-    private func configureButtonRight() {
-        NSLayoutConstraint.activate([
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
-            
-            label.leadingAnchor.constraint(equalTo: leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: imageView.leadingAnchor)
-        ])
-    }
-    
 }
