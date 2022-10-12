@@ -81,15 +81,13 @@ extension SelectorView: UITableViewDataSource, UITableViewDelegate {
                 return UITableViewCell()
             }
             
+            let category = categories[indexPath.row]
+            cell.setData(categoryId: category.id ?? "",
+                         title: category.name?.capitalized ?? "",
+                         imageSide: indexPath.row % 2 == 0 ? .right : .left,
+                         imageUrl: category.image)
+            cell.delegate = self
             return cell
-            
-//            let category = categories[indexPath.row]
-//            cell.setData(categoryId: category.id ?? "",
-//                         title: category.name?.capitalized ?? "",
-//                         imageSide: indexPath.row % 2 == 0 ? .right : .left,
-//                         imageUrl: category.image)
-//            cell.delegate = self
-//            return cell
         } else {
             guard let cell: LoadingCell = .createCell(for: tableView, at: indexPath) else {
                 return UITableViewCell()
