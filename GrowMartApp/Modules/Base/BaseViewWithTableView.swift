@@ -10,7 +10,7 @@ import UIKit
 public class BaseViewWithTableView: BaseView {
     // MARK: - Internal Properties
     internal lazy var tableView: UITableView = {
-        let element = UITableView()
+        let element = UITableView(frame: .zero, style: .grouped)
         element.translatesAutoresizingMaskIntoConstraints = false
         element.backgroundColor = .white
         element.separatorStyle = .none

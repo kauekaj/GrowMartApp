@@ -17,14 +17,17 @@ class SelectorView: BaseViewWithTableView {
     weak var delegate: SelectorViewDelegate?
 
     // MARK: - Private Properties
-    private var categories: [CategoriesResponse] = []
+    private var categories: [CategoryResponse] = []
 
     // MARK: - Public Methods
     
-    func renderButtons(categories: [CategoriesResponse]) {
+    func renderButtons(categories: [CategoryResponse]) {
         viewState = .loaded
         self.categories = categories
-        tableView.reloadData()
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
         
     // MARK: - Inits
@@ -74,11 +77,11 @@ extension SelectorView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if viewState == .loaded {
-//            guard let cell: CategoryButtonCell = .createCell(for: tableView, at: indexPath) else {
-//                return UITableViewCell()
-//            }
+            guard let cell: CategoryButtonCell = .createCell(for: tableView, at: indexPath) else {
+                return UITableViewCell()
+            }
             
-            return UITableViewCell()
+            return cell
             
 //            let category = categories[indexPath.row]
 //            cell.setData(categoryId: category.id ?? "",

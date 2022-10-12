@@ -44,7 +44,7 @@ extension LoadingCell: ViewCodable {
     
     public func setupConstraints() {
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 32),
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)

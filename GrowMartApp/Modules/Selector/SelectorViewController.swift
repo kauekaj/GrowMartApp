@@ -20,22 +20,26 @@ class SelectorViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        callAPI()
+        callAPI(url: "https://growmart-api.herokuapp.com/v1/categories") { [weak self] response in
+            self?.selectorView.renderButtons(categories: response?.entries ?? [])
+        }
+        
     }
     
-    func callAPI() {
+    func callAPI(url: String, completion: @escaping (CategoriesResponse?) -> Void) {
         
-        guard let url = URL(string: "https://growmart-api.herokuapp.com/v1/categories") else { return }
+        guard let urlRequest = URL(string: url) else { return }
         
-        URLSession.shared.dataTask(with: URLRequest(url: url),
+        URLSession.shared.dataTask(with: URLRequest(url: urlRequest),
                                    completionHandler: { data, _, _ in
             guard let data = data else { return }
             
             do {
                 let result = try JSONDecoder().decode(CategoriesResponse.self, from: data)
-                print(result)
+                completion(result)
             } catch (let error) {
                 print(error)
+                completion(nil)
             }
         }).resume()
     }
