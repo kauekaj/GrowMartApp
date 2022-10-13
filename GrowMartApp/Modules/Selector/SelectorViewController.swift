@@ -20,9 +20,34 @@ class SelectorViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        callAPI(url: "https://growmart-api.herokuapp.com/v1/categories") { [weak self] response in
+//        callAPI(url: "https://growmart-api.herokuapp.com/v1/categories") { [weak self] response in
+//            self?.selectorView.renderButtons(categories: response?.entries ?? [])
+//        }
+        callAPIMock() { [weak self] response in
             self?.selectorView.renderButtons(categories: response?.entries ?? [])
         }
+        
+    }
+    
+    func callAPIMock(completion: @escaping (CategoriesResponse?) -> Void) {
+        
+        guard let path = Bundle.main.path(forResource: "Categories", ofType: "json") else {
+            fatalError("Mock not found")
+        }
+        
+        let urlRequest = NSURL.fileURL(withPath: path)
+        URLSession.shared.dataTask(with: URLRequest(url: urlRequest),
+                                   completionHandler: { data, _, _ in
+            guard let data = data else { return }
+            
+            do {
+                let result = try JSONDecoder().decode(CategoriesResponse.self, from: data)
+                completion(result)
+            } catch (let error) {
+                print(error)
+                completion(nil)
+            }
+        }).resume()
         
     }
     
