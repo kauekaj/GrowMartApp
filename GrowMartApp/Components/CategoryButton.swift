@@ -81,8 +81,7 @@ class CategoryButton: UIControl {
     }
 
     private func configureButtonForRight() {
-        label.constraints.forEach({ $0.isActive = false })
-        imageView.constraints.forEach({ $0.isActive = false })
+        // resetSubviews
         
         NSLayoutConstraint.activate([
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
