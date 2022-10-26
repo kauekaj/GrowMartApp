@@ -10,12 +10,8 @@ import UIKit
 public protocol CatalogViewDelegate: AnyObject {
        func numberOfItems() -> Int
        func getProduct(at index: Int) -> Product?
-//
-//       func didTapButtonClothes()
-//       func didTapButtonAcessories()
-//       func didTapButtonOthers()
-//
-    func didSelectCategory(index: Int, name: String)
+
+       func didSelectCategory(index: Int, name: String)
        func didTapProduct(at index: Int)
 }
 
