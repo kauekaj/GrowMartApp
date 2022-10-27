@@ -40,7 +40,6 @@
 		969B2DB1290AB5F1008DEED2 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B2DB0290AB5F1008DEED2 /* NetworkLogger.swift */; };
 		969B2DB3290AB613008DEED2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B2DB2290AB613008DEED2 /* Router.swift */; };
 		969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B9D8E28C3892E0065A0DE /* CartView.swift */; };
-		969C25CD28F57A0000AA44B1 /* CategoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C25CC28F57A0000AA44B1 /* CategoriesResponse.swift */; };
 		969C3EA528ED895B00B8CDCA /* CategoryButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C3EA428ED895B00B8CDCA /* CategoryButtonTests.swift */; };
 		969C3EA728ED90A200B8CDCA /* CategoriesSegmentedControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C3EA628ED90A200B8CDCA /* CategoriesSegmentedControlTests.swift */; };
 		969C3EAA28ED92F800B8CDCA /* ButtonCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C3EA928ED92F800B8CDCA /* ButtonCellTests.swift */; };
@@ -136,7 +135,6 @@
 		969B2DB0290AB5F1008DEED2 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		969B2DB2290AB613008DEED2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		969B9D8E28C3892E0065A0DE /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
-		969C25CC28F57A0000AA44B1 /* CategoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesResponse.swift; sourceTree = "<group>"; };
 		969C3EA428ED895B00B8CDCA /* CategoryButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonTests.swift; sourceTree = "<group>"; };
 		969C3EA628ED90A200B8CDCA /* CategoriesSegmentedControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSegmentedControlTests.swift; sourceTree = "<group>"; };
 		969C3EA928ED92F800B8CDCA /* ButtonCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellTests.swift; sourceTree = "<group>"; };
@@ -331,11 +329,11 @@
 		969A627528FD619600879028 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				969B2DA5290AB2A5008DEED2 /* Service */,
-				96ADD2552909F6A700EE9574 /* Endpoint */,
 				969A627A28FD664200879028 /* Encoding */,
-				969A627928FD662A00879028 /* Mocks */,
+				96ADD2552909F6A700EE9574 /* Endpoint */,
 				969A627628FD61CF00879028 /* Manager */,
+				969A627928FD662A00879028 /* Mocks */,
+				969B2DA5290AB2A5008DEED2 /* Service */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -453,7 +451,6 @@
 				9697398328F624F100AA029F /* Cells */,
 				96A66F1E28C20F6600497050 /* SelectorView.swift */,
 				96A66F2028C20F7400497050 /* SelectorViewController.swift */,
-				969C25CC28F57A0000AA44B1 /* CategoriesResponse.swift */,
 			);
 			path = Selector;
 			sourceTree = "<group>";
@@ -830,7 +827,6 @@
 				969B2DAF290AB5C0008DEED2 /* NetworkEnvironment.swift in Sources */,
 				969A628028FD66A100879028 /* URLParameterEncoder.swift in Sources */,
 				96B9834A28B5830800073871 /* ViewCodable.swift in Sources */,
-				969C25CD28F57A0000AA44B1 /* CategoriesResponse.swift in Sources */,
 				969B2DB3290AB613008DEED2 /* Router.swift in Sources */,
 				969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */,
 				969A627828FD61F000879028 /* NetworkManager.swift in Sources */,
