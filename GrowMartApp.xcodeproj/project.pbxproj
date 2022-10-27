@@ -32,6 +32,13 @@
 		969A627E28FD667F00879028 /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A627D28FD667F00879028 /* ParameterEncoder.swift */; };
 		969A628028FD66A100879028 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A627F28FD66A100879028 /* URLParameterEncoder.swift */; };
 		969A85A728D1E219009059C2 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A85A628D1E219009059C2 /* CatalogViewController.swift */; };
+		969B2DA7290AB2D4008DEED2 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B2DA6290AB2D4008DEED2 /* EndpointType.swift */; };
+		969B2DA9290AB550008DEED2 /* AFRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B2DA8290AB550008DEED2 /* AFRouter.swift */; };
+		969B2DAB290AB577008DEED2 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B2DAA290AB577008DEED2 /* HTTPMethod.swift */; };
+		969B2DAD290AB5A3008DEED2 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B2DAC290AB5A3008DEED2 /* HTTPTask.swift */; };
+		969B2DAF290AB5C0008DEED2 /* NetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B2DAE290AB5C0008DEED2 /* NetworkEnvironment.swift */; };
+		969B2DB1290AB5F1008DEED2 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B2DB0290AB5F1008DEED2 /* NetworkLogger.swift */; };
+		969B2DB3290AB613008DEED2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B2DB2290AB613008DEED2 /* Router.swift */; };
 		969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B9D8E28C3892E0065A0DE /* CartView.swift */; };
 		969C25CD28F57A0000AA44B1 /* CategoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C25CC28F57A0000AA44B1 /* CategoriesResponse.swift */; };
 		969C3EA528ED895B00B8CDCA /* CategoryButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C3EA428ED895B00B8CDCA /* CategoryButtonTests.swift */; };
@@ -121,6 +128,13 @@
 		969A627D28FD667F00879028 /* ParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoder.swift; sourceTree = "<group>"; };
 		969A627F28FD66A100879028 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
 		969A85A628D1E219009059C2 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
+		969B2DA6290AB2D4008DEED2 /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
+		969B2DA8290AB550008DEED2 /* AFRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFRouter.swift; sourceTree = "<group>"; };
+		969B2DAA290AB577008DEED2 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		969B2DAC290AB5A3008DEED2 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		969B2DAE290AB5C0008DEED2 /* NetworkEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironment.swift; sourceTree = "<group>"; };
+		969B2DB0290AB5F1008DEED2 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		969B2DB2290AB613008DEED2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		969B9D8E28C3892E0065A0DE /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		969C25CC28F57A0000AA44B1 /* CategoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesResponse.swift; sourceTree = "<group>"; };
 		969C3EA428ED895B00B8CDCA /* CategoryButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonTests.swift; sourceTree = "<group>"; };
@@ -317,6 +331,7 @@
 		969A627528FD619600879028 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				969B2DA5290AB2A5008DEED2 /* Service */,
 				96ADD2552909F6A700EE9574 /* Endpoint */,
 				969A627A28FD664200879028 /* Encoding */,
 				969A627928FD662A00879028 /* Mocks */,
@@ -349,6 +364,20 @@
 				969A627F28FD66A100879028 /* URLParameterEncoder.swift */,
 			);
 			path = Encoding;
+			sourceTree = "<group>";
+		};
+		969B2DA5290AB2A5008DEED2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				969B2DA8290AB550008DEED2 /* AFRouter.swift */,
+				969B2DA6290AB2D4008DEED2 /* EndpointType.swift */,
+				969B2DAA290AB577008DEED2 /* HTTPMethod.swift */,
+				969B2DAC290AB5A3008DEED2 /* HTTPTask.swift */,
+				969B2DAE290AB5C0008DEED2 /* NetworkEnvironment.swift */,
+				969B2DB0290AB5F1008DEED2 /* NetworkLogger.swift */,
+				969B2DB2290AB613008DEED2 /* Router.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		969B9D8D28C3891E0065A0DE /* Cart */ = {
@@ -770,8 +799,10 @@
 				96B9835028B59A9E00073871 /* LoginView.swift in Sources */,
 				96A58E3228E764EA00A71090 /* ProductDataView.swift in Sources */,
 				96A914C328C8BA33008ABFB1 /* TotalCell.swift in Sources */,
+				969B2DAB290AB577008DEED2 /* HTTPMethod.swift in Sources */,
 				967ACF1528DF39CB00854CA7 /* CustomTextFieldCell.swift in Sources */,
 				96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */,
+				969B2DA7290AB2D4008DEED2 /* EndpointType.swift in Sources */,
 				96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */,
 				96A58E3828E7689000A71090 /* SelectorCell.swift in Sources */,
 				96A0181128DA7F0400B19AB8 /* ProfileViewController.swift in Sources */,
@@ -788,6 +819,7 @@
 				96C2DFEE28EB4C1100819AE5 /* UICollectionViewCell.swift in Sources */,
 				96C8384328C7589D00E76F1D /* CartViewController.swift in Sources */,
 				96A58E3628E7686600A71090 /* SimpleTextfieldCell.swift in Sources */,
+				969B2DA9290AB550008DEED2 /* AFRouter.swift in Sources */,
 				96A06BE328DB7AF100846A4D /* UITableViewCell+Extensions.swift in Sources */,
 				96A28E3A28DB5C6700D39621 /* EditProfileViewController.swift in Sources */,
 				96B9834C28B5923E00073871 /* UIColor+Extensions.swift in Sources */,
@@ -795,11 +827,14 @@
 				96A0180F28DA7EF300B19AB8 /* ProfileView.swift in Sources */,
 				96A58E3A28E76B4700A71090 /* RightIconTextField.swift in Sources */,
 				96A28E3C28DB5C7000D39621 /* Profile.swift in Sources */,
+				969B2DAF290AB5C0008DEED2 /* NetworkEnvironment.swift in Sources */,
 				969A628028FD66A100879028 /* URLParameterEncoder.swift in Sources */,
 				96B9834A28B5830800073871 /* ViewCodable.swift in Sources */,
 				969C25CD28F57A0000AA44B1 /* CategoriesResponse.swift in Sources */,
+				969B2DB3290AB613008DEED2 /* Router.swift in Sources */,
 				969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */,
 				969A627828FD61F000879028 /* NetworkManager.swift in Sources */,
+				969B2DB1290AB5F1008DEED2 /* NetworkLogger.swift in Sources */,
 				96D16DE728CCC40200B65B23 /* CartFooterView.swift in Sources */,
 				9697398728F6260E00AA029F /* CategoryButtonCell.swift in Sources */,
 				96A28E3828DB5C5800D39621 /* EditProfileView.swift in Sources */,
@@ -816,6 +851,7 @@
 				9699C18F28C8D19D00481568 /* ProductCell.swift in Sources */,
 				9698BF0D28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift in Sources */,
 				969A627C28FD666000879028 /* JSONParameterEncoder.swift in Sources */,
+				969B2DAD290AB5A3008DEED2 /* HTTPTask.swift in Sources */,
 				9698CC8D28E3090A00E9DBB7 /* BaseView.swift in Sources */,
 				9686997D28BD6AC20060F512 /* UIFont+Extensions.swift in Sources */,
 				96A66F2128C20F7400497050 /* SelectorViewController.swift in Sources */,
@@ -980,6 +1016,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_SCHEME_NAME = Debug;
 				DEVELOPMENT_TEAM = N7W6HJZX49;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GrowMartApp/Info.plist;
@@ -1010,6 +1047,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_SCHEME_NAME = Release;
 				DEVELOPMENT_TEAM = N7W6HJZX49;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GrowMartApp/Info.plist;
@@ -1100,6 +1138,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_SCHEME_NAME = Mock;
 				DEVELOPMENT_TEAM = N7W6HJZX49;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GrowMartApp/Info.plist;
