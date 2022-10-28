@@ -21,6 +21,8 @@
 		9692A82628D27B6400D040AA /* CategoriesSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */; };
 		9696716B290BE71400028A98 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696716A290BE71400028A98 /* NetworkManagerTests.swift */; };
 		9696716D290BE82900028A98 /* CategoriesJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696716C290BE82900028A98 /* CategoriesJsonData.swift */; };
+		9696716F290BE9F100028A98 /* CategoriesEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696716E290BE9F100028A98 /* CategoriesEndpointTests.swift */; };
+		96967171290BEA2F00028A98 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96967170290BEA2F00028A98 /* RouterTests.swift */; };
 		9697398528F6255400AA029F /* Categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 9697398428F6255400AA029F /* Categories.json */; };
 		9697398728F6260E00AA029F /* CategoryButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697398628F6260E00AA029F /* CategoryButtonCell.swift */; };
 		9697398928F62C2300AA029F /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697398828F62C2300AA029F /* LoadingCell.swift */; };
@@ -118,6 +120,8 @@
 		9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSegmentedControl.swift; sourceTree = "<group>"; };
 		9696716A290BE71400028A98 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		9696716C290BE82900028A98 /* CategoriesJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesJsonData.swift; sourceTree = "<group>"; };
+		9696716E290BE9F100028A98 /* CategoriesEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesEndpointTests.swift; sourceTree = "<group>"; };
+		96967170290BEA2F00028A98 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		9697398428F6255400AA029F /* Categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Categories.json; sourceTree = "<group>"; };
 		9697398628F6260E00AA029F /* CategoryButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonCell.swift; sourceTree = "<group>"; };
 		9697398828F62C2300AA029F /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
@@ -313,6 +317,7 @@
 		96967165290BE6C500028A98 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				96967170290BEA2F00028A98 /* RouterTests.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 		96967168290BE6E000028A98 /* Endpoint */ = {
 			isa = PBXGroup;
 			children = (
+				9696716E290BE9F100028A98 /* CategoriesEndpointTests.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -916,6 +922,8 @@
 				9696716D290BE82900028A98 /* CategoriesJsonData.swift in Sources */,
 				969C3EAD28ED948400B8CDCA /* Mirror+Extensions.swift in Sources */,
 				96B0EDFC28EDF48600E0E4B9 /* LoginViewTests.swift in Sources */,
+				9696716F290BE9F100028A98 /* CategoriesEndpointTests.swift in Sources */,
+				96967171290BEA2F00028A98 /* RouterTests.swift in Sources */,
 				96ACEE2628EC430500BE8D80 /* BaseTests.swift in Sources */,
 				9696716B290BE71400028A98 /* NetworkManagerTests.swift in Sources */,
 				969C3EA528ED895B00B8CDCA /* CategoryButtonTests.swift in Sources */,

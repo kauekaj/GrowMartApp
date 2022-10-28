@@ -79,11 +79,11 @@ extension CategoriesApi: EndpointType {
 }
 
 // MARK: - Response
-struct CategoriesResponse: Codable {
+struct CategoriesResponse: Codable, Equatable {
     var entries: [CategoryResponse]?
 }
 
-struct CategoryResponse: Codable {
+struct CategoryResponse: Codable, Equatable {
     var id: String?
     var name: String?
     var image: String?
