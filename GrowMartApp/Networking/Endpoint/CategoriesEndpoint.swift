@@ -73,7 +73,7 @@ extension CategoriesApi: EndpointType {
     func getMockName() -> String {
         switch self {
         case let .get(id): return "categorie-\(id)"
-        case .list: return "categories"
+        case .list: return "Categories"
         }
     }
 }

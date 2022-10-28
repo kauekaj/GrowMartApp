@@ -9,30 +9,57 @@ import Foundation
 
 public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?) -> Void
 
+// MARK: Protocols
 protocol NetworkRouter: AnyObject {
     func request(_ endpoint: EndpointType, completion: @escaping NetworkRouterCompletion)
     func cancel()
 }
 
+protocol URLSessionDataTaskProtocol {
+    func resume()
+    func cancel()
+}
+
+protocol URLSessionProtocol {
+    func dataTask(with request: URLRequest,
+                  completionHandler: @escaping NetworkRouterCompletion) -> URLSessionDataTaskProtocol
+}
+
+// MARK: Protocols extensions
+extension URLSession: URLSessionProtocol {
+    func dataTask(with request: URLRequest,
+                  completionHandler: @escaping NetworkRouterCompletion) -> URLSessionDataTaskProtocol {
+        return dataTask(with: request, completionHandler: completionHandler) as URLSessionDataTask
+    }
+}
+
+extension URLSessionDataTask: URLSessionDataTaskProtocol {}
+
+// MARK: Class implementation
 class Router: NetworkRouter {
-    private var task: URLSessionTask?
+    
+    private var currentTask: URLSessionDataTaskProtocol?
+    private let session: URLSessionProtocol
+
+    init(session: URLSessionProtocol = URLSession.shared) {
+        self.session = session
+    }
     
     func request(_ endpoint: EndpointType, completion: @escaping NetworkRouterCompletion) {
-        let session = URLSession.shared
         do {
-            let request = try self.buildRequest(from: endpoint)
+            let request = try buildRequest(from: endpoint)
             NetworkLogger.log(request: request)
-            task = session.dataTask(with: request, completionHandler: { data, response, error in
+            currentTask = session.dataTask(with: request, completionHandler: { data, response, error in
                 completion(data, response, error)
             })
         } catch {
             completion(nil, nil, error)
         }
-        self.task?.resume()
+        self.currentTask?.resume()
     }
     
     func cancel() {
-        self.task?.cancel()
+        self.currentTask?.cancel()
     }
     
     fileprivate func buildRequest(from endpoint: EndpointType) throws -> URLRequest {
@@ -48,21 +75,21 @@ class Router: NetworkRouter {
                                     let bodyEncoding,
                                     let urlParameters):
                 
-                try configureParameters(bodyParameters: bodyParameters,
-                                        bodyEncoding: bodyEncoding,
-                                        urlParameters: urlParameters,
-                                        request: &request)
+                try self.configureParameters(bodyParameters: bodyParameters,
+                                             bodyEncoding: bodyEncoding,
+                                             urlParameters: urlParameters,
+                                             request: &request)
                 
             case .requestParametersAndHeaders(let bodyParameters,
                                               let bodyEncoding,
                                               let urlParameters,
                                               let additionalHeaders):
                 
-                addAdditionalHeaders(additionalHeaders, request: &request)
-                try configureParameters(bodyParameters: bodyParameters,
-                                        bodyEncoding: bodyEncoding,
-                                        urlParameters: urlParameters,
-                                        request: &request)
+                self.addAdditionalHeaders(additionalHeaders, request: &request)
+                try self.configureParameters(bodyParameters: bodyParameters,
+                                             bodyEncoding: bodyEncoding,
+                                             urlParameters: urlParameters,
+                                             request: &request)
             }
             return request
         } catch {

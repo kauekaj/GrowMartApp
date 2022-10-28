@@ -19,6 +19,8 @@
 		9686998628BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */; };
 		9686998728BD82020060F512 /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */; };
 		9692A82628D27B6400D040AA /* CategoriesSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */; };
+		9696716B290BE71400028A98 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696716A290BE71400028A98 /* NetworkManagerTests.swift */; };
+		9696716D290BE82900028A98 /* CategoriesJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696716C290BE82900028A98 /* CategoriesJsonData.swift */; };
 		9697398528F6255400AA029F /* Categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 9697398428F6255400AA029F /* Categories.json */; };
 		9697398728F6260E00AA029F /* CategoryButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697398628F6260E00AA029F /* CategoryButtonCell.swift */; };
 		9697398928F62C2300AA029F /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697398828F62C2300AA029F /* LoadingCell.swift */; };
@@ -114,6 +116,8 @@
 		9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSegmentedControl.swift; sourceTree = "<group>"; };
+		9696716A290BE71400028A98 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		9696716C290BE82900028A98 /* CategoriesJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesJsonData.swift; sourceTree = "<group>"; };
 		9697398428F6255400AA029F /* Categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Categories.json; sourceTree = "<group>"; };
 		9697398628F6260E00AA029F /* CategoryButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonCell.swift; sourceTree = "<group>"; };
 		9697398828F62C2300AA029F /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
@@ -294,6 +298,55 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		96967164290BE69800028A98 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				96967169290BE6EA00028A98 /* Encoding */,
+				96967168290BE6E000028A98 /* Endpoint */,
+				96967167290BE6D500028A98 /* Manager */,
+				96967166290BE6CD00028A98 /* Mocks */,
+				96967165290BE6C500028A98 /* Service */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		96967165290BE6C500028A98 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		96967166290BE6CD00028A98 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9696716C290BE82900028A98 /* CategoriesJsonData.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		96967167290BE6D500028A98 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9696716A290BE71400028A98 /* NetworkManagerTests.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		96967168290BE6E000028A98 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		96967169290BE6EA00028A98 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
 		9697398328F624F100AA029F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +520,7 @@
 		96ACEE2428EC430500BE8D80 /* GrowMartAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				96967164290BE69800028A98 /* Networking */,
 				96B0EDF828EDF45500E0E4B9 /* Modules */,
 				969C3EAB28ED93F200B8CDCA /* Extensions */,
 				969C3EA828ED92E200B8CDCA /* Commons */,
@@ -859,9 +913,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				96B0EDFA28EDF47100E0E4B9 /* LoginViewControllerTests.swift in Sources */,
+				9696716D290BE82900028A98 /* CategoriesJsonData.swift in Sources */,
 				969C3EAD28ED948400B8CDCA /* Mirror+Extensions.swift in Sources */,
 				96B0EDFC28EDF48600E0E4B9 /* LoginViewTests.swift in Sources */,
 				96ACEE2628EC430500BE8D80 /* BaseTests.swift in Sources */,
+				9696716B290BE71400028A98 /* NetworkManagerTests.swift in Sources */,
 				969C3EA528ED895B00B8CDCA /* CategoryButtonTests.swift in Sources */,
 				969C3EA728ED90A200B8CDCA /* CategoriesSegmentedControlTests.swift in Sources */,
 				969C3EAA28ED92F800B8CDCA /* ButtonCellTests.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NetworkErrorResponse: Error, Equatable {
+enum NetworkResponse: Error, Equatable {
     case invalidURL
     case errorGeneric(description: String)
     case invalidResponse
@@ -16,30 +16,49 @@ enum NetworkErrorResponse: Error, Equatable {
 }
 
 final class NetworkManager {
-    let router = Router()
+    let router: NetworkRouter
+    
+    init(router: NetworkRouter = Router()) {
+        self.router = router
+    }
 
     // MARK: - Public Methods
-    func getCategories(completion: @escaping (Result<CategoriesResponse, NetworkErrorResponse>) -> Void) {
-        router.request(CategoriesApi.list) { data, response, error in
-            if let error = error {
-                return completion(.failure(.errorGeneric(description: error.localizedDescription)))
-            }
-            
-            if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
-                return completion(.failure(.invalidResponse))
-            }
-            
-            guard let data = data else {
-                return completion(.failure(.invalidData))
-            }
-            
-            do {
-                let result = try JSONDecoder().decode(CategoriesResponse.self, from: data)
-                completion(.success(result))
-            } catch (let error) {
-                print(error)
-                completion(.failure(.errorDecoder))
-            }
+    public func execute<T>(endpoint: EndpointType,
+                           completion: @escaping (Result<T, NetworkResponse>) -> Void
+    ) where T : Decodable {
+        router.request(endpoint) { [weak self] data, response, error in
+            self?.handleReponse(data: data,
+                                response: response,
+                                error: error,
+                                completion: completion)
+        }
+    }
+
+    // MARK: - Private Methods
+    
+    fileprivate func handleReponse<T>(data: Data?,
+                                      response: URLResponse?,
+                                      error: Error?,
+                                      completion: @escaping (Result<T, NetworkResponse>) -> Void
+    ) where T : Decodable {
+        if let error = error {
+            return completion(.failure(.errorGeneric(description: error.localizedDescription)))
+        }
+        
+        if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
+            return completion(.failure(.invalidResponse))
+        }
+        
+        guard let data = data else {
+            return completion(.failure(.invalidData))
+        }
+        
+        do {
+            let result = try JSONDecoder().decode(T.self, from: data)
+            completion(.success(result))
+        } catch (let error) {
+            print(error)
+            completion(.failure(.errorDecoder))
         }
     }
 }

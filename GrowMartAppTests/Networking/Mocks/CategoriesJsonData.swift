@@ -1,0 +1,28 @@
+//
+//  CategoriesJsonData.swift
+//  GrowMartAppTests
+//
+//  Created by Kaue de Assis Jacyntho on 28/10/22.
+//
+
+import Foundation
+
+let CategoriesJsonData = """
+{
+    "entries": [
+        {
+            "id": "4229cf8c-50a9-4ae4-9810-06183070604e",
+            "image": "https://picsum.photos/200/300",
+            "name": "ROUPAS"
+        }, {
+            "id": "b4fe2451-00f2-4ff2-a67b-e396a35f6feb",
+            "image": "https://picsum.photos/200/300",
+            "name": "ACESSÓRIOS"
+        }, {
+            "id": "0f02d981-0303-4f52-abc9-92ea09b24800",
+            "image": "https://picsum.photos/200/300",
+            "name": "OUTROS"
+        }
+    ]
+}
+""".data(using: .utf8)

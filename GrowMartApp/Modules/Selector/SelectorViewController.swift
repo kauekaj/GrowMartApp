@@ -5,7 +5,6 @@
 //  Created by Kaue de Assis Jacyntho on 02/09/22.
 //
 
-
 import UIKit
 
 class SelectorViewController: BaseViewController {
@@ -16,7 +15,7 @@ class SelectorViewController: BaseViewController {
         return element
     }()
     
-    private lazy var networkManager = NetworkManager()
+    private lazy var networkManager = NetworkManager(router: AFRouter())
 
     // MARK: - View Life Cycle
     
@@ -57,7 +56,7 @@ class SelectorViewController: BaseViewController {
     }
     
     private func callService() {
-        networkManager.getCategories { [weak self] (response: Result<CategoriesResponse, NetworkErrorResponse>) in
+        networkManager.execute(endpoint: CategoriesApi.list) { [weak self] (response: Result<CategoriesResponse, NetworkResponse>) in
             guard let safeSelf = self else { return }
             
             switch response {
@@ -70,6 +69,20 @@ class SelectorViewController: BaseViewController {
                 safeSelf.renderButtons(categories: categories)
             case .failure:
                 safeSelf.renderErrorState()
+            }
+        }
+    }
+    
+    private func getCategory(id: Int) {
+        networkManager.execute(endpoint: CategoriesApi.get(id: id)) { [weak self] (response: Result<CategoryResponse, NetworkResponse>) in
+            
+            switch response {
+            case let .success(_):
+                // Mostrar os dados da categoria recuperada
+                break
+            case .failure:
+                // Mostrar estado de erro
+                break
             }
         }
     }
