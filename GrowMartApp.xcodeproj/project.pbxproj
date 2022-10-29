@@ -29,6 +29,8 @@
 		969760C8290C1C2B0011A780 /* ParameterEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969760C7290C1C2B0011A780 /* ParameterEncodingTests.swift */; };
 		9697F99F290C8A1B00E91687 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F99E290C8A1B00E91687 /* ProductDetailView.swift */; };
 		9697F9A1290C8A2700E91687 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F9A0290C8A2700E91687 /* ProductDetailViewController.swift */; };
+		9697F9A3290C8B6700E91687 /* SimpleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F9A2290C8B6700E91687 /* SimpleScrollView.swift */; };
+		9697F9A5290C91AF00E91687 /* SellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F9A4290C91AF00E91687 /* SellerView.swift */; };
 		9698BF0D28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698BF0C28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift */; };
 		9698BF0F28E21331008DFF41 /* CheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698BF0E28E21331008DFF41 /* CheckboxCell.swift */; };
 		9698CC8D28E3090A00E9DBB7 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698CC8C28E3090A00E9DBB7 /* BaseView.swift */; };
@@ -131,6 +133,8 @@
 		969760C7290C1C2B0011A780 /* ParameterEncodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncodingTests.swift; sourceTree = "<group>"; };
 		9697F99E290C8A1B00E91687 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		9697F9A0290C8A2700E91687 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		9697F9A2290C8B6700E91687 /* SimpleScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleScrollView.swift; sourceTree = "<group>"; };
+		9697F9A4290C91AF00E91687 /* SellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerView.swift; sourceTree = "<group>"; };
 		9698BF0C28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCustomTextFieldCell.swift; sourceTree = "<group>"; };
 		9698BF0E28E21331008DFF41 /* CheckboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxCell.swift; sourceTree = "<group>"; };
 		9698CC8C28E3090A00E9DBB7 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -571,6 +575,8 @@
 				96A28E3528DB596B00D39621 /* HeaderView.swift */,
 				96A58E3928E76B4700A71090 /* RightIconTextField.swift */,
 				96A58E3D28E76DEE00A71090 /* PickerView.swift */,
+				9697F9A2290C8B6700E91687 /* SimpleScrollView.swift */,
+				9697F9A4290C91AF00E91687 /* SellerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -894,6 +900,7 @@
 				96B1C27728D2813A003AA7ED /* CatalogItemCell.swift in Sources */,
 				96C2DFEE28EB4C1100819AE5 /* UICollectionViewCell.swift in Sources */,
 				96C8384328C7589D00E76F1D /* CartViewController.swift in Sources */,
+				9697F9A3290C8B6700E91687 /* SimpleScrollView.swift in Sources */,
 				96A58E3628E7686600A71090 /* SimpleTextfieldCell.swift in Sources */,
 				969B2DA9290AB550008DEED2 /* AFRouter.swift in Sources */,
 				96A06BE328DB7AF100846A4D /* UITableViewCell+Extensions.swift in Sources */,
@@ -923,6 +930,7 @@
 				96A28E3628DB596B00D39621 /* HeaderView.swift in Sources */,
 				96040E8928B432230029B0D7 /* SceneDelegate.swift in Sources */,
 				9697398928F62C2300AA029F /* LoadingCell.swift in Sources */,
+				9697F9A5290C91AF00E91687 /* SellerView.swift in Sources */,
 				9699C18F28C8D19D00481568 /* ProductCell.swift in Sources */,
 				9698BF0D28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift in Sources */,
 				969A627C28FD666000879028 /* JSONParameterEncoder.swift in Sources */,

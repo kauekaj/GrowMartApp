@@ -11,8 +11,9 @@ class InfoDataView: UIStackView {
     
     private var title: String
     private var infos: [(leftValue: String, rightValue: String)]
+    private var footerTitle: String?
     private var footerMessage: String?
-    
+
     private var labelValues = [LabelValueView]()
 
     private lazy var titleLabel: UILabel = {
@@ -33,7 +34,16 @@ class InfoDataView: UIStackView {
         return element
     }()
     
-    private lazy var footerLabel: UILabel = {
+    private lazy var footerTitleLabel: UILabel = {
+        let element = UILabel()
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.font = .nunito(style: .bold, size: 12)
+        element.textColor = .black
+        element.numberOfLines = 0
+        return element
+    }()
+    
+    private lazy var footerMessageLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.font = .nunito(style: .regular, size: 12)
@@ -58,16 +68,17 @@ class InfoDataView: UIStackView {
     }
     
     // MARK: - Public Methods
-        
-        func updateData(infos: [(String, String)],
-                        footerMessage: String? = nil) {
-            self.infos = infos
-            self.footerMessage = footerMessage
-            arrangedSubviews.forEach({ $0.removeFromSuperview() })
-            labelValues.removeAll()
-            setupView()
-        }
     
+    func updateData(infos: [(String, String)],
+                    footerTitle: String? = nil,
+                    footerMessage: String? = nil) {
+        self.infos = infos
+        self.footerTitle = footerTitle
+        self.footerMessage = footerMessage
+        arrangedSubviews.forEach({ $0.removeFromSuperview() })
+        labelValues.removeAll()
+        setupView()
+    }
 }
 
 extension InfoDataView: ViewCodable {
@@ -81,31 +92,31 @@ extension InfoDataView: ViewCodable {
             addArrangedSubview(element)
         }
         
-        if let value = footerMessage, !value.isEmpty {
+        if let message = footerMessage, !message.isEmpty {
             addArrangedSubview(lineView)
-            addArrangedSubview(footerLabel)
+            if let title = footerTitle, !title.isEmpty {
+                addArrangedSubview(footerTitleLabel)
+            }
+            addArrangedSubview(footerMessageLabel)
         }
     }
     
     func setupConstraints() {
-        NSLayoutConstraint.activate([
-            titleLabel.widthAnchor.constraint(equalTo: widthAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: 35)
-        ])
-        
-        labelValues.forEach({ element in
-            NSLayoutConstraint.activate([
-                element.widthAnchor.constraint(equalTo: widthAnchor, constant: -32),
-                element.heightAnchor.constraint(equalToConstant: 30)
-            ])
-        })
+        titleLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+
+        labelValues.forEach {
+            $0.widthAnchor.constraint(equalTo: widthAnchor, constant: -32).isActive = true
+        }
         
         if let value = footerMessage, !value.isEmpty {
+            if let title = footerTitle, !title.isEmpty {
+                footerTitleLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -32).isActive = true
+            }
+            
             NSLayoutConstraint.activate([
                 lineView.widthAnchor.constraint(equalTo: widthAnchor, constant: -32),
                 lineView.heightAnchor.constraint(equalToConstant: 1),
-                footerLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -32),
-                footerLabel.heightAnchor.constraint(equalToConstant: 25)
+                footerMessageLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -32)
             ])
         }
     }
@@ -123,8 +134,9 @@ extension InfoDataView: ViewCodable {
         directionalLayoutMargins = .init(top: 0, leading: 0, bottom: 16, trailing: 0)
 
         titleLabel.text = title
-        footerLabel.text = footerMessage
-        
+        footerTitleLabel.text = footerTitle
+        footerMessageLabel.text = footerMessage
+
         setCustomSpacing(16, after: titleLabel)
         
         if let value = footerMessage, !value.isEmpty,
