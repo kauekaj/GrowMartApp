@@ -15,7 +15,7 @@ protocol ProductDetailViewDelegate: AnyObject {
 public final class ProductDetailView: BaseView {
     // MARK: - Public Properties
     weak var delegate: ProductDetailViewDelegate?
-    
+
     // MARK: - Private Properties
     private lazy var scrollView: SimpleScrollView = {
         let element = SimpleScrollView(spacing: 32,
@@ -23,7 +23,7 @@ public final class ProductDetailView: BaseView {
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
-    
+
     private lazy var productDetailStackView: UIStackView = {
         let element = UIStackView()
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +51,7 @@ public final class ProductDetailView: BaseView {
         element.layer.cornerRadius = 5
         return element
     }()
-    
+
     private lazy var priceStackView: UIStackView = {
         let element = UIStackView()
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -112,7 +112,7 @@ public final class ProductDetailView: BaseView {
         element.layer.cornerRadius = 5
         return element
     }()
-    
+
     private lazy var detailsView: InfoDataView = {
         let element = InfoDataView(title: "detalhes", infos: [])
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -130,25 +130,25 @@ public final class ProductDetailView: BaseView {
         super.init()
         setupView()
     }
-    
+
     required init?(coder: NSCoder) {
         nil
     }
-        
+
     // MARK: Actions
-    
+
     @objc
     private func didTapAddToCart() {
         delegate?.didTapAddToCart()
     }
-    
+
     @objc
     private func didTapShare() {
         delegate?.didTapShare()
     }
 
     // MARK: - Public Methods
-    
+
     func set(product: ProductResponse) {
         DispatchQueue.main.async { [weak self] in
             self?.updateProductData(product: product)
@@ -156,7 +156,7 @@ public final class ProductDetailView: BaseView {
             self?.updateSellerView(product: product)
         }
     }
-    
+
     // MARK: Private Methods
     private func updateProductData(product: ProductResponse) {
         nameLabel.text = product.name
@@ -164,7 +164,7 @@ public final class ProductDetailView: BaseView {
         priceLabel.text = product.price
         descriptionValueLabel.text = product.description
     }
-    
+
     private func updateDetailsView(product: ProductResponse) {
         detailsView.updateData(
             infos: [
@@ -176,7 +176,7 @@ public final class ProductDetailView: BaseView {
             footerMessage: product.otherInfos
         )
     }
-    
+
     private func updateSellerView(product: ProductResponse) {
         sellerView.updateData(name: product.seller?.name ?? "",
                               memberSince: product.seller?.memberSince ?? "",
@@ -188,7 +188,7 @@ public final class ProductDetailView: BaseView {
 extension ProductDetailView {
     override public func buildViewHierarchy() {
         super.buildViewHierarchy()
-        
+
         productDetailStackView.addArrangedSubview(nameLabel)
         productDetailStackView.addArrangedSubview(photoImageView)
         productDetailStackView.addArrangedSubview(priceStackView)
@@ -196,24 +196,24 @@ extension ProductDetailView {
         priceStackView.addArrangedSubview(shareButton)
         productDetailStackView.addArrangedSubview(descriptionTitleLabel)
         productDetailStackView.addArrangedSubview(descriptionValueLabel)
-        
+
         scrollView.addSubview(productDetailStackView)
         scrollView.addSubview(addToCartButton)
         scrollView.addSubview(detailsView)
         scrollView.addSubview(sellerView)
-        
+
         addSubview(scrollView)
     }
 
     override public func setupConstraints() {
         super.setupConstraints()
-        
+
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: topYellowBarView.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            
+
             photoImageView.heightAnchor.constraint(equalToConstant: 300),
             shareButton.heightAnchor.constraint(equalToConstant: 30),
             shareButton.widthAnchor.constraint(equalToConstant: 30)

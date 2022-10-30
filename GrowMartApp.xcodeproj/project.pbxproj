@@ -140,6 +140,7 @@
 		9698BF0E28E21331008DFF41 /* CheckboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxCell.swift; sourceTree = "<group>"; };
 		9698CC8C28E3090A00E9DBB7 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		969950FD290E8A2300529F2A /* ProductsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsEndpoint.swift; sourceTree = "<group>"; };
+		969950FF290E8CBC00529F2A /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		9699C18E28C8D19D00481568 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		9699C19028C8D27400481568 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		969A627728FD61F000879028 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -431,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				9697398428F6255400AA029F /* Categories.json */,
+				969950FF290E8CBC00529F2A /* products.json */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
