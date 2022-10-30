@@ -8,28 +8,23 @@
 import UIKit
 
 class CatalogViewController: BaseViewController {
-    
     // MARK: - Private Properties
     private lazy var catalogView: CatalogView = {
         let element = CatalogView()
         element.delegate = self
         return element
     }()
-    private var products = [Product]()
     
-    private let clothesUrl = "https://fjallraven.vteximg.com.br/arquivos/ids/156206-751-936/F87314620_Camiseta_Masculina_Tornetrask_T-shirt_M_front_1.png"
-    private let acessoriesUrl = "https://secure-static.arezzo.com.br/medias/sys_master/arezzo/arezzo/h79/h77/h00/h00/10406142246942/5002305310001U-01-BASEIMAGE-Midres.jpg"
-    private let othersUrl = "https://www.mariapiacasa.com.br/media/catalog/product/cache/1/image/0dc2d03fe217f8c83829496872af24a0/t/o/toca-discos-vinil-retro-dallas-classic-35309-1.jpg"
-    
+    private lazy var networkManager = NetworkManager(router: Router())
+    private var products = [ProductResponse]()
+
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
-        
-        addFakeProducts(name: "Item categoria roupas", imageUrl: clothesUrl)
-        catalogView.reloadData()
         addCartButton()
+        callService()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,24 +38,34 @@ class CatalogViewController: BaseViewController {
     }
     
     // MARK: - Private Methods
-    private func addFakeProducts(name: String, imageUrl: String) {
-        products.removeAll()
-        for index in 0...20 {
-            products.append(.init(name: "\(name) \(index)",
-                                  price: "R$ 99.99",
-                                  imageUrl: imageUrl))
+    private func callService() {
+        networkManager.execute(endpoint: ProductsApi.list(page: 1, pageSize: 20)) { [weak self] (response: Result<ProductsResponse, NetworkResponse>) in
+            guard let safeSelf = self else { return }
+            
+            switch response {
+            case let .success(data):
+                guard let products = data.entries else {
+                    // Apresentar estado de erro
+                    return
+                }
+                
+                safeSelf.products.append(contentsOf: products)
+                safeSelf.catalogView.reloadData()
+            case .failure:
+                // Apresentar estado de erro
+                break
+            }
         }
     }
 }
 
 // MARK: - CatalogViewDelegate
 extension CatalogViewController: CatalogViewDelegate {
-    
     func numberOfItems() -> Int {
         products.count
     }
     
-    func getProduct(at index: Int) -> Product? {
+    func getProduct(at index: Int) -> ProductResponse? {
         guard index < products.count else {
             return nil
         }
@@ -68,20 +73,20 @@ extension CatalogViewController: CatalogViewDelegate {
         return products[index]
     }
     
-    func didTapProduct(at index: Int) {
-        navigationController?.pushViewController(CartViewController(), animated: true)
+    func didSelectCategory(index: Int, name: String) {
+//        var url = ""
+//
+//        switch index {
+//        case 0: url = clothesFakeUrl
+//        case 1: url = acessoriesFakeUrl
+//        default: url = othersFakeUrl
+//        }
+//
+//        addFakeProducts(name: "Item categoria \(name)", imageUrl: url)
+        catalogView.reloadData()
     }
     
-    func didSelectCategory(index: Int, name: String) {
-        var url = ""
-        
-        switch index {
-        case 0: url = clothesUrl
-        case 1: url = acessoriesUrl
-        default: url = othersUrl
-        }
-        
-        addFakeProducts(name: name, imageUrl: url)
-        catalogView.reloadData()
+    func didTapProduct(at index: Int) {
+        navigationController?.pushViewController(ProductDetailViewController(), animated: true)
     }
 }

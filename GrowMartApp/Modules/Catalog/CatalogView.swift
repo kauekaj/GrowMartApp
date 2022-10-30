@@ -7,12 +7,12 @@
 
 import UIKit
 
-public protocol CatalogViewDelegate: AnyObject {
-       func numberOfItems() -> Int
-       func getProduct(at index: Int) -> Product?
+protocol CatalogViewDelegate: AnyObject {
+    func numberOfItems() -> Int
+    func getProduct(at index: Int) -> ProductResponse?
 
-       func didSelectCategory(index: Int, name: String)
-       func didTapProduct(at index: Int)
+    func didTapProduct(at index: Int)
+    func didSelectCategory(index: Int, name: String)
 }
 
 class CatalogView: UIView {
@@ -136,6 +136,8 @@ extension CatalogView: ViewCodable {
         collectionView.register(CatalogItemCell.self, forCellWithReuseIdentifier: CatalogItemCell.identifier)
     }
 }
+
+// MARK: - UICollectionViewDataSource & UICollectionViewDelegate
 
 extension CatalogView: UICollectionViewDataSource, UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
