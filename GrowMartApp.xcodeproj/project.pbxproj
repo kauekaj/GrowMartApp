@@ -110,6 +110,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		082E8E951630022FFC7F961B /* Pods-GrowMartApp.mock.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowMartApp.mock.xcconfig"; path = "Target Support Files/Pods-GrowMartApp/Pods-GrowMartApp.mock.xcconfig"; sourceTree = "<group>"; };
 		20CF47227B3446193022427B /* Pods-GrowMartApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowMartApp.release.xcconfig"; path = "Target Support Files/Pods-GrowMartApp/Pods-GrowMartApp.release.xcconfig"; sourceTree = "<group>"; };
 		43CA39B493B7C6779F8A5D96 /* Pods-GrowMartApp-GrowMartAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowMartApp-GrowMartAppTests.release.xcconfig"; path = "Target Support Files/Pods-GrowMartApp-GrowMartAppTests/Pods-GrowMartApp-GrowMartAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		6316936F36703CD9189B025D /* Pods-GrowMartApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowMartApp.debug.xcconfig"; path = "Target Support Files/Pods-GrowMartApp/Pods-GrowMartApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +207,7 @@
 		96D16DE828CCC57400B65B23 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		96D16DEC28CCC95400B65B23 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
 		96F66EF128EAF7AE00A795E2 /* CarouselPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPhotosCell.swift; sourceTree = "<group>"; };
+		E221A0884F2BD3A51D09F027 /* Pods-GrowMartApp-GrowMartAppTests.mock.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowMartApp-GrowMartAppTests.mock.xcconfig"; path = "Target Support Files/Pods-GrowMartApp-GrowMartAppTests/Pods-GrowMartApp-GrowMartAppTests.mock.xcconfig"; sourceTree = "<group>"; };
 		E6E35110097D65EE99A215E6 /* Pods_GrowMartApp_GrowMartAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrowMartApp_GrowMartAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -236,6 +238,8 @@
 				20CF47227B3446193022427B /* Pods-GrowMartApp.release.xcconfig */,
 				8DF7C5C03BFF84320949E1FA /* Pods-GrowMartApp-GrowMartAppTests.debug.xcconfig */,
 				43CA39B493B7C6779F8A5D96 /* Pods-GrowMartApp-GrowMartAppTests.release.xcconfig */,
+				082E8E951630022FFC7F961B /* Pods-GrowMartApp.mock.xcconfig */,
+				E221A0884F2BD3A51D09F027 /* Pods-GrowMartApp-GrowMartAppTests.mock.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1236,7 +1240,7 @@
 		};
 		969C25CA28F5716800AA44B1 /* Mock */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6316936F36703CD9189B025D /* Pods-GrowMartApp.debug.xcconfig */;
+			baseConfigurationReference = 082E8E951630022FFC7F961B /* Pods-GrowMartApp.mock.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1267,7 +1271,7 @@
 		};
 		969C25CB28F5716800AA44B1 /* Mock */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DF7C5C03BFF84320949E1FA /* Pods-GrowMartApp-GrowMartAppTests.debug.xcconfig */;
+			baseConfigurationReference = E221A0884F2BD3A51D09F027 /* Pods-GrowMartApp-GrowMartAppTests.mock.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
