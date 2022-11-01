@@ -34,19 +34,19 @@ class RouterTests: BaseTests {
         XCTAssertTrue(session.nextDataTask.resumeCalled)
     }
     
-    func testGetShouldReturnData() {
-        session.nextData = CategoriesJsonData
-        
-        sut.request(CategoriesApi.list) { data, response, error in
-            XCTAssertEqual(self.session.nextData, data)
-        }
-    }
-    
     func testCancellCalled() {
         sut.request(CategoriesApi.list) { _, _, _ in }
         sut.cancel()
         
         XCTAssertTrue(session.nextDataTask.cancelCalled)
+    }
+    
+    func testListShouldReturnData() {
+        session.nextData = CategoriesJsonData
+        
+        sut.request(CategoriesApi.list) { data, response, error in
+            XCTAssertEqual(CategoriesJsonData, data)
+        }
     }
 }
 
@@ -55,12 +55,13 @@ class URLSessionMock: URLSessionProtocol {
     var nextDataTask = URLSessionDataTaskSpy()
     var nextData: Data?
     var nextError: Error?
+    var nextStatusCode: Int = 200
     
     private (set) var lastURL: URL?
     
-    func successResponse(request: URLRequest) -> URLResponse {
+    func expectedResponse(request: URLRequest, expectedStatusCode: Int) -> URLResponse {
         return HTTPURLResponse(url: request.url!,
-                               statusCode: 200,
+                               statusCode: expectedStatusCode,
                                httpVersion: "HTTP/1.1",
                                headerFields: nil)!
     }
@@ -69,7 +70,8 @@ class URLSessionMock: URLSessionProtocol {
                   completionHandler: @escaping NetworkRouterCompletion) -> URLSessionDataTaskProtocol {
         lastURL = request.url
         
-        completionHandler(nextData, successResponse(request: request), nextError)
+        completionHandler(nextData, expectedResponse(request: request,
+                                                     expectedStatusCode: nextStatusCode), nextError)
         return nextDataTask
     }
 }

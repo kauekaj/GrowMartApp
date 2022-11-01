@@ -32,7 +32,7 @@ class NetworkManagerTests: BaseTests {
         }
     }
     
-    func testCallExecuteWithFailureShouldReturnError() throws {
+    func testCallExecuteWithFailureShouldReturnFailure() throws {
         let sut = try makeSUT()
 
         sut.execute(endpoint: CategoriesApi.list) { (response: Result<CategoriesResponse, NetworkResponse>) in
@@ -40,7 +40,7 @@ class NetworkManagerTests: BaseTests {
         }
     }
     
-    func testCallExecuteWithSuccessAndDataNilShouldReturnError() throws {
+    func testCallExecuteWithSuccessAndDataNilShouldReturnFailure() throws {
         let sut = try makeSUT(mockedData: nil)
 
         sut.execute(endpoint: CategoriesApi.list) { (response: Result<CategoriesResponse, NetworkResponse>) in
@@ -48,7 +48,7 @@ class NetworkManagerTests: BaseTests {
         }
     }
     
-    func testCallExecuteWithSuccessAndInvalidResponseShouldReturnError() throws {
+    func testCallExecuteWithSuccessAndInvalidResponseShouldReturnFailure() throws {
         let sut = try makeSUT(mockedURLResponse: HTTPURLResponse(url: .init(string: "http://test.com")!,
                                                                  statusCode: 500,
                                                                  httpVersion: nil,
@@ -59,7 +59,7 @@ class NetworkManagerTests: BaseTests {
         }
     }
     
-    func testCallExecuteWithErrorShouldReturnError() throws {
+    func testCallExecuteWithErrorShouldReturnFailure() throws {
         let sut = try makeSUT(mockedError: NSError(domain: "Error scenario test", code: 500))
 
         sut.execute(endpoint: CategoriesApi.list) { (response: Result<CategoriesResponse, NetworkResponse>) in
