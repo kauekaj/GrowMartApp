@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 // MARK: - Request
 public enum CategoriesApi {
     case get(id: Int)
