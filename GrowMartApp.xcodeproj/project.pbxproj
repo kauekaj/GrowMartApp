@@ -14,6 +14,8 @@
 		96040E8B28B432230029B0D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96040E8A28B432230029B0D7 /* LoginViewController.swift */; };
 		96040E9028B432230029B0D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96040E8F28B432230029B0D7 /* Assets.xcassets */; };
 		96040E9328B432230029B0D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96040E9128B432230029B0D7 /* LaunchScreen.storyboard */; };
+		961871192911CCD700B9140E /* ProductsJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961871182911CCD700B9140E /* ProductsJsonData.swift */; };
+		9618711B2911CCF800B9140E /* ProductDetailJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618711A2911CCF800B9140E /* ProductDetailJsonData.swift */; };
 		967ACF1528DF39CB00854CA7 /* CustomTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ACF1428DF39CB00854CA7 /* CustomTextFieldCell.swift */; };
 		9686997D28BD6AC20060F512 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686997C28BD6AC20060F512 /* UIFont+Extensions.swift */; };
 		9686998628BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */; };
@@ -123,6 +125,8 @@
 		96040E8F28B432230029B0D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96040E9228B432230029B0D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96040E9428B432230029B0D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		961871182911CCD700B9140E /* ProductsJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsJsonData.swift; sourceTree = "<group>"; };
+		9618711A2911CCF800B9140E /* ProductDetailJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailJsonData.swift; sourceTree = "<group>"; };
 		967ACF1428DF39CB00854CA7 /* CustomTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldCell.swift; sourceTree = "<group>"; };
 		9686997C28BD6AC20060F512 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
@@ -348,6 +352,8 @@
 			isa = PBXGroup;
 			children = (
 				9696716C290BE82900028A98 /* CategoriesJsonData.swift */,
+				961871182911CCD700B9140E /* ProductsJsonData.swift */,
+				9618711A2911CCF800B9140E /* ProductDetailJsonData.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -967,6 +973,7 @@
 			files = (
 				96B0EDFA28EDF47100E0E4B9 /* LoginViewControllerTests.swift in Sources */,
 				9696716D290BE82900028A98 /* CategoriesJsonData.swift in Sources */,
+				961871192911CCD700B9140E /* ProductsJsonData.swift in Sources */,
 				969C3EAD28ED948400B8CDCA /* Mirror+Extensions.swift in Sources */,
 				96B0EDFC28EDF48600E0E4B9 /* LoginViewTests.swift in Sources */,
 				9696716F290BE9F100028A98 /* CategoriesEndpointTests.swift in Sources */,
@@ -976,6 +983,7 @@
 				9696716B290BE71400028A98 /* NetworkManagerTests.swift in Sources */,
 				969C3EA528ED895B00B8CDCA /* CategoryButtonTests.swift in Sources */,
 				969C3EA728ED90A200B8CDCA /* CategoriesSegmentedControlTests.swift in Sources */,
+				9618711B2911CCF800B9140E /* ProductDetailJsonData.swift in Sources */,
 				969C3EAA28ED92F800B8CDCA /* ButtonCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
