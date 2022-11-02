@@ -34,6 +34,8 @@
 		9697F9A1290C8A2700E91687 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F9A0290C8A2700E91687 /* ProductDetailViewController.swift */; };
 		9697F9A3290C8B6700E91687 /* SimpleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F9A2290C8B6700E91687 /* SimpleScrollView.swift */; };
 		9697F9A5290C91AF00E91687 /* SellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F9A4290C91AF00E91687 /* SellerView.swift */; };
+		9698866C2912B3DB00A84FA9 /* auth.json in Resources */ = {isa = PBXBuildFile; fileRef = 9698866B2912B3DB00A84FA9 /* auth.json */; };
+		9698866E2912B42F00A84FA9 /* AuthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698866D2912B42F00A84FA9 /* AuthEndpoint.swift */; };
 		9698BF0D28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698BF0C28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift */; };
 		9698BF0F28E21331008DFF41 /* CheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698BF0E28E21331008DFF41 /* CheckboxCell.swift */; };
 		9698CC8D28E3090A00E9DBB7 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698CC8C28E3090A00E9DBB7 /* BaseView.swift */; };
@@ -145,6 +147,8 @@
 		9697F9A0290C8A2700E91687 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		9697F9A2290C8B6700E91687 /* SimpleScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleScrollView.swift; sourceTree = "<group>"; };
 		9697F9A4290C91AF00E91687 /* SellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerView.swift; sourceTree = "<group>"; };
+		9698866B2912B3DB00A84FA9 /* auth.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = auth.json; sourceTree = "<group>"; };
+		9698866D2912B42F00A84FA9 /* AuthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndpoint.swift; sourceTree = "<group>"; };
 		9698BF0C28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCustomTextFieldCell.swift; sourceTree = "<group>"; };
 		9698BF0E28E21331008DFF41 /* CheckboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxCell.swift; sourceTree = "<group>"; };
 		9698CC8C28E3090A00E9DBB7 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -449,6 +453,7 @@
 				9697398428F6255400AA029F /* categories.json */,
 				969950FF290E8CBC00529F2A /* products.json */,
 				96995100290E999C00529F2A /* product-detail.json */,
+				9698866B2912B3DB00A84FA9 /* auth.json */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -582,6 +587,7 @@
 				96ADD2562909F6BF00EE9574 /* CategoriesEndpoint.swift */,
 				969950FD290E8A2300529F2A /* ProductsEndpoint.swift */,
 				96974438290EC6C300E447AC /* HomeEndpoint.swift */,
+				9698866D2912B42F00A84FA9 /* AuthEndpoint.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -775,6 +781,7 @@
 				9686998728BD82020060F512 /* Nunito-VariableFont_wght.ttf in Resources */,
 				96040E9328B432230029B0D7 /* LaunchScreen.storyboard in Resources */,
 				96995102290E99A600529F2A /* products.json in Resources */,
+				9698866C2912B3DB00A84FA9 /* auth.json in Resources */,
 				96995101290E999C00529F2A /* product-detail.json in Resources */,
 				9686998628BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf in Resources */,
 				96040E9028B432230029B0D7 /* Assets.xcassets in Resources */,
@@ -903,6 +910,7 @@
 				96C2DFEC28EB4AF200819AE5 /* PhotoCell.swift in Sources */,
 				96B9835028B59A9E00073871 /* LoginView.swift in Sources */,
 				96A58E3228E764EA00A71090 /* ProductDataView.swift in Sources */,
+				9698866E2912B42F00A84FA9 /* AuthEndpoint.swift in Sources */,
 				96A914C328C8BA33008ABFB1 /* TotalCell.swift in Sources */,
 				969B2DAB290AB577008DEED2 /* HTTPMethod.swift in Sources */,
 				967ACF1528DF39CB00854CA7 /* CustomTextFieldCell.swift in Sources */,
