@@ -57,20 +57,26 @@ class LoginViewTests: BaseTests {
 
 // MARK: - LoginViewDelegate
 class LoginViewSpy: LoginViewDelegate {
-   
+
     var didTapFacebookLoginCalled = false
     var didTapGoogleLoginCalled = false
+    var didTapLoginCalled = false
 
-    func openFacebookLogin() {
+    func didTapFacebookLogin() {
         didTapFacebookLoginCalled = true
     }
     
-    func openGoogleLogin() {
+    func didTapGoogleLogin() {
         didTapGoogleLoginCalled = true
+    }
+    
+    func didTapLogin(login: String, password: String) {
+        didTapLoginCalled = true
     }
     
     func resetFlags() {
         didTapFacebookLoginCalled = false
         didTapGoogleLoginCalled = false
+        didTapLoginCalled = false
     }
 }
