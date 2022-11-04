@@ -83,7 +83,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     private func getTabFavorites() -> UINavigationController {
-        let tabFavorites = CartViewController()
+        let tabFavorites = FavoritesViewController()
         let tabFavoritesBarItem = UITabBarItem(title: "Favoritos",
                                                image: .makeWith(systemImage: .starFill,
                                                                 color: .init(rgb: 0xA0A4A8)),

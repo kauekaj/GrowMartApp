@@ -71,17 +71,16 @@ extension FavoritesView {
 
     public override func setupConstraints() {
         super.setupConstraints()
-        let lg = safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: topYellowBarView.bottomAnchor, constant: 24),
-            headerView.leadingAnchor.constraint(equalTo: lg.leadingAnchor, constant: 32),
-            headerView.trailingAnchor.constraint(equalTo: lg.trailingAnchor, constant: -32),
+            headerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            headerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -32),
 
             collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 16),
-            collectionView.leadingAnchor.constraint(equalTo: lg.leadingAnchor, constant: 32),
-            collectionView.trailingAnchor.constraint(equalTo: lg.trailingAnchor, constant: -32),
-            collectionView.bottomAnchor.constraint(equalTo: lg.bottomAnchor)
+            collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -32),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 

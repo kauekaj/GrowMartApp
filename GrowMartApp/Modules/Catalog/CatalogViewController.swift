@@ -18,7 +18,7 @@ class CatalogViewController: BaseViewController {
     
     private lazy var networkManager = NetworkManager(router: Router())
     private var products = [ProductResponse]()
-//    private var favorites = [Favorite]()
+    private var favorites = [Favorite]()
 
     // MARK: - View Life Cycle
     
@@ -42,22 +42,22 @@ class CatalogViewController: BaseViewController {
     
     // MARK: - Private Methods
     
-//    private func loadFavorites() {
-//        let favoritesFetch: NSFetchRequest<Favorite> = Favorite.fetchRequest()
-//        let sortById = NSSortDescriptor(key: #keyPath(Favorite.identifier), ascending: false)
-//        favoritesFetch.sortDescriptors = [sortById]
-//
-//        // Explanation: https://stackoverflow.com/questions/7304257/coredata-error-data-fault
-//        favoritesFetch.returnsObjectsAsFaults = false
-//
-//        do {
-//            let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
-//            let results = try managedContext.fetch(favoritesFetch)
-//            favorites = results
-//        } catch let error as NSError {
-//            print("Fetch error: \(error) description: \(error.userInfo)")
-//        }
-//    }
+    private func loadFavorites() {
+        let favoritesFetch: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+        let sortById = NSSortDescriptor(key: #keyPath(Favorite.identifier), ascending: false)
+        favoritesFetch.sortDescriptors = [sortById]
+
+        // Explanation: https://stackoverflow.com/questions/7304257/coredata-error-data-fault
+        favoritesFetch.returnsObjectsAsFaults = false
+
+        do {
+            let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+            let results = try managedContext.fetch(favoritesFetch)
+            favorites = results
+        } catch let error as NSError {
+            print("Fetch error: \(error) description: \(error.userInfo)")
+        }
+    }
 
     private func callService() {
         networkManager.execute(endpoint: ProductsApi.list(page: 1)) { [weak self] (response: Result<ProductsResponse, NetworkResponse>) in
@@ -78,42 +78,42 @@ class CatalogViewController: BaseViewController {
             }
         }
     }
-//
-//    private func addFavorite(id: String) {
-//        guard let product = products.first(where: { $0.id == id }) else {
-//            return
-//        }
-//
-//        let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
-//        let newFavorite = Favorite(context: managedContext)
-//        newFavorite.setValue(product.id, forKey: #keyPath(Favorite.identifier))
-//        newFavorite.setValue(product.image, forKey: #keyPath(Favorite.image))
-//        newFavorite.setValue(product.name, forKey: #keyPath(Favorite.name))
-//        newFavorite.setValue(product.price, forKey: #keyPath(Favorite.price))
-//
-//        favorites.insert(newFavorite, at: 0)
-//        AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
-//    }
 
-//    private func removeFavorite(id: String) {
-//        guard let index = favorites.firstIndex(where: { $0.identifier == id }) else {
-//            return
-//        }
-//
-//        AppDelegate.sharedAppDelegate.coreDataStack.managedContext.delete(favorites[index])
-//        favorites.remove(at: index)
-//        AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
-//    }
+    private func addFavorite(id: String) {
+        guard let product = products.first(where: { $0.id == id }) else {
+            return
+        }
+
+        let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+        let newFavorite = Favorite(context: managedContext)
+        newFavorite.setValue(product.id, forKey: #keyPath(Favorite.identifier))
+        newFavorite.setValue(product.image, forKey: #keyPath(Favorite.image))
+        newFavorite.setValue(product.name, forKey: #keyPath(Favorite.name))
+        newFavorite.setValue(product.price, forKey: #keyPath(Favorite.price))
+
+        favorites.insert(newFavorite, at: 0)
+        AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
+    }
+
+    private func removeFavorite(id: String) {
+        guard let index = favorites.firstIndex(where: { $0.identifier == id }) else {
+            return
+        }
+
+        AppDelegate.sharedAppDelegate.coreDataStack.managedContext.delete(favorites[index])
+        favorites.remove(at: index)
+        AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
+    }
 }
 
 // MARK: - CatalogViewDelegate
 extension CatalogViewController: CatalogViewDelegate {
     func didTapFavorite(id: String, isFavorite: Bool) {
-//        if isFavorite {
-//            addFavorite(id: id)
-//        } else {
-//            removeFavorite(id: id)
-//        }
+        if isFavorite {
+            addFavorite(id: id)
+        } else {
+            removeFavorite(id: id)
+        }
     }
     
     func numberOfItems() -> Int {
@@ -137,8 +137,7 @@ extension CatalogViewController: CatalogViewDelegate {
     }
     
     func isFavorite(id: String) -> Bool {
-//        favorites.compactMap { $0.identifier }.contains(id)
-        false
+        favorites.compactMap { $0.identifier }.contains(id)
     }
     
     func didTapFilterButton() {

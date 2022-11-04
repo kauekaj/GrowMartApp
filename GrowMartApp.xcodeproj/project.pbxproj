@@ -20,7 +20,7 @@
 		965EEA2A2915166E006E4A39 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA292915166E006E4A39 /* FavoritesViewController.swift */; };
 		965EEA2C291516F8006E4A39 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA2B291516F8006E4A39 /* FavoriteCell.swift */; };
 		965EEA2F2915186A006E4A39 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA2E2915186A006E4A39 /* CoreDataStack.swift */; };
-		965EEA3329151B51006E4A39 /* Favotites.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA3129151B51006E4A39 /* Favotites.xcdatamodeld */; };
+		965EEA3329151B51006E4A39 /* Favorites.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA3129151B51006E4A39 /* Favorites.xcdatamodeld */; };
 		967ACF1528DF39CB00854CA7 /* CustomTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ACF1428DF39CB00854CA7 /* CustomTextFieldCell.swift */; };
 		9686997D28BD6AC20060F512 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686997C28BD6AC20060F512 /* UIFont+Extensions.swift */; };
 		9686998628BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */; };
@@ -344,7 +344,7 @@
 		965EEA3029151B28006E4A39 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				965EEA3129151B51006E4A39 /* Favotites.xcdatamodeld */,
+				965EEA3129151B51006E4A39 /* Favorites.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -979,7 +979,7 @@
 				969B2DAB290AB577008DEED2 /* HTTPMethod.swift in Sources */,
 				967ACF1528DF39CB00854CA7 /* CustomTextFieldCell.swift in Sources */,
 				96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */,
-				965EEA3329151B51006E4A39 /* Favotites.xcdatamodeld in Sources */,
+				965EEA3329151B51006E4A39 /* Favorites.xcdatamodeld in Sources */,
 				969B2DA7290AB2D4008DEED2 /* EndpointType.swift in Sources */,
 				96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */,
 				969951212913CDD30030E8FE /* UIImage+Extensions.swift in Sources */,
@@ -1450,13 +1450,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		965EEA3129151B51006E4A39 /* Favotites.xcdatamodeld */ = {
+		965EEA3129151B51006E4A39 /* Favorites.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				965EEA3229151B51006E4A39 /* Favotites.xcdatamodel */,
 			);
 			currentVersion = 965EEA3229151B51006E4A39 /* Favotites.xcdatamodel */;
-			path = Favotites.xcdatamodeld;
+			path = Favorites.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
