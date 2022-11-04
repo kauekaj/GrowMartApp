@@ -7,66 +7,86 @@
 
 import UIKit
 
-class CatalogItemCell: UICollectionViewCell {
+protocol CatalogItemCellDelegate: AnyObject {
+    func didTapFavorite(id: String, isFavorite: Bool)
+}
 
-    static var identifier: String {
-           return String(describing: self)
-       }
+public class CatalogItemCell: UICollectionViewCell {
+
+    weak var delegate: CatalogItemCellDelegate?
     
-       // MARK: - Private Properties
-       private lazy var productImageView: UIImageView = {
-           let element = UIImageView()
-           element.translatesAutoresizingMaskIntoConstraints = false
-           element.layer.masksToBounds = true
-           element.contentMode = .scaleToFill
-           element.backgroundColor = .lightGray
-           return element
-       }()
-       
-       private lazy var containerView: UIView = {
-           let element = UIView()
-           element.translatesAutoresizingMaskIntoConstraints = false
-           element.backgroundColor = UIColor(rgb: 0xA0A4A8)
-           return element
-       }()
-
-       private lazy var priceLabel: UILabel = {
-           let element = UILabel()
-           element.translatesAutoresizingMaskIntoConstraints = false
-           element.font = .nunito(style: .medium, size: 14)
-           element.textColor = .white
-           element.numberOfLines = 1
-           element.textAlignment = .left
-           return element
-       }()
-
-       private lazy var nameLabel: UILabel = {
-           let element = UILabel()
-           element.translatesAutoresizingMaskIntoConstraints = false
-           element.font = .nunito(style: .regular, size: 10)
-           element.textColor = .white
-           element.numberOfLines = 1
-           element.textAlignment = .left
-           return element
-       }()
-
-       // MARK: - Inits
-       override public init(frame: CGRect) {
-           super.init(frame: frame)
-           setupView()
-       }
-
-       public required init?(coder: NSCoder) {
-           nil
-       }
-
-       // MARK: - Public Methods
-        func setup(with product: ProductResponse) {
-           productImageView.addImageFromURL(urlString: product.image ?? "")
-           priceLabel.text = product.price
-           nameLabel.text = product.name
-       }
+    // MARK: - Private Properties
+    private lazy var productImageView: UIImageView = {
+        let element = UIImageView()
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.layer.masksToBounds = true
+        element.contentMode = .scaleToFill
+        element.backgroundColor = .lightGray
+        return element
+    }()
     
+    private lazy var containerView: UIView = {
+        let element = UIView()
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.backgroundColor = UIColor(rgb: 0xA0A4A8)
+        return element
+    }()
+
+    private lazy var priceLabel: UILabel = {
+        let element = UILabel()
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.font = .nunito(style: .medium, size: 14)
+        element.textColor = .white
+        element.numberOfLines = 1
+        element.textAlignment = .left
+        return element
+    }()
+
+    private lazy var nameLabel: UILabel = {
+        let element = UILabel()
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.font = .nunito(style: .regular, size: 10)
+        element.textColor = .white
+        element.numberOfLines = 1
+        element.textAlignment = .left
+        return element
+    }()
+    
+    private lazy var favoriteButton: FavoriteButton = {
+        let element = FavoriteButton()
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.addTarget(self, action: #selector(didTapFavorite), for: .touchUpInside)
+        return element
+    }()
+
+    // MARK: - Inits
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+
+    public required init?(coder: NSCoder) {
+        nil
+    }
+    
+    // MARK: Actions
+    
+    @objc
+    private func didTapFavorite() {
+        favoriteButton.toggleState()
+        delegate?.didTapFavorite(id: favoriteButton.productId,
+                                 isFavorite: favoriteButton.isFavorite)
+    }
+    
+    // MARK: - Public Methods
+    func setup(with product: ProductResponse, isFavorite: Bool) {
+        favoriteButton.productId = product.id ?? ""
+        favoriteButton.isFavorite = isFavorite
+
+        productImageView.addImageFromURL(urlString: product.image ?? "")
+        priceLabel.text = product.price
+        nameLabel.text = product.name
+    }
 }
 
 // MARK: - ViewCodable
@@ -76,6 +96,7 @@ extension CatalogItemCell: ViewCodable {
         contentView.addSubview(containerView)
         containerView.addSubview(priceLabel)
         containerView.addSubview(nameLabel)
+        containerView.addSubview(favoriteButton)
     }
 
     public func setupConstraints() {
@@ -84,7 +105,7 @@ extension CatalogItemCell: ViewCodable {
             productImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             productImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             productImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-
+            
             containerView.heightAnchor.constraint(equalToConstant: 50),
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -96,7 +117,12 @@ extension CatalogItemCell: ViewCodable {
 
             nameLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
-            nameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8)
+            nameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            
+            favoriteButton.widthAnchor.constraint(equalToConstant: 32),
+            favoriteButton.heightAnchor.constraint(equalToConstant: 32),
+            favoriteButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            favoriteButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
         ])
     }
 

@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Request
 public enum ProductsApi {
     case get(id: String)
-    case list(page: Int, pageSize: Int)
+    case list(page: Int)
 }
 
 extension ProductsApi: EndpointType {
@@ -18,19 +18,6 @@ extension ProductsApi: EndpointType {
         switch self {
         case let .get(id): return "product/\(id)"
         case .list: return "products"
-        }
-    }
-    
-    var task: HTTPTask {
-        switch self {
-        case .get: return .request
-        case let .list(page, pageSize):
-            return .requestParameters(bodyParameters: nil,
-                                      bodyEncoding: .urlEncoding,
-                                      urlParameters: [
-                                        "page": page,
-                                        "pageSize": pageSize
-                                      ])
         }
     }
         
@@ -45,12 +32,6 @@ extension ProductsApi: EndpointType {
 // MARK: - Response
 struct ProductsResponse: Codable, Equatable {
     let entries: [ProductResponse]?
-    let pagination: Pagination?
-}
-
-struct Pagination: Codable, Equatable {
-    let page: Int?
-    let totalEntries: Int?
 }
 
 struct ProductResponse: Codable, Equatable {
