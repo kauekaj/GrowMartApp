@@ -26,7 +26,7 @@ class CatalogViewController: BaseViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
         addCartButton()
-//        loadFavorites()
+        loadFavorites()
         callService()
     }
         
