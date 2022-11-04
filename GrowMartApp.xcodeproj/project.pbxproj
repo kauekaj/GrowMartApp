@@ -16,6 +16,9 @@
 		96040E9328B432230029B0D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96040E9128B432230029B0D7 /* LaunchScreen.storyboard */; };
 		961871192911CCD700B9140E /* ProductsJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961871182911CCD700B9140E /* ProductsJsonData.swift */; };
 		9618711B2911CCF800B9140E /* ProductDetailJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618711A2911CCF800B9140E /* ProductDetailJsonData.swift */; };
+		965EEA2829151640006E4A39 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA2729151640006E4A39 /* FavoritesView.swift */; };
+		965EEA2A2915166E006E4A39 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA292915166E006E4A39 /* FavoritesViewController.swift */; };
+		965EEA2C291516F8006E4A39 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA2B291516F8006E4A39 /* FavoriteCell.swift */; };
 		967ACF1528DF39CB00854CA7 /* CustomTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ACF1428DF39CB00854CA7 /* CustomTextFieldCell.swift */; };
 		9686997D28BD6AC20060F512 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686997C28BD6AC20060F512 /* UIFont+Extensions.swift */; };
 		9686998628BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */; };
@@ -132,6 +135,9 @@
 		96040E9428B432230029B0D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		961871182911CCD700B9140E /* ProductsJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsJsonData.swift; sourceTree = "<group>"; };
 		9618711A2911CCF800B9140E /* ProductDetailJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailJsonData.swift; sourceTree = "<group>"; };
+		965EEA2729151640006E4A39 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		965EEA292915166E006E4A39 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		965EEA2B291516F8006E4A39 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		967ACF1428DF39CB00854CA7 /* CustomTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldCell.swift; sourceTree = "<group>"; };
 		9686997C28BD6AC20060F512 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
@@ -301,6 +307,24 @@
 				96040E9428B432230029B0D7 /* Info.plist */,
 			);
 			path = GrowMartApp;
+			sourceTree = "<group>";
+		};
+		965EEA25291515DF006E4A39 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				965EEA26291515EE006E4A39 /* Cell */,
+				965EEA2729151640006E4A39 /* FavoritesView.swift */,
+				965EEA292915166E006E4A39 /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		965EEA26291515EE006E4A39 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				965EEA2B291516F8006E4A39 /* FavoriteCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		967ACF1128DF382B00854CA7 /* Commons */ = {
@@ -677,6 +701,7 @@
 		96D16DEA28CCC92D00B65B23 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				965EEA25291515DF006E4A39 /* Favorites */,
 				9697F99D290C89EE00E91687 /* ProductDetail */,
 				96A58E2C28E7613C00A71090 /* Product */,
 				9698CC8B28E308F700E9DBB7 /* Base */,
@@ -949,6 +974,7 @@
 				96040E8B28B432230029B0D7 /* LoginViewController.swift in Sources */,
 				96BD138E28D3347000406BB4 /* UIImageView+Extensions.swift in Sources */,
 				96B1C27728D2813A003AA7ED /* CatalogItemCell.swift in Sources */,
+				965EEA2829151640006E4A39 /* FavoritesView.swift in Sources */,
 				96C2DFEE28EB4C1100819AE5 /* UICollectionViewCell.swift in Sources */,
 				96C8384328C7589D00E76F1D /* CartViewController.swift in Sources */,
 				9697F9A3290C8B6700E91687 /* SimpleScrollView.swift in Sources */,
@@ -971,11 +997,13 @@
 				969950FE290E8A2300529F2A /* ProductsEndpoint.swift in Sources */,
 				96D16DE728CCC40200B65B23 /* CartFooterView.swift in Sources */,
 				9697398728F6260E00AA029F /* CategoryButtonCell.swift in Sources */,
+				965EEA2C291516F8006E4A39 /* FavoriteCell.swift in Sources */,
 				96A28E3828DB5C5800D39621 /* EditProfileView.swift in Sources */,
 				96A58E3C28E76D8E00A71090 /* UITextField+Extensions.swift in Sources */,
 				96040E8728B432230029B0D7 /* AppDelegate.swift in Sources */,
 				9692A82628D27B6400D040AA /* CategoriesSegmentedControl.swift in Sources */,
 				9699511F2913CC4A0030E8FE /* TabBarController.swift in Sources */,
+				965EEA2A2915166E006E4A39 /* FavoritesViewController.swift in Sources */,
 				96A58E3E28E76DEE00A71090 /* PickerView.swift in Sources */,
 				96C2DFEA28EB4A3E00819AE5 /* AddPhotoCell.swift in Sources */,
 				96D16DED28CCC95400B65B23 /* CatalogView.swift in Sources */,
