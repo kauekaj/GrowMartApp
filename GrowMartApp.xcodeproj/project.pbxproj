@@ -19,6 +19,8 @@
 		965EEA2829151640006E4A39 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA2729151640006E4A39 /* FavoritesView.swift */; };
 		965EEA2A2915166E006E4A39 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA292915166E006E4A39 /* FavoritesViewController.swift */; };
 		965EEA2C291516F8006E4A39 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA2B291516F8006E4A39 /* FavoriteCell.swift */; };
+		965EEA2F2915186A006E4A39 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA2E2915186A006E4A39 /* CoreDataStack.swift */; };
+		965EEA3329151B51006E4A39 /* Favotites.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA3129151B51006E4A39 /* Favotites.xcdatamodeld */; };
 		967ACF1528DF39CB00854CA7 /* CustomTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ACF1428DF39CB00854CA7 /* CustomTextFieldCell.swift */; };
 		9686997D28BD6AC20060F512 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686997C28BD6AC20060F512 /* UIFont+Extensions.swift */; };
 		9686998628BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */; };
@@ -138,6 +140,8 @@
 		965EEA2729151640006E4A39 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		965EEA292915166E006E4A39 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		965EEA2B291516F8006E4A39 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		965EEA2E2915186A006E4A39 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		965EEA3229151B51006E4A39 /* Favotites.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favotites.xcdatamodel; sourceTree = "<group>"; };
 		967ACF1428DF39CB00854CA7 /* CustomTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldCell.swift; sourceTree = "<group>"; };
 		9686997C28BD6AC20060F512 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
@@ -296,6 +300,7 @@
 		96040E8528B432230029B0D7 /* GrowMartApp */ = {
 			isa = PBXGroup;
 			children = (
+				965EEA2D2915182D006E4A39 /* CoreData */,
 				969A627528FD619600879028 /* Networking */,
 				967ACF1128DF382B00854CA7 /* Commons */,
 				96D16DEA28CCC92D00B65B23 /* Modules */,
@@ -325,6 +330,23 @@
 				965EEA2B291516F8006E4A39 /* FavoriteCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		965EEA2D2915182D006E4A39 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				965EEA3029151B28006E4A39 /* Models */,
+				965EEA2E2915186A006E4A39 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		965EEA3029151B28006E4A39 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				965EEA3129151B51006E4A39 /* Favotites.xcdatamodeld */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		967ACF1128DF382B00854CA7 /* Commons */ = {
@@ -957,6 +979,7 @@
 				969B2DAB290AB577008DEED2 /* HTTPMethod.swift in Sources */,
 				967ACF1528DF39CB00854CA7 /* CustomTextFieldCell.swift in Sources */,
 				96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */,
+				965EEA3329151B51006E4A39 /* Favotites.xcdatamodeld in Sources */,
 				969B2DA7290AB2D4008DEED2 /* EndpointType.swift in Sources */,
 				96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */,
 				969951212913CDD30030E8FE /* UIImage+Extensions.swift in Sources */,
@@ -972,6 +995,7 @@
 				96A66F1F28C20F6600497050 /* SelectorView.swift in Sources */,
 				9699C19128C8D27400481568 /* Product.swift in Sources */,
 				96040E8B28B432230029B0D7 /* LoginViewController.swift in Sources */,
+				965EEA2F2915186A006E4A39 /* CoreDataStack.swift in Sources */,
 				96BD138E28D3347000406BB4 /* UIImageView+Extensions.swift in Sources */,
 				96B1C27728D2813A003AA7ED /* CatalogItemCell.swift in Sources */,
 				965EEA2829151640006E4A39 /* FavoritesView.swift in Sources */,
@@ -1424,6 +1448,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		965EEA3129151B51006E4A39 /* Favotites.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				965EEA3229151B51006E4A39 /* Favotites.xcdatamodel */,
+			);
+			currentVersion = 965EEA3229151B51006E4A39 /* Favotites.xcdatamodel */;
+			path = Favotites.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 96040E7B28B432230029B0D7 /* Project object */;
 }
