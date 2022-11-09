@@ -28,6 +28,10 @@ class CatalogViewController: BaseViewController {
         addCartButton()
         loadFavorites()
         callService()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(favoritesUpdated),
+                                               name: Notification.Name("FavoritesUpdated"),
+                                               object: nil)
     }
         
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +45,12 @@ class CatalogViewController: BaseViewController {
     }
     
     // MARK: - Private Methods
+    
+    @objc
+    func favoritesUpdated() {
+        loadFavorites()
+        catalogView.reloadData()
+    }
     
     private func loadFavorites() {
         let favoritesFetch: NSFetchRequest<Favorite> = Favorite.fetchRequest()

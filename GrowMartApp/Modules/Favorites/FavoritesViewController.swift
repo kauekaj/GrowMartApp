@@ -86,5 +86,7 @@ extension FavoritesViewController: FavoritesViewDelegate {
         favorites.remove(at: index)
         AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
         favoritesView.reloadData()
+        
+        NotificationCenter.default.post(name: Notification.Name("FavoritesUpdated"), object: nil)
     }
 }
