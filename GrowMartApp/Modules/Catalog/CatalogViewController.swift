@@ -7,8 +7,10 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 class CatalogViewController: BaseViewController {
+    
     // MARK: - Private Properties
     private lazy var catalogView: CatalogView = {
         let element = CatalogView()
@@ -16,10 +18,11 @@ class CatalogViewController: BaseViewController {
         return element
     }()
     
+    private lazy var realm = try! Realm()
     private lazy var networkManager = NetworkManager(router: Router())
     private var products = [ProductResponse]()
-    private var favorites = [Favorite]()
-
+    private var favorites = [RealmFavorite]()
+    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -33,7 +36,7 @@ class CatalogViewController: BaseViewController {
                                                name: Notification.Name("FavoritesUpdated"),
                                                object: nil)
     }
-        
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
@@ -53,33 +56,35 @@ class CatalogViewController: BaseViewController {
     }
     
     private func loadFavorites() {
-        let favoritesFetch: NSFetchRequest<Favorite> = Favorite.fetchRequest()
-        let sortById = NSSortDescriptor(key: #keyPath(Favorite.identifier), ascending: false)
-        favoritesFetch.sortDescriptors = [sortById]
+//        let favoritesFetch: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+//        let sortById = NSSortDescriptor(key: #keyPath(Favorite.identifier), ascending: false)
+//        favoritesFetch.sortDescriptors = [sortById]
+//
+//        // Explanation: https://stackoverflow.com/questions/7304257/coredata-error-data-fault
+//        favoritesFetch.returnsObjectsAsFaults = false
+//
+//        do {
+//            let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+//            let results = try managedContext.fetch(favoritesFetch)
+//            favorites = results
+//        } catch let error as NSError {
+//            print("Fetch error: \(error) description: \(error.userInfo)")
+//        }
+        favorites = realm.objects(RealmFavorite.self).map { $0 }
 
-        // Explanation: https://stackoverflow.com/questions/7304257/coredata-error-data-fault
-        favoritesFetch.returnsObjectsAsFaults = false
-
-        do {
-            let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
-            let results = try managedContext.fetch(favoritesFetch)
-            favorites = results
-        } catch let error as NSError {
-            print("Fetch error: \(error) description: \(error.userInfo)")
-        }
     }
-
+    
     private func callService() {
         networkManager.execute(endpoint: ProductsApi.list(page: 1)) { [weak self] (response: Result<ProductsResponse, NetworkResponse>) in
             guard let safeSelf = self else { return }
-
+            
             switch response {
             case let .success(data):
                 guard let products = data.entries else {
                     // Apresentar estado de erro
                     return
                 }
-
+                
                 safeSelf.products.append(contentsOf: products)
                 safeSelf.catalogView.reloadData()
             case .failure:
@@ -88,69 +93,98 @@ class CatalogViewController: BaseViewController {
             }
         }
     }
-
+    
     private func addFavorite(id: String) {
         guard let product = products.first(where: { $0.id == id }) else {
             return
         }
-
+        
+        addToCoreData(product)
+        addToRealm(product)
+    }
+    
+    private func addToCoreData(_ product: ProductResponse) {
         let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
         let newFavorite = Favorite(context: managedContext)
         newFavorite.setValue(product.id, forKey: #keyPath(Favorite.identifier))
         newFavorite.setValue(product.image, forKey: #keyPath(Favorite.image))
         newFavorite.setValue(product.name, forKey: #keyPath(Favorite.name))
         newFavorite.setValue(product.price, forKey: #keyPath(Favorite.price))
-
-        favorites.insert(newFavorite, at: 0)
+        
+//        favorites.insert(newFavorite, at: 0)
         AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
     }
-
+    
+    private func addToRealm(_ product: ProductResponse) {
+        let newFavorite = RealmFavorite(identifier: product.id,
+                                        image: product.image,
+                                        name: product.name,
+                                        price: product.price)
+        
+        favorites.append(newFavorite)
+        try! realm.write {
+            realm.add(newFavorite)
+        }
+    }
+    
     private func removeFavorite(id: String) {
         guard let index = favorites.firstIndex(where: { $0.identifier == id }) else {
             return
         }
-
-        AppDelegate.sharedAppDelegate.coreDataStack.managedContext.delete(favorites[index])
-        favorites.remove(at: index)
-        AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
+        
+        removeFavoriteFromCoreData(index)
+        removeFavoriteFromRealm(index)
     }
-}
-
-// MARK: - CatalogViewDelegate
-extension CatalogViewController: CatalogViewDelegate {
-    func didTapFavorite(id: String, isFavorite: Bool) {
-        if isFavorite {
-            addFavorite(id: id)
-        } else {
-            removeFavorite(id: id)
+    
+    private func removeFavoriteFromCoreData(_ index: Int) {
+//        AppDelegate.sharedAppDelegate.coreDataStack.managedContext.delete(favorites[index])
+//        favorites.remove(at: index)
+//        AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
+    }
+    
+    private func removeFavoriteFromRealm(_ index: Int) {
+        let favoriteToDelete = realm.objects(RealmFavorite.self)[index]
+        try! realm.write {
+            realm.delete(favoriteToDelete)
         }
     }
     
-    func numberOfItems() -> Int {
-        products.count
-    }
-    
-    func getProduct(at index: Int) -> ProductResponse? {
-        guard index < products.count else {
-            return nil
+}
+    // MARK: - CatalogViewDelegate
+    extension CatalogViewController: CatalogViewDelegate {
+        func didTapFavorite(id: String, isFavorite: Bool) {
+            if isFavorite {
+                addFavorite(id: id)
+            } else {
+                removeFavorite(id: id)
+            }
         }
         
-        return products[index]
+        func numberOfItems() -> Int {
+            products.count
+        }
+        
+        func getProduct(at index: Int) -> ProductResponse? {
+            guard index < products.count else {
+                return nil
+            }
+            
+            return products[index]
+        }
+        
+        func didSelectCategory(index: Int, name: String) {
+            catalogView.reloadData()
+        }
+        
+        func didTapProduct(at index: Int) {
+            navigationController?.pushViewController(ProductDetailViewController(), animated: true)
+        }
+        
+        func isFavorite(id: String) -> Bool {
+            favorites.compactMap { $0.identifier }.contains(id)
+        }
+        
+        func didTapFilterButton() {
+            print("didTapFilterButton")
+        }
     }
-    
-    func didSelectCategory(index: Int, name: String) {
-        catalogView.reloadData()
-    }
-    
-    func didTapProduct(at index: Int) {
-        navigationController?.pushViewController(ProductDetailViewController(), animated: true)
-    }
-    
-    func isFavorite(id: String) -> Bool {
-        favorites.compactMap { $0.identifier }.contains(id)
-    }
-    
-    func didTapFilterButton() {
-        print("didTapFilterButton")
-    }
-}

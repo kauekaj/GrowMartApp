@@ -9,7 +9,7 @@ import UIKit
 
 protocol FavoritesViewDelegate: AnyObject {
     func numberOfItems() -> Int
-    func getFavorite(at index: Int) -> Favorite?
+    func getFavorite(at index: Int) -> RealmFavorite?
     
     func didTapFavorite(at index: Int)
     func didTapRemove(id: String)

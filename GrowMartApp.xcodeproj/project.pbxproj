@@ -26,6 +26,7 @@
 		9686998628BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */; };
 		9686998728BD82020060F512 /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */; };
 		9692A82628D27B6400D040AA /* CategoriesSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */; };
+		969575B8291D34C20088BA44 /* RealmFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969575B7291D34C20088BA44 /* RealmFavorite.swift */; };
 		9696716B290BE71400028A98 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696716A290BE71400028A98 /* NetworkManagerTests.swift */; };
 		9696716D290BE82900028A98 /* CategoriesJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696716C290BE82900028A98 /* CategoriesJsonData.swift */; };
 		9696716F290BE9F100028A98 /* CategoriesEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696716E290BE9F100028A98 /* CategoriesEndpointTests.swift */; };
@@ -147,6 +148,7 @@
 		9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSegmentedControl.swift; sourceTree = "<group>"; };
+		969575B7291D34C20088BA44 /* RealmFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFavorite.swift; sourceTree = "<group>"; };
 		9696716A290BE71400028A98 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		9696716C290BE82900028A98 /* CategoriesJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesJsonData.swift; sourceTree = "<group>"; };
 		9696716E290BE9F100028A98 /* CategoriesEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesEndpointTests.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 		96040E8528B432230029B0D7 /* GrowMartApp */ = {
 			isa = PBXGroup;
 			children = (
+				969575B6291D34A40088BA44 /* Realm */,
 				965EEA2D2915182D006E4A39 /* CoreData */,
 				969A627528FD619600879028 /* Networking */,
 				967ACF1128DF382B00854CA7 /* Commons */,
@@ -382,6 +385,14 @@
 				96040E8828B432230029B0D7 /* SceneDelegate.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		969575B6291D34A40088BA44 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				969575B7291D34C20088BA44 /* RealmFavorite.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		96967164290BE69800028A98 /* Networking */ = {
@@ -1000,6 +1011,7 @@
 				96B1C27728D2813A003AA7ED /* CatalogItemCell.swift in Sources */,
 				965EEA2829151640006E4A39 /* FavoritesView.swift in Sources */,
 				96C2DFEE28EB4C1100819AE5 /* UICollectionViewCell.swift in Sources */,
+				969575B8291D34C20088BA44 /* RealmFavorite.swift in Sources */,
 				96C8384328C7589D00E76F1D /* CartViewController.swift in Sources */,
 				9697F9A3290C8B6700E91687 /* SimpleScrollView.swift in Sources */,
 				96A58E3628E7686600A71090 /* SimpleTextfieldCell.swift in Sources */,
