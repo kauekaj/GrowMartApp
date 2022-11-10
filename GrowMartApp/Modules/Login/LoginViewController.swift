@@ -65,7 +65,25 @@ class LoginViewController: UIViewController {
     }
     
     // FONTE: https://www.hackingwithswift.com/example-code/system/how-to-save-user-settings-using-userdefaults
+    
     private func persistUserInfo(user: AuthResponse) {
+        persistOnUserDefauts(user)
+        persistOnKeychain(user)
+        
+        printSeparators()
+            let userDefaultsName = UserDefaults.standard.string(forKey: "UserName")
+            let keyChainName = KeychainWrapper.standard.string(forKey: "UserName")
+            
+            print("Data saved on both: \(userDefaultsName == keyChainName)")
+        }
+        
+        func printSeparators() {
+            print("")
+            print("--------------------------------------------")
+            print("")
+        }
+    
+    private func persistOnUserDefauts(_ user: AuthResponse) {
         let defaults = UserDefaults.standard
         
         defaults.set(user.id, forKey: "UserID")
@@ -86,6 +104,19 @@ class LoginViewController: UIViewController {
             print("User saved on UserDefaults: NOT SAVED")
         }
     }
+    
+    private func persistOnKeychain(_ user: AuthResponse) {
+        let keyChain = KeychainWrapper.standard
+        
+        if let id = user.id { keyChain.set(id, forKey: "UserID") }
+        if let name = user.name { keyChain.set(name, forKey: "UserName") }
+        if let email = user.email { keyChain.set(email, forKey: "UserEmail") }
+        if let phone = user.phone { keyChain.set(phone, forKey: "UserPhone") }
+        
+        print("Name saved on Keychain: \(keyChain.string(forKey: "UserName") ?? "NOT SAVED")")
+
+    }
+    
 }
 
 extension LoginViewController: LoginViewDelegate {

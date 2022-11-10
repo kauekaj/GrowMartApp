@@ -35,6 +35,8 @@
 		9697398928F62C2300AA029F /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697398828F62C2300AA029F /* LoadingCell.swift */; };
 		96974439290EC6C300E447AC /* HomeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96974438290EC6C300E447AC /* HomeEndpoint.swift */; };
 		969760C8290C1C2B0011A780 /* ParameterEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969760C7290C1C2B0011A780 /* ParameterEncodingTests.swift */; };
+		9697F86C291D6B27006AA3DE /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F86B291D6B27006AA3DE /* KeychainItemAccessibility.swift */; };
+		9697F86E291D6B70006AA3DE /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F86D291D6B70006AA3DE /* KeychainWrapper.swift */; };
 		9697F99F290C8A1B00E91687 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F99E290C8A1B00E91687 /* ProductDetailView.swift */; };
 		9697F9A1290C8A2700E91687 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F9A0290C8A2700E91687 /* ProductDetailViewController.swift */; };
 		9697F9A3290C8B6700E91687 /* SimpleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F9A2290C8B6700E91687 /* SimpleScrollView.swift */; };
@@ -157,6 +159,8 @@
 		9697398828F62C2300AA029F /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		96974438290EC6C300E447AC /* HomeEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEndpoint.swift; sourceTree = "<group>"; };
 		969760C7290C1C2B0011A780 /* ParameterEncodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncodingTests.swift; sourceTree = "<group>"; };
+		9697F86B291D6B27006AA3DE /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		9697F86D291D6B70006AA3DE /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		9697F99E290C8A1B00E91687 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		9697F9A0290C8A2700E91687 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		9697F9A2290C8B6700E91687 /* SimpleScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleScrollView.swift; sourceTree = "<group>"; };
@@ -354,6 +358,7 @@
 		967ACF1128DF382B00854CA7 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				9697F86A291D69E1006AA3DE /* Keychain */,
 				9697398C28F62CA900AA029F /* Cells */,
 			);
 			path = Commons;
@@ -477,6 +482,15 @@
 				969575B6291D34A40088BA44 /* Realm */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		9697F86A291D69E1006AA3DE /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				9697F86B291D6B27006AA3DE /* KeychainItemAccessibility.swift */,
+				9697F86D291D6B70006AA3DE /* KeychainWrapper.swift */,
+			);
+			path = Keychain;
 			sourceTree = "<group>";
 		};
 		9697F99D290C89EE00E91687 /* ProductDetail */ = {
@@ -994,10 +1008,12 @@
 				96B9835028B59A9E00073871 /* LoginView.swift in Sources */,
 				96A58E3228E764EA00A71090 /* ProductDataView.swift in Sources */,
 				9698866E2912B42F00A84FA9 /* AuthEndpoint.swift in Sources */,
+				9697F86E291D6B70006AA3DE /* KeychainWrapper.swift in Sources */,
 				96A914C328C8BA33008ABFB1 /* TotalCell.swift in Sources */,
 				969B2DAB290AB577008DEED2 /* HTTPMethod.swift in Sources */,
 				967ACF1528DF39CB00854CA7 /* CustomTextFieldCell.swift in Sources */,
 				96A914BF28C8B054008ABFB1 /* ButtonCell.swift in Sources */,
+				9697F86C291D6B27006AA3DE /* KeychainItemAccessibility.swift in Sources */,
 				965EEA3329151B51006E4A39 /* Favorites.xcdatamodeld in Sources */,
 				969B2DA7290AB2D4008DEED2 /* EndpointType.swift in Sources */,
 				96AE558528BEB3D100EC7295 /* CategoryButton.swift in Sources */,
