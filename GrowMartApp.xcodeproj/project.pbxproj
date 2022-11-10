@@ -302,8 +302,7 @@
 		96040E8528B432230029B0D7 /* GrowMartApp */ = {
 			isa = PBXGroup;
 			children = (
-				969575B6291D34A40088BA44 /* Realm */,
-				965EEA2D2915182D006E4A39 /* CoreData */,
+				9697F869291D6726006AA3DE /* Database */,
 				969A627528FD619600879028 /* Networking */,
 				967ACF1128DF382B00854CA7 /* Commons */,
 				96D16DEA28CCC92D00B65B23 /* Modules */,
@@ -469,6 +468,15 @@
 				9697398828F62C2300AA029F /* LoadingCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		9697F869291D6726006AA3DE /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				965EEA2D2915182D006E4A39 /* CoreData */,
+				969575B6291D34A40088BA44 /* Realm */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		9697F99D290C89EE00E91687 /* ProductDetail */ = {
