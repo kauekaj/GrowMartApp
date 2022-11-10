@@ -84,6 +84,7 @@ class LoginViewController: UIViewController {
         }
     
     private func persistOnUserDefauts(_ user: AuthResponse) {
+        printSeparators()
         let defaults = UserDefaults.standard
         
         defaults.set(user.id, forKey: "UserID")
@@ -106,6 +107,7 @@ class LoginViewController: UIViewController {
     }
     
     private func persistOnKeychain(_ user: AuthResponse) {
+        printSeparators()
         let keyChain = KeychainWrapper.standard
         
         if let id = user.id { keyChain.set(id, forKey: "UserID") }
@@ -115,6 +117,16 @@ class LoginViewController: UIViewController {
         
         print("Name saved on Keychain: \(keyChain.string(forKey: "UserName") ?? "NOT SAVED")")
 
+        if let encoded = try? JSONEncoder().encode(user) {
+                   keyChain.set(encoded, forKey: "User")
+               }
+               
+               if let data = keyChain.data(forKey: "User"),
+                  let user = try? JSONDecoder().decode(AuthResponse.self, from: data) {
+                   print("User saved on Keychain: \(user)")
+               } else {
+                   print("User saved on Keychain: NOT SAVED")
+               }
     }
     
 }
