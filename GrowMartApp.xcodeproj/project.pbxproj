@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		08206159BEE733D15A15719F /* Pods_GrowMartApp_GrowMartAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E35110097D65EE99A215E6 /* Pods_GrowMartApp_GrowMartAppTests.framework */; };
 		77346EAD8BD1966F0F806DAD /* Pods_GrowMartApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 863531FCC84AA402890227B9 /* Pods_GrowMartApp.framework */; };
+		9601E85B29255624007EC32C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9601E85A29255624007EC32C /* DataManager.swift */; };
 		96040E8728B432230029B0D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96040E8628B432230029B0D7 /* AppDelegate.swift */; };
 		96040E8928B432230029B0D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96040E8828B432230029B0D7 /* SceneDelegate.swift */; };
 		96040E8B28B432230029B0D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96040E8A28B432230029B0D7 /* LoginViewController.swift */; };
@@ -131,6 +132,7 @@
 		6316936F36703CD9189B025D /* Pods-GrowMartApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowMartApp.debug.xcconfig"; path = "Target Support Files/Pods-GrowMartApp/Pods-GrowMartApp.debug.xcconfig"; sourceTree = "<group>"; };
 		863531FCC84AA402890227B9 /* Pods_GrowMartApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrowMartApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF7C5C03BFF84320949E1FA /* Pods-GrowMartApp-GrowMartAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowMartApp-GrowMartAppTests.debug.xcconfig"; path = "Target Support Files/Pods-GrowMartApp-GrowMartAppTests/Pods-GrowMartApp-GrowMartAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9601E85A29255624007EC32C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		96040E8328B432230029B0D7 /* GrowMartApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrowMartApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96040E8628B432230029B0D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96040E8828B432230029B0D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 			children = (
 				965EEA2D2915182D006E4A39 /* CoreData */,
 				969575B6291D34A40088BA44 /* Realm */,
+				9601E85A29255624007EC32C /* DataManager.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -1046,6 +1049,7 @@
 				969A627E28FD667F00879028 /* ParameterEncoder.swift in Sources */,
 				96A0180F28DA7EF300B19AB8 /* ProfileView.swift in Sources */,
 				96A58E3A28E76B4700A71090 /* RightIconTextField.swift in Sources */,
+				9601E85B29255624007EC32C /* DataManager.swift in Sources */,
 				96A28E3C28DB5C7000D39621 /* Profile.swift in Sources */,
 				969B2DAF290AB5C0008DEED2 /* NetworkEnvironment.swift in Sources */,
 				969A628028FD66A100879028 /* URLParameterEncoder.swift in Sources */,
