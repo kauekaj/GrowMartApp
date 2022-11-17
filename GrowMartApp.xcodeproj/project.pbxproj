@@ -27,6 +27,7 @@
 		9686998628BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */; };
 		9686998728BD82020060F512 /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */; };
 		9692A82628D27B6400D040AA /* CategoriesSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */; };
+		969346162926DBA5000B72F3 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969346152926DBA5000B72F3 /* Favorite.swift */; };
 		969575B8291D34C20088BA44 /* RealmFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969575B7291D34C20088BA44 /* RealmFavorite.swift */; };
 		9696716B290BE71400028A98 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696716A290BE71400028A98 /* NetworkManagerTests.swift */; };
 		9696716D290BE82900028A98 /* CategoriesJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696716C290BE82900028A98 /* CategoriesJsonData.swift */; };
@@ -152,6 +153,7 @@
 		9686998428BD82020060F512 /* Nunito-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSegmentedControl.swift; sourceTree = "<group>"; };
+		969346152926DBA5000B72F3 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		969575B7291D34C20088BA44 /* RealmFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFavorite.swift; sourceTree = "<group>"; };
 		9696716A290BE71400028A98 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		9696716C290BE82900028A98 /* CategoriesJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesJsonData.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 		96040E8528B432230029B0D7 /* GrowMartApp */ = {
 			isa = PBXGroup;
 			children = (
+				969346142926DB7E000B72F3 /* Models */,
 				9697F869291D6726006AA3DE /* Database */,
 				969A627528FD619600879028 /* Networking */,
 				967ACF1128DF382B00854CA7 /* Commons */,
@@ -391,6 +394,14 @@
 				96040E8828B432230029B0D7 /* SceneDelegate.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		969346142926DB7E000B72F3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				969346152926DBA5000B72F3 /* Favorite.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		969575B6291D34A40088BA44 /* Realm */ = {
@@ -1054,6 +1065,7 @@
 				969B2DAF290AB5C0008DEED2 /* NetworkEnvironment.swift in Sources */,
 				969A628028FD66A100879028 /* URLParameterEncoder.swift in Sources */,
 				96B9834A28B5830800073871 /* ViewCodable.swift in Sources */,
+				969346162926DBA5000B72F3 /* Favorite.swift in Sources */,
 				969B2DB3290AB613008DEED2 /* Router.swift in Sources */,
 				969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */,
 				969A627828FD61F000879028 /* NetworkManager.swift in Sources */,
