@@ -76,116 +76,117 @@ class DataManager {
         isSecure ? getObjectKeyChain(key: key) : getObjectUserDefaults(key: key)
     }
     
-//    func loadFavorites() -> [Favorite] {
-//        switch source {
-//        case .coreData:
-//            return loadFavoritesFromCoreData()
-//        case .realm:
-//            return loadFavoritesFromRealm()
-//        }
-//    }
-//    
-//    func addFavorite(_ product: ProductResponse) {
-//        switch source {
-//        case .coreData:
-//            addFavoriteToCoreData(product)
-//        case .realm:
-//            addFavoriteToRealm(product)
-//        }
-//    }
-//    
-//    func removeFavorite(id: String) {
-//        switch source {
-//        case .coreData:
-//            removeFavoriteFromCoreData(id: id)
-//        case .realm:
-//            removeFavoriteFromRealm(id: id)
-//        }
-//    }
+    func loadFavorites() -> [Favorite] {
+        switch source {
+        case .coreData:
+            return loadFavoritesFromCoreData()
+        case .realm:
+            return loadFavoritesFromRealm()
+        }
+    }
+    
+    func addFavorite(_ product: ProductResponse) {
+        switch source {
+        case .coreData:
+            addFavoriteToCoreData(product)
+        case .realm:
+            addFavoriteToRealm(product)
+        }
+    }
+    
+    func removeFavorite(id: String) {
+        switch source {
+        case .coreData:
+            removeFavoriteFromCoreData(id: id)
+        case .realm:
+            removeFavoriteFromRealm(id: id)
+        }
+    }
 }
 
-//// MARK: Private Methods (Realm)
-//extension DataManager {
-//    private func loadFavoritesFromRealm() -> [Favorite] {
-//        realm.objects(RealmFavorite.self).compactMap { item in
-//            Favorite(identifier: item.identifier,
-//                     image: item.image,
-//                     name: item.name,
-//                     price: item.price)
-//        }
-//    }
-//
-//    private func addFavoriteToRealm(_ product: ProductResponse) {
-//        try! realm.write {
-//            realm.add(RealmFavorite(identifier: product.id,
-//                                    image: product.image,
-//                                    name: product.name,
-//                                    price: product.price))
-//        }
-//    }
-//
-//    private func removeFavoriteFromRealm(id: String) {
-//        try! realm.write {
-//            let favoriteToDelete = realm.objects(RealmFavorite.self).where { $0.identifier == id }
-//            realm.delete(favoriteToDelete)
-//        }
-//    }
-//}
-//
-//// MARK: Private Methods (CoreData)
-//
-//extension DataManager {
-//    private func getFavoritesFromCoreData() -> [CoreDataFavorite] {
-//        let favoritesFetch: NSFetchRequest<CoreDataFavorite> = CoreDataFavorite.fetchRequest()
-//        let sortById = NSSortDescriptor(key: #keyPath(CoreDataFavorite.identifier), ascending: false)
-//        favoritesFetch.sortDescriptors = [sortById]
-//
-//        // Explanation: https://stackoverflow.com/questions/7304257/coredata-error-data-fault
-//        favoritesFetch.returnsObjectsAsFaults = false
-//
-//        do {
-//            let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
-//            return try managedContext.fetch(favoritesFetch)
-//        } catch let error as NSError {
-//            print("Fetch error: \(error) description: \(error.userInfo)")
-//            return []
-//        }
-//    }
-//
-//    private func loadFavoritesFromCoreData() -> [Favorite] {
-//        getFavoritesFromCoreData().compactMap { item in
-//            Favorite(identifier: item.identifier,
-//                     image: item.image,
-//                     name: item.name,
-//                     price: item.price)
-//        }
-//    }
-//
-//    private func addFavoriteToCoreData(_ product: ProductResponse) {
-//        var favorites = getFavoritesFromCoreData()
-//
-//        let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
-//        let newFavorite = CoreDataFavorite(context: managedContext)
-//        newFavorite.setValue(product.id, forKey: #keyPath(CoreDataFavorite.identifier))
-//        newFavorite.setValue(product.image, forKey: #keyPath(CoreDataFavorite.image))
-//        newFavorite.setValue(product.name, forKey: #keyPath(CoreDataFavorite.name))
-//        newFavorite.setValue(product.price, forKey: #keyPath(CoreDataFavorite.price))
-//
-//        favorites.insert(newFavorite, at: 0)
-//        AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
-//    }
-//
-//    private func removeFavoriteFromCoreData(id: String) {
-//        let favorites = getFavoritesFromCoreData()
-//
-//        guard let index = favorites.firstIndex(where: { $0.identifier == id }) else {
-//            return
-//        }
-//
-//        AppDelegate.sharedAppDelegate.coreDataStack.managedContext.delete(favorites[index])
-//        AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
-//    }
-//}
+// MARK: Private Methods (Realm)
+
+extension DataManager {
+    private func loadFavoritesFromRealm() -> [Favorite] {
+        realm.objects(RealmFavorite.self).compactMap { item in
+            Favorite(identifier: item.identifier,
+                     image: item.image,
+                     name: item.name,
+                     price: item.price)
+        }
+    }
+
+    private func addFavoriteToRealm(_ product: ProductResponse) {
+        try! realm.write {
+            realm.add(RealmFavorite(identifier: product.id,
+                                    image: product.image,
+                                    name: product.name,
+                                    price: product.price))
+        }
+    }
+
+    private func removeFavoriteFromRealm(id: String) {
+        try! realm.write {
+            let favoriteToDelete = realm.objects(RealmFavorite.self).where { $0.identifier == id }
+            realm.delete(favoriteToDelete)
+        }
+    }
+}
+
+// MARK: Private Methods (CoreData)
+
+extension DataManager {
+    private func getFavoritesFromCoreData() -> [CoreDataFavorite] {
+        let favoritesFetch: NSFetchRequest<CoreDataFavorite> = CoreDataFavorite.fetchRequest()
+        let sortById = NSSortDescriptor(key: #keyPath(CoreDataFavorite.identifier), ascending: false)
+        favoritesFetch.sortDescriptors = [sortById]
+
+        // Explanation: https://stackoverflow.com/questions/7304257/coredata-error-data-fault
+        favoritesFetch.returnsObjectsAsFaults = false
+
+        do {
+            let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+            return try managedContext.fetch(favoritesFetch)
+        } catch let error as NSError {
+            print("Fetch error: \(error) description: \(error.userInfo)")
+            return []
+        }
+    }
+
+    private func loadFavoritesFromCoreData() -> [Favorite] {
+        getFavoritesFromCoreData().compactMap { item in
+            Favorite(identifier: item.identifier,
+                     image: item.image,
+                     name: item.name,
+                     price: item.price)
+        }
+    }
+
+    private func addFavoriteToCoreData(_ product: ProductResponse) {
+        var favorites = getFavoritesFromCoreData()
+
+        let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+        let newFavorite = CoreDataFavorite(context: managedContext)
+        newFavorite.setValue(product.id, forKey: #keyPath(CoreDataFavorite.identifier))
+        newFavorite.setValue(product.image, forKey: #keyPath(CoreDataFavorite.image))
+        newFavorite.setValue(product.name, forKey: #keyPath(CoreDataFavorite.name))
+        newFavorite.setValue(product.price, forKey: #keyPath(CoreDataFavorite.price))
+
+        favorites.insert(newFavorite, at: 0)
+        AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
+    }
+
+    private func removeFavoriteFromCoreData(id: String) {
+        let favorites = getFavoritesFromCoreData()
+
+        guard let index = favorites.firstIndex(where: { $0.identifier == id }) else {
+            return
+        }
+
+        AppDelegate.sharedAppDelegate.coreDataStack.managedContext.delete(favorites[index])
+        AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
+    }
+}
 
 // MARK: Private Methods (UserDefaults)
 

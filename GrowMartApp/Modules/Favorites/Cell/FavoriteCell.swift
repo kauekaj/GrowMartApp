@@ -80,9 +80,9 @@ public class FavoriteCell: UICollectionViewCell {
     }
         
     // MARK: - Public Methods
-    func setup(with favorite: RealmFavorite) {
-        identifier = favorite.identifier
-        productImageView.addImageFromURL(urlString: favorite.image)
+    func setup(with favorite: Favorite) {
+        identifier = favorite.identifier ?? ""
+        productImageView.addImageFromURL(urlString: favorite.image ?? "")
         priceLabel.text = favorite.price
         nameLabel.text = favorite.name
     }
