@@ -42,8 +42,17 @@ private let SecAttrAccount: String! = kSecAttrAccount as String
 private let SecAttrAccessGroup: String! = kSecAttrAccessGroup as String
 private let SecReturnAttributes: String = kSecReturnAttributes as String
 
+protocol KeychainActions {
+    func integer(forKey key: String, withAccessibility accessibility: KeychainItemAccessibility?) -> Int?
+    func string(forKey key: String, withAccessibility accessibility: KeychainItemAccessibility?) -> String?
+    func data(forKey key: String, withAccessibility accessibility: KeychainItemAccessibility?) -> Data?
+    @discardableResult func set(_ value: Int, forKey key: String, withAccessibility accessibility: KeychainItemAccessibility?) -> Bool
+    @discardableResult func set(_ value: String, forKey key: String, withAccessibility accessibility: KeychainItemAccessibility?) -> Bool
+    @discardableResult func set(_ value: Data, forKey key: String, withAccessibility accessibility: KeychainItemAccessibility?) -> Bool
+}
+
 /// KeychainWrapper is a class to help make Keychain access in Swift more straightforward. It is designed to make accessing the Keychain services more like using NSUserDefaults, which is much more familiar to people.
-open class KeychainWrapper {
+open class KeychainWrapper: KeychainActions {
     
     @available(*, deprecated, message: "KeychainWrapper.defaultKeychainWrapper is deprecated, use KeychainWrapper.standard instead")
     public static let defaultKeychainWrapper = KeychainWrapper.standard

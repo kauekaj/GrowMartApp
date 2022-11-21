@@ -18,6 +18,7 @@
 		961871192911CCD700B9140E /* ProductsJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961871182911CCD700B9140E /* ProductsJsonData.swift */; };
 		9618711B2911CCF800B9140E /* ProductDetailJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618711A2911CCF800B9140E /* ProductDetailJsonData.swift */; };
 		9627A1F8292BE5BF00605131 /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627A1F7292BE5BF00605131 /* DataManagerTests.swift */; };
+		9627A1FA292BECA300605131 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627A1F9292BECA300605131 /* UserDefaults+Extensions.swift */; };
 		965EEA2829151640006E4A39 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA2729151640006E4A39 /* FavoritesView.swift */; };
 		965EEA2A2915166E006E4A39 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA292915166E006E4A39 /* FavoritesViewController.swift */; };
 		965EEA2C291516F8006E4A39 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EEA2B291516F8006E4A39 /* FavoriteCell.swift */; };
@@ -145,6 +146,7 @@
 		961871182911CCD700B9140E /* ProductsJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsJsonData.swift; sourceTree = "<group>"; };
 		9618711A2911CCF800B9140E /* ProductDetailJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailJsonData.swift; sourceTree = "<group>"; };
 		9627A1F7292BE5BF00605131 /* DataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
+		9627A1F9292BECA300605131 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		965EEA2729151640006E4A39 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		965EEA292915166E006E4A39 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		965EEA2B291516F8006E4A39 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
@@ -765,6 +767,7 @@
 				96A58E3B28E76D8E00A71090 /* UITextField+Extensions.swift */,
 				96C2DFED28EB4C1100819AE5 /* UICollectionViewCell.swift */,
 				969951202913CDD30030E8FE /* UIImage+Extensions.swift */,
+				9627A1F9292BECA300605131 /* UserDefaults+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1070,6 +1073,7 @@
 				96B9834C28B5923E00073871 /* UIColor+Extensions.swift in Sources */,
 				969A627E28FD667F00879028 /* ParameterEncoder.swift in Sources */,
 				96A0180F28DA7EF300B19AB8 /* ProfileView.swift in Sources */,
+				9627A1FA292BECA300605131 /* UserDefaults+Extensions.swift in Sources */,
 				96A58E3A28E76B4700A71090 /* RightIconTextField.swift in Sources */,
 				9601E85B29255624007EC32C /* DataManager.swift in Sources */,
 				96A28E3C28DB5C7000D39621 /* Profile.swift in Sources */,
