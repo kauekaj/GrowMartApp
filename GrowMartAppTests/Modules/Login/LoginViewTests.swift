@@ -11,7 +11,7 @@ import SnapshotTesting
 
 class LoginViewTests: BaseTests {
     
-    private let componentSize = CGSize(width: 414, height: 307)
+    private let componentSize = CGSize(width: 414, height: 526)
     private lazy var loginViewSpy = LoginViewSpy()
 
     override func setUp() {
