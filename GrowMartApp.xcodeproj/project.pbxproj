@@ -63,6 +63,7 @@
 		969A627C28FD666000879028 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A627B28FD666000879028 /* JSONParameterEncoder.swift */; };
 		969A627E28FD667F00879028 /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A627D28FD667F00879028 /* ParameterEncoder.swift */; };
 		969A628028FD66A100879028 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A627F28FD66A100879028 /* URLParameterEncoder.swift */; };
+		969A7920292FE59600F0B6BF /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A791F292FE59600F0B6BF /* Fixtures.swift */; };
 		969A85A728D1E219009059C2 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A85A628D1E219009059C2 /* CatalogViewController.swift */; };
 		969B2DA7290AB2D4008DEED2 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B2DA6290AB2D4008DEED2 /* EndpointType.swift */; };
 		969B2DA9290AB550008DEED2 /* AFRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B2DA8290AB550008DEED2 /* AFRouter.swift */; };
@@ -191,6 +192,7 @@
 		969A627B28FD666000879028 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		969A627D28FD667F00879028 /* ParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoder.swift; sourceTree = "<group>"; };
 		969A627F28FD66A100879028 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		969A791F292FE59600F0B6BF /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		969A85A628D1E219009059C2 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		969B2DA6290AB2D4008DEED2 /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 		969B2DA8290AB550008DEED2 /* AFRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFRouter.swift; sourceTree = "<group>"; };
@@ -636,6 +638,7 @@
 			isa = PBXGroup;
 			children = (
 				969C3EAC28ED948400B8CDCA /* Mirror+Extensions.swift */,
+				969A791F292FE59600F0B6BF /* Fixtures.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1121,6 +1124,7 @@
 				96B0EDFA28EDF47100E0E4B9 /* LoginViewControllerTests.swift in Sources */,
 				9696716D290BE82900028A98 /* CategoriesJsonData.swift in Sources */,
 				961871192911CCD700B9140E /* ProductsJsonData.swift in Sources */,
+				969A7920292FE59600F0B6BF /* Fixtures.swift in Sources */,
 				969C3EAD28ED948400B8CDCA /* Mirror+Extensions.swift in Sources */,
 				96B0EDFC28EDF48600E0E4B9 /* LoginViewTests.swift in Sources */,
 				9696716F290BE9F100028A98 /* CategoriesEndpointTests.swift in Sources */,

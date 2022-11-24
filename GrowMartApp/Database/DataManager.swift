@@ -124,16 +124,13 @@ class DataManager {
 
 extension DataManager {
     private func loadFavoritesFromRealm() -> [Favorite] {
-        guard let realm = realm else {
-            return []
-        }
         
-        return realm.objects(RealmFavorite.self).compactMap { item in
+         realm?.objects(RealmFavorite.self).compactMap { item in
             Favorite(identifier: item.identifier,
                      image: item.image,
                      name: item.name,
                      price: item.price)
-        }
+        } ?? []
     }
 
     private func addFavoriteToRealm(_ product: ProductResponse) {

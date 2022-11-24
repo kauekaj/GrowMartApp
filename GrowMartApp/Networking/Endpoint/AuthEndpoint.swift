@@ -41,8 +41,8 @@ extension AuthApi: EndpointType {
 
 // MARK: - Response
 struct AuthResponse: Codable, Equatable {
-    let id: String?
-    let name: String?
-    let email: String?
-    let phone: String?
+    var id: String?
+    var name: String?
+    var email: String?
+    var phone: String?
 }
