@@ -13,40 +13,40 @@ class DataManagerTests: BaseTests {
     
     private lazy var sut = DataManager.shared
     private lazy var userDefaultsSpy = UserDefaultsSpy()
-        private lazy var keychainSpy = KeychainSpy()
-        private var testRealm = try! Realm(configuration: .init(inMemoryIdentifier: "DataManagerTests"))
+    private lazy var keychainSpy = KeychainSpy()
+    private var testRealm = try! Realm(configuration: .init(inMemoryIdentifier: "DataManagerTests"))
+    
+    override func setUp() {
+        super.setUp()
+        setupCoreData()
         
-        override func setUp() {
-            super.setUp()
-            setupCoreData()
-            
+    }
+    
+    override func tearDown() {
+        try! testRealm.write {
+            testRealm.deleteAll()
         }
-        
-        override func tearDown() {
-            try! testRealm.write {
-                testRealm.deleteAll()
-            }
-        }
+    }
     
     // MARK: - Private Methods
+    
+    private func setupCoreData() {
+        sut.setup(source: .coreData,
+                  realm: testRealm,
+                  coreDataStack: .init(modelName: "Favorites", isInMemoryStoreType: true),
+                  userDefaults: userDefaultsSpy,
+                  keychain: keychainSpy)
         
-        private func setupCoreData() {
-            sut.setup(source: .coreData,
-                      realm: testRealm,
-                      coreDataStack: .init(modelName: "Favorites", isInMemoryStoreType: true),
-                      userDefaults: userDefaultsSpy,
-                      keychain: keychainSpy)
-
-        }
-
-        private func setupRealm() {
-            sut.setup(source: .realm,
-                      realm: testRealm,
-                      coreDataStack: .init(modelName: "Favorites", isInMemoryStoreType: true),
-                      userDefaults: userDefaultsSpy,
-                      keychain: keychainSpy)
-
-        }
+    }
+    
+    private func setupRealm() {
+        sut.setup(source: .realm,
+                  realm: testRealm,
+                  coreDataStack: .init(modelName: "Favorites", isInMemoryStoreType: true),
+                  userDefaults: userDefaultsSpy,
+                  keychain: keychainSpy)
+        
+    }
     
     
     
@@ -69,217 +69,217 @@ class DataManagerTests: BaseTests {
     }
     
     func testSaveObjectShouldCallSetMethod() {
-            XCTAssertEqual(userDefaultsSpy.calledMethods, [])
-            sut.saveObject(key: .userName, value: AuthResponse())
-            XCTAssertEqual(userDefaultsSpy.calledMethods, [.set])
-            let nilData: AuthResponse? = nil
-            sut.saveObject(key: .userName, value: nilData)
-            XCTAssertEqual(userDefaultsSpy.calledMethods, [.set, .set])
-        }
+        XCTAssertEqual(userDefaultsSpy.calledMethods, [])
+        sut.saveObject(key: .userName, value: AuthResponse())
+        XCTAssertEqual(userDefaultsSpy.calledMethods, [.set])
+        let nilData: AuthResponse? = nil
+        sut.saveObject(key: .userName, value: nilData)
+        XCTAssertEqual(userDefaultsSpy.calledMethods, [.set, .set])
+    }
     
     func testGetStringShouldCallGetMethod() {
-            // GIVEN -> DADO
-            userDefaultsSpy.valueToBeReturned = "TEST"
-            
-            // WHEN -> QUANDO
-            let response = sut.getString(key: .userName)
-             
-            // THEN -> ENTÃO
-            XCTAssertEqual(userDefaultsSpy.calledMethods, [.string])
-            XCTAssertEqual(response, "TEST")
-        }
+        // GIVEN -> DADO
+        userDefaultsSpy.valueToBeReturned = "TEST"
         
-        func testGetIntShouldCallGetMethod() {
-            // GIVEN -> DADO
-            userDefaultsSpy.valueToBeReturned = 1
-            
-            // WHEN -> QUANDO
-            let response = sut.getInt(key: .userName)
-             
-            // THEN -> ENTÃO
-            XCTAssertEqual(userDefaultsSpy.calledMethods, [.integer])
-            XCTAssertEqual(response, 1)
-        }
+        // WHEN -> QUANDO
+        let response = sut.getString(key: .userName)
         
-        func testGetObjectShouldCallGetMethod() throws {
-            // GIVEN -> DADO
-            let result = AuthResponse()
-            let data = try XCTUnwrap(JSONEncoder().encode(result))
-            userDefaultsSpy.valueToBeReturned = data
-
-            // WHEN -> QUANDO
-            let response: AuthResponse? = sut.getObject(key: .userName)
-             
-            // THEN -> ENTÃO
-            XCTAssertEqual(userDefaultsSpy.calledMethods, [.object])
-            XCTAssertEqual(response, result)
-        }
+        // THEN -> ENTÃO
+        XCTAssertEqual(userDefaultsSpy.calledMethods, [.string])
+        XCTAssertEqual(response, "TEST")
+    }
+    
+    func testGetIntShouldCallGetMethod() {
+        // GIVEN -> DADO
+        userDefaultsSpy.valueToBeReturned = 1
         
-        func testGetInvalidObjectShouldCallGetMethod() {
-            // GIVEN -> DADO
-            userDefaultsSpy.valueToBeReturned = "A INVALID STRING..."
-
-            // WHEN -> QUANDO
-            let response: AuthResponse? = sut.getObject(key: .userName)
-             
-            // THEN -> ENTÃO
-            XCTAssertEqual(userDefaultsSpy.calledMethods, [.object])
-            XCTAssertEqual(response, nil)
-        }
+        // WHEN -> QUANDO
+        let response = sut.getInt(key: .userName)
         
+        // THEN -> ENTÃO
+        XCTAssertEqual(userDefaultsSpy.calledMethods, [.integer])
+        XCTAssertEqual(response, 1)
+    }
+    
+    func testGetObjectShouldCallGetMethod() throws {
+        // GIVEN -> DADO
+        let result = AuthResponse()
+        let data = try XCTUnwrap(JSONEncoder().encode(result))
+        userDefaultsSpy.valueToBeReturned = data
+        
+        // WHEN -> QUANDO
+        let response: AuthResponse? = sut.getObject(key: .userName)
+        
+        // THEN -> ENTÃO
+        XCTAssertEqual(userDefaultsSpy.calledMethods, [.object])
+        XCTAssertEqual(response, result)
+    }
+    
+    func testGetInvalidObjectShouldCallGetMethod() {
+        // GIVEN -> DADO
+        userDefaultsSpy.valueToBeReturned = "A INVALID STRING..."
+        
+        // WHEN -> QUANDO
+        let response: AuthResponse? = sut.getObject(key: .userName)
+        
+        // THEN -> ENTÃO
+        XCTAssertEqual(userDefaultsSpy.calledMethods, [.object])
+        XCTAssertEqual(response, nil)
+    }
+    
     // MARK: - Keychain Tests
-      
-      func testSaveStringSecureShouldCallSetMethod() {
-          XCTAssertEqual(keychainSpy.calledMethods, [])
-          sut.saveString(key: .userName, value: "TEST", isSecure: true)
-          XCTAssertEqual(keychainSpy.calledMethods, [.setString])
-          sut.saveString(key: .userName, value: nil, isSecure: true)
-          XCTAssertEqual(keychainSpy.calledMethods, [.setString, .setString])
-      }
-      
-      func testSaveIntSecureShouldCallSetMethod() {
-          XCTAssertEqual(keychainSpy.calledMethods, [])
-          sut.saveInt(key: .userName, value: 1, isSecure: true)
-          XCTAssertEqual(keychainSpy.calledMethods, [.setInt])
-          sut.saveInt(key: .userName, value: nil, isSecure: true)
-          XCTAssertEqual(keychainSpy.calledMethods, [.setInt, .setInt])
-      }
-      
-      func testSaveDataSecureShouldCallSetMethod() {
-          XCTAssertEqual(keychainSpy.calledMethods, [])
-          sut.saveObject(key: .userName, value: AuthResponse(), isSecure: true)
-          XCTAssertEqual(keychainSpy.calledMethods, [.setData])
-          let nilData: AuthResponse? = nil
-          sut.saveObject(key: .userName, value: nilData, isSecure: true)
-          XCTAssertEqual(keychainSpy.calledMethods, [.setData, .setData])
-      }
-      
-      func testGetStringSecureShouldCallSetMethod() {
-          // GIVEN -> DADO
-          keychainSpy.valueToBeReturned = "TEST"
-          
-          // WHEN -> QUANDO
-          let response = sut.getString(key: .userName, isSecure: true)
-           
-          // THEN -> ENTÃO
-          XCTAssertEqual(keychainSpy.calledMethods, [.string])
-          XCTAssertEqual(response, "TEST")
-      }
-      
-      func testGetIntSecureShouldCallSetMethod() {
-          // GIVEN -> DADO
-          keychainSpy.valueToBeReturned = 1
-          
-          // WHEN -> QUANDO
-          let response = sut.getInt(key: .userName, isSecure: true)
-           
-          // THEN -> ENTÃO
-          XCTAssertEqual(keychainSpy.calledMethods, [.integer])
-          XCTAssertEqual(response, 1)
-      }
-      
-      func testGetObjectSecureShouldCallSetMethod() throws {
-          // GIVEN -> DADO
-          let result = AuthResponse()
-          let data = try XCTUnwrap(JSONEncoder().encode(result))
-          keychainSpy.valueToBeReturned = data
-
-          // WHEN -> QUANDO
-          let response: AuthResponse? = sut.getObject(key: .userName, isSecure: true)
-           
-          // THEN -> ENTÃO
-          XCTAssertEqual(keychainSpy.calledMethods, [.data])
-          XCTAssertEqual(response, result)
-      }
-      
-      func testGetInvalidObjectSecureShouldCallSetMethod() throws {
-          // GIVEN -> DADO
-          keychainSpy.valueToBeReturned = "A INVALID STRING..."
-          
-          // WHEN -> QUANDO
-          let response: AuthResponse? = sut.getObject(key: .userName, isSecure: true)
-           
-          // THEN -> ENTÃO
-          XCTAssertEqual(keychainSpy.calledMethods, [.data])
-          XCTAssertEqual(response, nil)
-      }
+    
+    func testSaveStringSecureShouldCallSetMethod() {
+        XCTAssertEqual(keychainSpy.calledMethods, [])
+        sut.saveString(key: .userName, value: "TEST", isSecure: true)
+        XCTAssertEqual(keychainSpy.calledMethods, [.setString])
+        sut.saveString(key: .userName, value: nil, isSecure: true)
+        XCTAssertEqual(keychainSpy.calledMethods, [.setString, .setString])
+    }
+    
+    func testSaveIntSecureShouldCallSetMethod() {
+        XCTAssertEqual(keychainSpy.calledMethods, [])
+        sut.saveInt(key: .userName, value: 1, isSecure: true)
+        XCTAssertEqual(keychainSpy.calledMethods, [.setInt])
+        sut.saveInt(key: .userName, value: nil, isSecure: true)
+        XCTAssertEqual(keychainSpy.calledMethods, [.setInt, .setInt])
+    }
+    
+    func testSaveDataSecureShouldCallSetMethod() {
+        XCTAssertEqual(keychainSpy.calledMethods, [])
+        sut.saveObject(key: .userName, value: AuthResponse(), isSecure: true)
+        XCTAssertEqual(keychainSpy.calledMethods, [.setData])
+        let nilData: AuthResponse? = nil
+        sut.saveObject(key: .userName, value: nilData, isSecure: true)
+        XCTAssertEqual(keychainSpy.calledMethods, [.setData, .setData])
+    }
+    
+    func testGetStringSecureShouldCallSetMethod() {
+        // GIVEN -> DADO
+        keychainSpy.valueToBeReturned = "TEST"
+        
+        // WHEN -> QUANDO
+        let response = sut.getString(key: .userName, isSecure: true)
+        
+        // THEN -> ENTÃO
+        XCTAssertEqual(keychainSpy.calledMethods, [.string])
+        XCTAssertEqual(response, "TEST")
+    }
+    
+    func testGetIntSecureShouldCallSetMethod() {
+        // GIVEN -> DADO
+        keychainSpy.valueToBeReturned = 1
+        
+        // WHEN -> QUANDO
+        let response = sut.getInt(key: .userName, isSecure: true)
+        
+        // THEN -> ENTÃO
+        XCTAssertEqual(keychainSpy.calledMethods, [.integer])
+        XCTAssertEqual(response, 1)
+    }
+    
+    func testGetObjectSecureShouldCallSetMethod() throws {
+        // GIVEN -> DADO
+        let result = AuthResponse()
+        let data = try XCTUnwrap(JSONEncoder().encode(result))
+        keychainSpy.valueToBeReturned = data
+        
+        // WHEN -> QUANDO
+        let response: AuthResponse? = sut.getObject(key: .userName, isSecure: true)
+        
+        // THEN -> ENTÃO
+        XCTAssertEqual(keychainSpy.calledMethods, [.data])
+        XCTAssertEqual(response, result)
+    }
+    
+    func testGetInvalidObjectSecureShouldCallSetMethod() throws {
+        // GIVEN -> DADO
+        keychainSpy.valueToBeReturned = "A INVALID STRING..."
+        
+        // WHEN -> QUANDO
+        let response: AuthResponse? = sut.getObject(key: .userName, isSecure: true)
+        
+        // THEN -> ENTÃO
+        XCTAssertEqual(keychainSpy.calledMethods, [.data])
+        XCTAssertEqual(response, nil)
+    }
     
     // MARK: - CoreData Tests
+    
+    func testSaveNewFavoriteShouldPersistOnCoreData() {
+        // GIVEN -> DADO
+        XCTAssertEqual(sut.loadFavorites().count, 0)
         
-        func testSaveNewFavoriteShouldPersistOnCoreData() {
-            // GIVEN -> DADO
-            XCTAssertEqual(sut.loadFavorites().count, 0)
-            
-            // WHEN -> QUANDO
-            sut.addFavorite(.fixture())
-            
-            // THEN -> ENTÃO
-            XCTAssertEqual(sut.loadFavorites().count, 1)
-        }
+        // WHEN -> QUANDO
+        sut.addFavorite(.fixture())
         
-        func testLoadFavoritesShouldReturnCorrectListFromCoreData() {
-            sut.addFavorite(.fixture())
-            sut.addFavorite(.fixture())
-            sut.addFavorite(.fixture())
-            sut.addFavorite(.fixture())
-            sut.addFavorite(.fixture())
-            XCTAssertEqual(sut.loadFavorites().count, 5)
-        }
+        // THEN -> ENTÃO
+        XCTAssertEqual(sut.loadFavorites().count, 1)
+    }
+    
+    func testLoadFavoritesShouldReturnCorrectListFromCoreData() {
+        sut.addFavorite(.fixture())
+        sut.addFavorite(.fixture())
+        sut.addFavorite(.fixture())
+        sut.addFavorite(.fixture())
+        sut.addFavorite(.fixture())
+        XCTAssertEqual(sut.loadFavorites().count, 5)
+    }
+    
+    func testRemoveFavoriteShouldDeleteOnCoreData() {
+        // GIVEN -> DADO
+        sut.addFavorite(.fixture())
         
-        func testRemoveFavoriteShouldDeleteOnCoreData() {
-            // GIVEN -> DADO
-            sut.addFavorite(.fixture())
-
-            // WHEN -> QUANDO
-            sut.removeFavorite(id: "1")
-
-            // THEN -> ENTÃO
-            XCTAssertEqual(sut.loadFavorites().count, 0)
-        }
-
-        func testRemoveInvalidFavoriteShouldDeleteOnCoreData() {
-            // GIVEN -> DADO
-            sut.addFavorite(.fixture())
-
-            // WHEN -> QUANDO
-            sut.removeFavorite(id: "2")
-
-            // THEN -> ENTÃO
-            XCTAssertEqual(sut.loadFavorites().count, 1)
-        }
-
-        // MARK: - Realm Tests
+        // WHEN -> QUANDO
+        sut.removeFavorite(id: "1")
         
-        func testSaveNewFavoriteShouldPersistOnRealm() {
-            // GIVEN -> DADO
-            setupRealm()
-            XCTAssertEqual(sut.loadFavorites().count, 0)
-
-            // WHEN -> QUANDO
-            sut.addFavorite(.fixture())
-            
-            // THEN -> ENTÃO
-            XCTAssertEqual(sut.loadFavorites().count, 1)
-        }
+        // THEN -> ENTÃO
+        XCTAssertEqual(sut.loadFavorites().count, 0)
+    }
+    
+    func testRemoveInvalidFavoriteShouldDeleteOnCoreData() {
+        // GIVEN -> DADO
+        sut.addFavorite(.fixture())
         
-        func testLoadFavoritesShouldReturnCorrectListFromRealm() {
-            setupRealm()
-
-            sut.addFavorite(.fixture())
-            sut.addFavorite(.fixture())
-            sut.addFavorite(.fixture())
-            sut.addFavorite(.fixture())
-            sut.addFavorite(.fixture())
-            XCTAssertEqual(sut.loadFavorites().count, 5)
-        }
+        // WHEN -> QUANDO
+        sut.removeFavorite(id: "2")
         
-        func testRemoveFavoriteShouldDeleteOnRealm() {
-            setupRealm()
-
-            sut.addFavorite(.fixture())
-            sut.removeFavorite(id: "1")
-            XCTAssertEqual(sut.loadFavorites().count, 0)
-        }
+        // THEN -> ENTÃO
+        XCTAssertEqual(sut.loadFavorites().count, 1)
+    }
+    
+    // MARK: - Realm Tests
+    
+    func testSaveNewFavoriteShouldPersistOnRealm() {
+        // GIVEN -> DADO
+        setupRealm()
+        XCTAssertEqual(sut.loadFavorites().count, 0)
+        
+        // WHEN -> QUANDO
+        sut.addFavorite(.fixture())
+        
+        // THEN -> ENTÃO
+        XCTAssertEqual(sut.loadFavorites().count, 1)
+    }
+    
+    func testLoadFavoritesShouldReturnCorrectListFromRealm() {
+        setupRealm()
+        
+        sut.addFavorite(.fixture())
+        sut.addFavorite(.fixture())
+        sut.addFavorite(.fixture())
+        sut.addFavorite(.fixture())
+        sut.addFavorite(.fixture())
+        XCTAssertEqual(sut.loadFavorites().count, 5)
+    }
+    
+    func testRemoveFavoriteShouldDeleteOnRealm() {
+        setupRealm()
+        
+        sut.addFavorite(.fixture())
+        sut.removeFavorite(id: "1")
+        XCTAssertEqual(sut.loadFavorites().count, 0)
+    }
     
 }
 
@@ -359,4 +359,6 @@ class KeychainSpy: KeychainActions {
     func set(_ value: Data, forKey key: String, withAccessibility accessibility: GrowMartApp.KeychainItemAccessibility?) -> Bool {
         calledMethods.append(.setData)
         return true
-    }}
+    }
+    
+}

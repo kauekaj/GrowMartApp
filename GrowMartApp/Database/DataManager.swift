@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 import RealmSwift
 
+
 enum DatabaseSource {
     case coreData
     case realm
@@ -29,7 +30,7 @@ class DataManager {
     private var keychain: KeychainActions = KeychainWrapper.standard
     private var coreDataStack: CoreDataStack = AppDelegate.sharedAppDelegate.coreDataStack
     private var realm: Realm?
-    
+
     // MARK: Public Properties
     
     static let shared = DataManager()
@@ -39,21 +40,16 @@ class DataManager {
     private init() {}
     
     // MARK: Public Methods
-    
     func setup(source: DatabaseSource = .coreData,
-                   realm: Realm? = try! Realm(),
-                   coreDataStack: CoreDataStack = AppDelegate.sharedAppDelegate.coreDataStack,
-                   userDefaults: UserDefaultsActions = UserDefaults.standard,
-                   keychain: KeychainActions = KeychainWrapper.standard) {
-            self.source = source
-            self.realm = realm
-            self.coreDataStack = coreDataStack
-            self.userDefaults = userDefaults
-            self.keychain = keychain
-        }
-    
-    func setupDatabaseSource(_ source: DatabaseSource) {
+               realm: Realm? = try! Realm(),
+               coreDataStack: CoreDataStack = AppDelegate.sharedAppDelegate.coreDataStack,
+               userDefaults: UserDefaultsActions = UserDefaults.standard,
+               keychain: KeychainActions = KeychainWrapper.standard) {
         self.source = source
+        self.realm = realm
+        self.coreDataStack = coreDataStack
+        self.userDefaults = userDefaults
+        self.keychain = keychain
     }
 
     func saveString(key: DataManagerKey, value: String?, isSecure: Bool = false) {
@@ -121,27 +117,25 @@ class DataManager {
 }
 
 // MARK: Private Methods (Realm)
-
 extension DataManager {
     private func loadFavoritesFromRealm() -> [Favorite] {
-        
-         realm?.objects(RealmFavorite.self).compactMap { item in
+        realm?.objects(RealmFavorite.self).compactMap { item in
             Favorite(identifier: item.identifier,
                      image: item.image,
                      name: item.name,
                      price: item.price)
         } ?? []
     }
-
+    
     private func addFavoriteToRealm(_ product: ProductResponse) {
         try! realm?.write {
             realm?.add(RealmFavorite(identifier: product.id,
-                                    image: product.image,
-                                    name: product.name,
-                                    price: product.price))
+                                     image: product.image,
+                                     name: product.name,
+                                     price: product.price))
         }
     }
-
+    
     private func removeFavoriteFromRealm(id: String) {
         try! realm?.write {
             if let favoriteToDelete = realm?.objects(RealmFavorite.self).where { $0.identifier == id } {
@@ -152,13 +146,12 @@ extension DataManager {
 }
 
 // MARK: Private Methods (CoreData)
-
 extension DataManager {
     private func getFavoritesFromCoreData() -> [CoreDataFavorite] {
         let favoritesFetch: NSFetchRequest<CoreDataFavorite> = CoreDataFavorite.fetchRequest()
         let sortById = NSSortDescriptor(key: #keyPath(CoreDataFavorite.identifier), ascending: false)
         favoritesFetch.sortDescriptors = [sortById]
-
+        
         // Explanation: https://stackoverflow.com/questions/7304257/coredata-error-data-fault
         favoritesFetch.returnsObjectsAsFaults = false
 
@@ -169,7 +162,7 @@ extension DataManager {
             return []
         }
     }
-
+    
     private func loadFavoritesFromCoreData() -> [Favorite] {
         getFavoritesFromCoreData().compactMap { item in
             Favorite(identifier: item.identifier,
@@ -178,7 +171,7 @@ extension DataManager {
                      price: item.price)
         }
     }
-
+    
     private func addFavoriteToCoreData(_ product: ProductResponse) {
         var favorites = getFavoritesFromCoreData()
 
@@ -187,14 +180,14 @@ extension DataManager {
         newFavorite.setValue(product.image, forKey: #keyPath(CoreDataFavorite.image))
         newFavorite.setValue(product.name, forKey: #keyPath(CoreDataFavorite.name))
         newFavorite.setValue(product.price, forKey: #keyPath(CoreDataFavorite.price))
-
+        
         favorites.insert(newFavorite, at: 0)
         coreDataStack.saveContext()
     }
-
+    
     private func removeFavoriteFromCoreData(id: String) {
         let favorites = getFavoritesFromCoreData()
-
+        
         guard let index = favorites.firstIndex(where: { $0.identifier == id }) else {
             return
         }
@@ -205,7 +198,6 @@ extension DataManager {
 }
 
 // MARK: Private Methods (UserDefaults)
-
 extension DataManager {
     private func saveStringUserDefaults(key: DataManagerKey, value: String) {
         userDefaults.set(value, forKey: key.rawValue)
@@ -240,7 +232,6 @@ extension DataManager {
 }
 
 // MARK: Private Methods (KeyChain)
-
 extension DataManager {
     private func saveStringKeyChain(key: DataManagerKey, value: String) {
         keychain.set(value, forKey: key.rawValue, withAccessibility: nil)
@@ -265,7 +256,7 @@ extension DataManager {
     }
     
     private func getObjectKeyChain<T: Codable>(key: DataManagerKey) -> T? {
-        guard let data = KeychainWrapper.standard.data(forKey: key.rawValue),
+        guard let data = keychain.data(forKey: key.rawValue, withAccessibility: nil),
               let object = try? JSONDecoder().decode(T.self, from: data) else {
             return nil
         }
