@@ -8,6 +8,7 @@
 // FONTE: https://www.hackingwithswift.com/example-code/system/how-to-save-user-settings-using-userdefaults
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     // MARK: - Private Properties
@@ -39,25 +40,50 @@ class LoginViewController: UIViewController {
     }
     
     private func authUser(login: String, password: String) {
-        networkManager.execute(
-            endpoint: AuthApi.auth(login: login, password: password)) { [weak self] (response: Result<AuthResponse?, NetworkResponse>) in
-                guard let safeSelf = self else { return }
-                
-                switch response {
-                case let .success(data):
-                    guard let userData = data else {
-                        // Apresentar estado de erro
-                        return
-                    }
-                    
-                    safeSelf.persistUserInfo(user: userData)
-                    safeSelf.showHomeScreen()
-                case .failure:
-                    // Apresentar estado de erro
-                    break
-                }
+//        networkManager.execute(
+//            endpoint: AuthApi.auth(login: login, password: password)) { [weak self] (response: Result<AuthResponse?, NetworkResponse>) in
+//                guard let safeSelf = self else { return }
+//
+//                switch response {
+//                case let .success(data):
+//                    guard let userData = data else {
+//                        // Apresentar estado de erro
+//                        return
+//                    }
+//
+//                    safeSelf.persistUserInfo(user: userData)
+//                    safeSelf.showHomeScreen()
+//                case .failure:
+//                    // Apresentar estado de erro
+//                    break
+//                }
+//            }
+        
+        Auth.auth().signIn(withEmail: login, password: password) { [weak self] authResult, error in
+            guard let safeself = self,
+                  error == nil,
+                  let user = authResult?.user else {
+                self?.showLoginError()
+                return
             }
+            
+            safeself.persistUserInfo(user: .init(id: user.uid,
+                                                 name: user.displayName,
+                                                 email: user.email,
+                                                 phone: user.phoneNumber))
+            safeself.showHomeScreen()
+        }
     }
+    
+    private func showLoginError() {
+            let alert = UIAlertController(title: "Erro!",
+                                                 message: "Dados inválidos, tente novamente.",
+                                                 preferredStyle: .alert)
+
+            alert.addAction(.init(title: "Ok", style: .cancel, handler: nil))
+            
+            present(alert, animated: true, completion: nil)
+        }
     
     private func showHomeScreen() {
         DispatchQueue.main.async {
