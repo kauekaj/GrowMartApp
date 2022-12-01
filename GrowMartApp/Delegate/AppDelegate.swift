@@ -7,22 +7,25 @@
 
 import UIKit
 import FirebaseCore
+import FirebaseRemoteConfig
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var coreDataStack: CoreDataStack = .init(modelName: "Favorites")
+    lazy var remoteConfig = RemoteConfig.remoteConfig()
     
     static let sharedAppDelegate: AppDelegate = {
-            guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
-                fatalError("Unexpected app delegate type, did it change? \(String(describing: UIApplication.shared.delegate))")
-            }
-            return delegate
-        }()
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("Unexpected app delegate type, did it change? \(String(describing: UIApplication.shared.delegate))")
+        }
+        return delegate
+    }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        fetchRemoteConfig()
         setupNavigation()
         DataManager.shared.setup(source: .coreData)
         
@@ -48,6 +51,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - Private Methods
 
 extension AppDelegate {
+    
+    private func fetchRemoteConfig() {
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0
+        remoteConfig.configSettings = settings
+        
+        remoteConfig.fetch { (status, error) -> Void in
+            if status == .success {
+                print("Config fetched!")
+                self.remoteConfig.activate { changed, error in
+                    // ...
+                }
+            } else {
+                print("Config not fetched")
+                print("Error: \(error?.localizedDescription ?? "No error available.")")
+            }
+        }
+    }
     
     private func setupNavigation() {
         let backButtonBackgroundImage = UIImage(named: "Arrow")!.withRenderingMode(.alwaysOriginal)

@@ -9,8 +9,15 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseRemoteConfig
 
 class LoginViewController: UIViewController {
+    
+    enum AuthenticationType: String {
+        case firebase = "FIREBASE"
+        case api = "API"
+    }
+    
     // MARK: - Private Properties
     private lazy var loginView: LoginView = {
         let element = LoginView()
@@ -40,50 +47,55 @@ class LoginViewController: UIViewController {
     }
     
     private func authUser(login: String, password: String) {
-//        networkManager.execute(
-//            endpoint: AuthApi.auth(login: login, password: password)) { [weak self] (response: Result<AuthResponse?, NetworkResponse>) in
-//                guard let safeSelf = self else { return }
-//
-//                switch response {
-//                case let .success(data):
-//                    guard let userData = data else {
-//                        // Apresentar estado de erro
-//                        return
-//                    }
-//
-//                    safeSelf.persistUserInfo(user: userData)
-//                    safeSelf.showHomeScreen()
-//                case .failure:
-//                    // Apresentar estado de erro
-//                    break
-//                }
-//            }
         
-        Auth.auth().signIn(withEmail: login, password: password) { [weak self] authResult, error in
-            guard let safeself = self,
-                  error == nil,
-                  let user = authResult?.user else {
-                self?.showLoginError()
-                return
+        let authenticationTypeConfig = AppDelegate.sharedAppDelegate.remoteConfig.configValue(forKey: "ft_authentication_type").stringValue
+
+        if authenticationTypeConfig == AuthenticationType.api.rawValue {
+            networkManager.execute(
+                endpoint: AuthApi.auth(login: login, password: password)) { [weak self] (response: Result<AuthResponse?, NetworkResponse>) in
+                    guard let safeSelf = self else { return }
+                    
+                    switch response {
+                    case let .success(data):
+                        guard let userData = data else {
+                            // Apresentar estado de erro
+                            return
+                        }
+                        
+                        safeSelf.persistUserInfo(user: userData)
+                        safeSelf.showHomeScreen()
+                    case .failure:
+                        // Apresentar estado de erro
+                        break
+                    }
+                }
+        } else {
+            Auth.auth().signIn(withEmail: login, password: password) { [weak self] authResult, error in
+                guard let safeself = self,
+                      error == nil,
+                      let user = authResult?.user else {
+                    self?.showLoginError()
+                    return
+                }
+                
+                safeself.persistUserInfo(user: .init(id: user.uid,
+                                                     name: user.displayName,
+                                                     email: user.email,
+                                                     phone: user.phoneNumber))
+                safeself.showHomeScreen()
             }
-            
-            safeself.persistUserInfo(user: .init(id: user.uid,
-                                                 name: user.displayName,
-                                                 email: user.email,
-                                                 phone: user.phoneNumber))
-            safeself.showHomeScreen()
         }
     }
     
     private func showLoginError() {
-            let alert = UIAlertController(title: "Erro!",
-                                                 message: "Dados inválidos, tente novamente.",
-                                                 preferredStyle: .alert)
-
-            alert.addAction(.init(title: "Ok", style: .cancel, handler: nil))
-            
-            present(alert, animated: true, completion: nil)
-        }
+        let alert = UIAlertController(title: "Erro!",
+                                      message: "Dados inválidos, tente novamente.",
+                                      preferredStyle: .alert)
+        
+        alert.addAction(.init(title: "Ok", style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
     
     private func showHomeScreen() {
         DispatchQueue.main.async {
@@ -91,7 +103,7 @@ class LoginViewController: UIViewController {
                                                           animated: true)
         }
     }
-        
+    
     private func persistUserInfo(user: AuthResponse) {
         
         let manager = DataManager.shared
