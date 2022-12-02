@@ -19,6 +19,7 @@
 		9618711B2911CCF800B9140E /* ProductDetailJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618711A2911CCF800B9140E /* ProductDetailJsonData.swift */; };
 		9627A1F8292BE5BF00605131 /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627A1F7292BE5BF00605131 /* DataManagerTests.swift */; };
 		9627A1FA292BECA300605131 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627A1F9292BECA300605131 /* UserDefaults+Extensions.swift */; };
+		9646A3B5293A62F0004DCA72 /* RealtimeDatabaseFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9646A3B4293A62F0004DCA72 /* RealtimeDatabaseFavorite.swift */; };
 		9653E7B1293681CC008CBDAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9653E7B0293681CC008CBDAE /* GoogleService-Info.plist */; };
 		9653E7B42936834B008CBDAE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9653E7B32936834B008CBDAE /* FirebaseAuth */; };
 		9653E7B62936834B008CBDAE /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9653E7B52936834B008CBDAE /* FirebaseDatabase */; };
@@ -154,6 +155,7 @@
 		9618711A2911CCF800B9140E /* ProductDetailJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailJsonData.swift; sourceTree = "<group>"; };
 		9627A1F7292BE5BF00605131 /* DataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
 		9627A1F9292BECA300605131 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		9646A3B4293A62F0004DCA72 /* RealtimeDatabaseFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDatabaseFavorite.swift; sourceTree = "<group>"; };
 		9653E7B0293681CC008CBDAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		965EEA2729151640006E4A39 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		965EEA292915166E006E4A39 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -352,6 +354,22 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		9646A3B2293A62A3004DCA72 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				9646A3B3293A62AF004DCA72 /* RealtimeDatabase */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		9646A3B3293A62AF004DCA72 /* RealtimeDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				9646A3B4293A62F0004DCA72 /* RealtimeDatabaseFavorite.swift */,
+			);
+			path = RealtimeDatabase;
+			sourceTree = "<group>";
+		};
 		965EEA25291515DF006E4A39 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,6 +536,7 @@
 		9697F869291D6726006AA3DE /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				9646A3B2293A62A3004DCA72 /* Firebase */,
 				965EEA2D2915182D006E4A39 /* CoreData */,
 				969575B6291D34A40088BA44 /* Realm */,
 				9601E85A29255624007EC32C /* DataManager.swift */,
@@ -1058,6 +1077,7 @@
 				9697F99F290C8A1B00E91687 /* ProductDetailView.swift in Sources */,
 				969A85A728D1E219009059C2 /* CatalogViewController.swift in Sources */,
 				9698BF0F28E21331008DFF41 /* CheckboxCell.swift in Sources */,
+				9646A3B5293A62F0004DCA72 /* RealtimeDatabaseFavorite.swift in Sources */,
 				96A28E3228DB52CE00D39621 /* InfoDataView.swift in Sources */,
 				96C2DFEC28EB4AF200819AE5 /* PhotoCell.swift in Sources */,
 				96B9835028B59A9E00073871 /* LoginView.swift in Sources */,
