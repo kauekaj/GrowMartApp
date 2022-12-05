@@ -8,11 +8,12 @@
 import Foundation
 import CoreData
 import RealmSwift
-
+import FirebaseDatabase
 
 enum DatabaseSource {
     case coreData
     case realm
+    case realtimeDatabase
 }
 
 enum DataManagerKey: String {
@@ -29,12 +30,13 @@ class DataManager {
     private var userDefaults: UserDefaultsActions = UserDefaults.standard
     private var keychain: KeychainActions = KeychainWrapper.standard
     private var coreDataStack: CoreDataStack = AppDelegate.sharedAppDelegate.coreDataStack
+    private var realtimeDatabase = Database.database().reference()
     private var realm: Realm?
-
+    
     // MARK: Public Properties
     
     static let shared = DataManager()
-
+    
     // MARK: Init
     
     private init() {}
@@ -51,7 +53,7 @@ class DataManager {
         self.userDefaults = userDefaults
         self.keychain = keychain
     }
-
+    
     func saveString(key: DataManagerKey, value: String?, isSecure: Bool = false) {
         if isSecure {
             saveStringKeyChain(key: key, value: value ?? "")
@@ -94,6 +96,9 @@ class DataManager {
             return loadFavoritesFromCoreData()
         case .realm:
             return loadFavoritesFromRealm()
+        case .realtimeDatabase:
+            loadFavoritesFromRealtimeDatabse()
+            return []
         }
     }
     
@@ -103,6 +108,8 @@ class DataManager {
             addFavoriteToCoreData(product)
         case .realm:
             addFavoriteToRealm(product)
+        case .realtimeDatabase:
+            addFavoriteToRealtimeDatabse(product)
         }
     }
     
@@ -112,6 +119,8 @@ class DataManager {
             removeFavoriteFromCoreData(id: id)
         case .realm:
             removeFavoriteFromRealm(id: id)
+        case .realtimeDatabase:
+            removeFavoriteRealtimeDatabse(id: id)
         }
     }
 }
@@ -145,6 +154,61 @@ extension DataManager {
     }
 }
 
+// MARK: Private Methods (Realtime Database)
+extension DataManager {
+    private func loadFavoritesFromRealtimeDatabse() {
+        guard let loggedClient = getString(key: .userID) else {
+            return
+        }
+        
+        realtimeDatabase.child("favorites/\(loggedClient)/").getData { error, snapshot in
+            guard error == nil, let snapshot = snapshot else {
+                print(error!.localizedDescription)
+                return
+            }
+
+            var favorites = [Favorite]()
+            let dictionary = snapshot.value as? NSDictionary
+            dictionary?.allValues.forEach { value in
+                if let item = value as? NSDictionary {
+                    favorites.append(.init(identifier: item["identifier"] as? String ?? "",
+                                           image: item["image"] as? String ?? "",
+                                           name: item["name"] as? String ?? "",
+                                           price: item["price"] as? String ?? ""))
+                }
+            }
+
+            NotificationCenter.default.post(name: Notification.Name("FavoritesUpdated"),
+                                            object: nil,
+                                            userInfo: ["favorites": favorites])
+        }
+        
+        return
+    }
+    
+    private func addFavoriteToRealtimeDatabse(_ product: ProductResponse) {
+        guard let loggedClient = getString(key: .userID),
+              let productId = product.id else {
+            return
+        }
+        
+        let newFavorite = RealtimeDatabaseFavorite(identifier: productId,
+                                                   image: product.image,
+                                                   name: product.name,
+                                                   price: product.price)
+        
+        realtimeDatabase.child("favorites/\(loggedClient)/prd-\(productId)").setValue(newFavorite.toDictionary())
+    }
+    
+    private func removeFavoriteRealtimeDatabse(id: String) {
+        guard let loggedClient = getString(key: .userID) else {
+            return
+        }
+        
+        realtimeDatabase.child("favorites/\(loggedClient)/prd-\(id)").setValue(nil)
+    }
+}
+
 // MARK: Private Methods (CoreData)
 extension DataManager {
     private func getFavoritesFromCoreData() -> [CoreDataFavorite] {
@@ -154,7 +218,7 @@ extension DataManager {
         
         // Explanation: https://stackoverflow.com/questions/7304257/coredata-error-data-fault
         favoritesFetch.returnsObjectsAsFaults = false
-
+        
         do {
             return try coreDataStack.managedContext.fetch(favoritesFetch)
         } catch let error as NSError {
@@ -174,7 +238,7 @@ extension DataManager {
     
     private func addFavoriteToCoreData(_ product: ProductResponse) {
         var favorites = getFavoritesFromCoreData()
-
+        
         let newFavorite = CoreDataFavorite(context: coreDataStack.managedContext)
         newFavorite.setValue(product.id, forKey: #keyPath(CoreDataFavorite.identifier))
         newFavorite.setValue(product.image, forKey: #keyPath(CoreDataFavorite.image))
@@ -191,7 +255,7 @@ extension DataManager {
         guard let index = favorites.firstIndex(where: { $0.identifier == id }) else {
             return
         }
-
+        
         coreDataStack.managedContext.delete(favorites[index])
         coreDataStack.saveContext()
     }

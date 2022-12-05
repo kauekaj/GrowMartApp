@@ -24,8 +24,8 @@ class RealtimeDatabaseFavorite {
     
     func toDictionary() -> [String: String] {
         [
-            "identifier":identifier,
-            "image":image,
+            "identifier": identifier,
+            "image": image,
             "name": name,
             "price": price
         ]

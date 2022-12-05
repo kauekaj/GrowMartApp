@@ -29,10 +29,16 @@ class CatalogViewController: BaseViewController {
         loadFavorites()
         callService()
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(favoritesUpdated),
+                                               selector: #selector(favoritesUpdatedNotification),
                                                name: Notification.Name("FavoritesUpdated"),
                                                object: nil)
     }
+    
+    deinit {
+          NotificationCenter.default.removeObserver(self,
+                                                    name: Notification.Name("FavoritesUpdated"),
+                                                    object: nil)
+      }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -47,10 +53,16 @@ class CatalogViewController: BaseViewController {
     // MARK: - Private Methods
     
     @objc
-    func favoritesUpdated() {
-        loadFavorites()
-        catalogView.reloadData()
-    }
+    func favoritesUpdatedNotification(_ notification: NSNotification) {
+           if let favorites = notification.userInfo?["favorites"] as? [Favorite] {
+               self.favorites = favorites
+           } else {
+               loadFavorites()
+           }
+           
+           catalogView.reloadData()
+       }
+    
     
     private func loadFavorites() {
         favorites = DataManager.shared.loadFavorites()

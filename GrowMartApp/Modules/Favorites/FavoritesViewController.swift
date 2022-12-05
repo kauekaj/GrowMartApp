@@ -26,7 +26,17 @@ class FavoritesViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
+        NotificationCenter.default.addObserver(self,
+                                                    selector: #selector(favoritesUpdatedNotification(_:)),
+                                                    name: Notification.Name("FavoritesUpdated"),
+                                                    object: nil)
     }
+    
+    deinit {
+          NotificationCenter.default.removeObserver(self,
+                                                    name: Notification.Name("FavoritesUpdated"),
+                                                    object: nil)
+      }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,6 +50,15 @@ class FavoritesViewController: BaseViewController {
     }
     
     // MARK: - Private Methods
+    
+    @objc func favoritesUpdatedNotification(_ notification: NSNotification) {
+          if let favorites = notification.userInfo?["favorites"] as? [Favorite] {
+              self.favorites = favorites
+          } else {
+              loadFavorites()
+          }
+      }
+    
     private func loadFavorites() {
         favorites = DataManager.shared.loadFavorites()
         
