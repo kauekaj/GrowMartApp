@@ -11,11 +11,11 @@ protocol CartViewDelegate: AnyObject {
 
     func numberOfRows() -> Int
     func getCartCellType(at index: Int) -> CartCellType?
-    func getProduct(at index: Int) -> Product?
+    func getCartItem(at index: Int) -> CartItem?
     func getTotal() -> String
     func getButtonTitle() -> String
     func didTapButton()
-    func remove(product: Product)
+    func remove(cartItem: CartItem)
 }
 
 public final class CartView: UIView {
@@ -53,6 +53,8 @@ public final class CartView: UIView {
     
     public func reloadTableView() {
         tableView.reloadData()
+        
+        tableView.tableFooterView?.isHidden = delegate?.numberOfRows() == 0
     }
     
     // MARK: - Inits
@@ -106,13 +108,13 @@ extension CartView: ViewCodable {
     private func registerTableViewCells() {
         tableView.register(ButtonCell.self, forCellReuseIdentifier: String(describing: ButtonCell.self))
         tableView.register(TotalCell.self, forCellReuseIdentifier: String(describing: TotalCell.self))
-        tableView.register(ProductCell.self, forCellReuseIdentifier: String(describing: ProductCell.self))
+        tableView.register(CartItemCell.self, forCellReuseIdentifier: String(describing: CartItemCell.self))
 
     }
     
     private func setupFooter() {
         tableView.tableFooterView = CartFooterView(total: delegate?.getTotal() ?? "",
-                                                       buttonTitle: delegate?.getButtonTitle() ?? "",
+                                                       buttonTitle: "Checkout",
                                                        delegate: self)
         tableView.tableFooterView?.clipsToBounds = true
         }
@@ -143,8 +145,8 @@ extension CartView: UITableViewDelegate, UITableViewDataSource {
         
         switch cellype {
         case .product:
-            guard let product = delegate?.getProduct(at: indexPath.row),
-                  let cell: ProductCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ProductCell.self), for: indexPath) as? ProductCell else {
+            guard let product = delegate?.getCartItem(at: indexPath.row),
+                  let cell: CartItemCell = tableView.dequeueReusableCell(withIdentifier: String(describing: CartItemCell.self), for: indexPath) as? CartItemCell else {
                 return UITableViewCell()
             }
             cell.setProduct(product)
@@ -188,8 +190,8 @@ extension CartView: ButtonCellDelegate,  CartFooterViewDelegate {
 
 // MARK: - ProductCellDelegate
 
-extension CartView: ProductCellDelegate {
-    public func remove(product: Product) {
-        delegate?.remove(product: product)
+extension CartView: CartItemCellDelegate {
+    func remove(cartItem: CartItem) {
+        delegate?.remove(cartItem: cartItem)
     }
 }

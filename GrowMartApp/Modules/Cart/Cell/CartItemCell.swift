@@ -7,17 +7,17 @@
 
 import UIKit
 
-public protocol ProductCellDelegate: AnyObject {
-    func remove(product: Product)
+protocol CartItemCellDelegate: AnyObject {
+    func remove(cartItem: CartItem)
 }
 
-public class ProductCell: UITableViewCell {
+class CartItemCell: UITableViewCell {
 
-    public weak var delegate: ProductCellDelegate?
+    public weak var delegate: CartItemCellDelegate?
 
     // MARK: - Private Properties
     
-    private var product: Product?
+    private var cartItem: CartItem?
 
     private lazy var containerView: UIView = {
         let element = UIView()
@@ -84,28 +84,29 @@ public class ProductCell: UITableViewCell {
     }
 
     // MARK: - Public Methods
-    public func setProduct(_ product: Product) {
-        self.product = product
+    public func setProduct(_ cartItem: CartItem) {
+        self.cartItem = cartItem
 
-        productImageView.image = UIImage(named: product.imageUrl ?? "")
-        nameLabel.text = product.name
-        priceLabel.text = product.price
+        productImageView.image = UIImage(named: cartItem.image ?? "")
+        
+        nameLabel.text = cartItem.name
+        priceLabel.text = cartItem.price
     }
     
     // MARK: - Actions
     @objc
     private func didTapRemoveButton() {
-        guard let product = product else {
+        guard let cartItem = cartItem else {
             return
         }
 
-        delegate?.remove(product: product)
+        delegate?.remove(cartItem: cartItem)
     }
 
 }
 
 // MARK: - ViewCodable
-extension ProductCell: ViewCodable {
+extension CartItemCell: ViewCodable {
     public func buildViewHierarchy() {
         contentView.addSubview(containerView)
         containerView.addSubview(productImageView)

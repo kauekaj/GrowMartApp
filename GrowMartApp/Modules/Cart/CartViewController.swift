@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 public enum CartCellType {
     case product
@@ -19,24 +20,22 @@ struct CartCell {
 }
 
 class CartViewController: BaseViewController {
-
+    
     private var cartView: CartView?
-
-    private var cells: [CartCell] = [
-            .init(cellType: .product, data: Product(name:"título produto 1", price:"R$ 0,00", imageUrl: "produto-exemplo")),
-            .init(cellType: .product, data: Product(name:"título produto 2", price:"R$ 0,00", imageUrl: "produto-exemplo")),
-            .init(cellType: .product, data: Product(name:"título produto 3", price:"R$ 0,00", imageUrl: "produto-exemplo")),
-            .init(cellType: .total, data: "total: R$ 0.00"),
-            .init(cellType: .button, data: "check-out")
-        ]
-
+    private var realm = try! Realm()
+    private var cartItems: [CartItem]? {
+        didSet {
+            cartView?.reloadTableView()
+        }
+    }
+    
     override func loadView() {
         super.loadView()
-
+        
         cartView = .init()
         view = cartView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cartView?.delegate = self
@@ -45,60 +44,75 @@ class CartViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
+        cartItems = loadCartItemsFromRealm()
     }
+    
+}
 
+extension CartViewController {
+    private func loadCartItemsFromRealm() -> [CartItem] {
+        realm.objects(RealmCartItem.self).compactMap { item in
+            CartItem(identifier: item.identifier,
+                     image: item.image,
+                     name: item.name,
+                     price: item.price)
+        }
+    }
 }
 
 extension CartViewController: CartViewDelegate {
+ 
     func numberOfRows() -> Int {
-        cells.count
+        cartItems?.count ?? 0
     }
-
+    
     func getCartCellType(at index: Int) -> CartCellType? {
-        guard index < cells.count else {
-            return nil
-        }
-
-        return cells[index].cellType
+//        guard let cartItems = cartItems, index < cartItems.count else {
+//                    return nil
+//                }
+//
+//                return cartItems[index]
+        return nil
     }
-
-    func getProduct(at index: Int) -> Product? {
-        guard let product = cells[index].data as? Product else {
-            return nil
-        }
-
-        return product
+    
+    func getCartItem(at index: Int) -> CartItem? {
+        guard let cartItems = cartItems, index < cartItems.count else {
+                    return nil
+                }
+                
+                return cartItems[index]
     }
-
+    
     func getTotal() -> String {
-        guard let total = cells.first(where: { $0.cellType == .total })?.data as? String else {
-            return ""
-        }
-
-        return total
+        var total: Double = 0
+                
+                cartItems?.forEach { item in
+//                    total += item.getPrice()
+                }
+                
+                let formatter = NumberFormatter()
+                formatter.locale = Locale.current // USA: Locale(identifier: "en_US")
+                formatter.numberStyle = .decimal
+                let totalFormatted = formatter.string(from: NSNumber(value: total)) ?? ""
+                
+                return "R$ \(totalFormatted)"
     }
-
+    
     func getButtonTitle() -> String {
-        guard let buttonTitle = cells.first(where: { $0.cellType == .button })?.data as? String else {
-            return ""
-        }
-
-        return buttonTitle
+//        guard let buttonTitle = cells.first(where: { $0.cellType == .button })?.data as? String else {
+//            return ""
+//        }
+//
+        return ""
     }
-
+    
     func didTapButton() {
         print("didTapButton")
     }
-
-    func remove(product: Product) {
-        print("Removeu o produto: \(product.name)")
-
-        cells.removeAll { cell in
-            if let productCell = cell.data as? Product {
-                return productCell.name == product.name
-            }
-            return false
-        }
-        cartView?.reloadTableView()
+    
+    func remove(cartItem: CartItem) {
+//        removeCartItemFromRealm(id: cartItem.identifier ?? "")
+//                cartItems?.removeAll { $0.identifier == cartItem.identifier }
+                cartView?.reloadTableView()
     }
 }
