@@ -59,6 +59,12 @@ public final class CartFooterView: UIView {
     required init?(coder: NSCoder) {
         nil
     }
+    
+    // MARK: Public Methods
+       
+       func updateTotal(value: String) {
+           label.text = value
+       }
 
     // MARK: Actions
 
@@ -106,6 +112,5 @@ extension CartFooterView: ViewCodable {
     }
     
     public func setupAdditionalConfiguration() {
-        backgroundColor = .lightGray
     }
 }

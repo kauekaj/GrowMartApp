@@ -84,11 +84,10 @@ class CartItemCell: UITableViewCell {
     }
 
     // MARK: - Public Methods
-    public func setProduct(_ cartItem: CartItem) {
+    public func setCartItem(_ cartItem: CartItem) {
         self.cartItem = cartItem
 
-        productImageView.image = UIImage(named: cartItem.image ?? "")
-        
+        productImageView.addImageFromURL(urlString: cartItem.image ?? "")
         nameLabel.text = cartItem.name
         priceLabel.text = cartItem.price
     }
@@ -99,7 +98,6 @@ class CartItemCell: UITableViewCell {
         guard let cartItem = cartItem else {
             return
         }
-
         delegate?.remove(cartItem: cartItem)
     }
 

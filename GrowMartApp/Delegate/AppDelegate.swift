@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         fetchRemoteConfig()
         setupNavigation()
-        DataManager.shared.setup(source: .realtimeDatabase)
+        DataManager.shared.setup(source: .realm)
         
         return true
     }

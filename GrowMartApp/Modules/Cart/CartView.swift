@@ -10,7 +10,7 @@ import UIKit
 protocol CartViewDelegate: AnyObject {
 
     func numberOfRows() -> Int
-    func getCartCellType(at index: Int) -> CartCellType?
+//    func getCartCellType(at index: Int) -> CartCellType?
     func getCartItem(at index: Int) -> CartItem?
     func getTotal() -> String
     func getButtonTitle() -> String
@@ -53,6 +53,10 @@ public final class CartView: UIView {
     
     public func reloadTableView() {
         tableView.reloadData()
+        
+        if let footer = tableView.tableFooterView as? CartFooterView {
+                    footer.updateTotal(value: delegate?.getTotal() ?? "")
+                }
         
         tableView.tableFooterView?.isHidden = delegate?.numberOfRows() == 0
     }
@@ -103,11 +107,12 @@ extension CartView: ViewCodable {
         backgroundColor = .white
         registerTableViewCells()
         setupTableContentInset()
+        setupFooter()
     }
 
     private func registerTableViewCells() {
-        tableView.register(ButtonCell.self, forCellReuseIdentifier: String(describing: ButtonCell.self))
-        tableView.register(TotalCell.self, forCellReuseIdentifier: String(describing: TotalCell.self))
+//        tableView.register(ButtonCell.self, forCellReuseIdentifier: String(describing: ButtonCell.self))
+//        tableView.register(TotalCell.self, forCellReuseIdentifier: String(describing: TotalCell.self))
         tableView.register(CartItemCell.self, forCellReuseIdentifier: String(describing: CartItemCell.self))
 
     }
@@ -139,40 +144,48 @@ extension CartView: UITableViewDelegate, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cellype = delegate?.getCartCellType(at: indexPath.row) else {
-            return UITableViewCell()
-        }
+//        guard let cellype = delegate?.getCartCellType(at: indexPath.row) else {
+//            return UITableViewCell()
+//        }
+//        
+//        switch cellype {
+//        case .product:
+//            guard let product = delegate?.getCartItem(at: indexPath.row),
+//                  let cell: CartItemCell = tableView.dequeueReusableCell(withIdentifier: String(describing: CartItemCell.self), for: indexPath) as? CartItemCell else {
+//                return UITableViewCell()
+//            }
+//            cell.setProduct(product)
+//            cell.delegate = self
+//            return cell
+//            
+//        case .total:
+//            guard let total = delegate?.getTotal(),
+//                  let cell: TotalCell = tableView.dequeueReusableCell(withIdentifier: String(describing: TotalCell.self), for: indexPath) as? TotalCell else {
+//                return UITableViewCell()
+//            }
+//            cell.setTotal(total)
+//            return cell
+//            
+//        case .button:
+//            guard let buttonTitle = delegate?.getButtonTitle(),
+//                  let cell: ButtonCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as? ButtonCell else {
+//                return UITableViewCell()
+//            }
+//            
+//            cell.setTitle(buttonTitle, color: .black)
+//            cell.delegate = self
+//            return cell
+//            
+//        }
+//        return UITableViewCell()
         
-        switch cellype {
-        case .product:
-            guard let product = delegate?.getCartItem(at: indexPath.row),
-                  let cell: CartItemCell = tableView.dequeueReusableCell(withIdentifier: String(describing: CartItemCell.self), for: indexPath) as? CartItemCell else {
-                return UITableViewCell()
-            }
-            cell.setProduct(product)
-            cell.delegate = self
-            return cell
-            
-        case .total:
-            guard let total = delegate?.getTotal(),
-                  let cell: TotalCell = tableView.dequeueReusableCell(withIdentifier: String(describing: TotalCell.self), for: indexPath) as? TotalCell else {
-                return UITableViewCell()
-            }
-            cell.setTotal(total)
-            return cell
-            
-        case .button:
-            guard let buttonTitle = delegate?.getButtonTitle(),
-                  let cell: ButtonCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as? ButtonCell else {
-                return UITableViewCell()
-            }
-            
-            cell.setTitle(buttonTitle, color: .black)
-            cell.delegate = self
-            return cell
-            
-        }
-        return UITableViewCell()
+        guard let cartItem = delegate?.getCartItem(at: indexPath.row),
+                      let cell: CartItemCell = .createCell(for: tableView, at: indexPath) else {
+                    return UITableViewCell()
+                }
+                cell.setCartItem(cartItem)
+                cell.delegate = self
+                return cell
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

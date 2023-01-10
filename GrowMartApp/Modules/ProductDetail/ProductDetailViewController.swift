@@ -8,6 +8,8 @@
 import UIKit
 
 class ProductDetailViewController: BaseViewController {
+    private var product: ProductResponse?
+    
     // MARK: - Private Properties
     private lazy var networkManager = NetworkManager(router: Router())
 
@@ -38,6 +40,7 @@ class ProductDetailViewController: BaseViewController {
             
             switch response {
             case let .success(data):
+                safeSelf.product = data
                 safeSelf.productDetailView.set(product: data)
             case .failure:
                 // Apresentar estado de erro
@@ -51,6 +54,8 @@ class ProductDetailViewController: BaseViewController {
 extension ProductDetailViewController: ProductDetailViewDelegate {
     func didTapAddToCart() {
         print("didTapAddToCart")
+        guard let product = product else { return }
+        DataManager.shared.addFCartItem(product)
     }
     
     func didTapShare() {

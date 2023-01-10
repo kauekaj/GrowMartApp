@@ -123,6 +123,28 @@ class DataManager {
             removeFavoriteRealtimeDatabse(id: id)
         }
     }
+    
+    func addFCartItem(_ product: ProductResponse) {
+        switch source {
+        case .coreData:
+            break
+        case .realm:
+            addCartItemToRealm(product)
+        case .realtimeDatabase:
+            break
+        }
+    }
+    
+    func removeCartItem(id: String) {
+        switch source {
+        case .coreData:
+            break
+        case .realm:
+            removeCartItemFromRealm(id: id)
+        case .realtimeDatabase:
+            break
+        }
+    }
 }
 
 // MARK: Private Methods (Realm)
@@ -152,6 +174,35 @@ extension DataManager {
             }
         }
     }
+    
+    private func loadCartItemsFromRealm() -> [CartItem] {
+           realm?.objects(RealmCartItem.self).compactMap { item in
+               CartItem(identifier: item.identifier,
+                        image: item.image,
+                        name: item.name,
+                        price: item.price)
+           } ?? []
+       }
+       
+       private func addCartItemToRealm(_ product: ProductResponse) {
+           try! realm?.write {
+               realm?.add(RealmCartItem(
+   //                identifier: product.id,
+                   identifier: UUID().uuidString,
+                   image: product.image,
+                   name: product.name,
+                   price: product.price)
+               )
+           }
+       }
+       
+       private func removeCartItemFromRealm(id: String) {
+           try! realm?.write {
+               if let cartItemToDelete = realm?.objects(RealmCartItem.self).where({ $0.identifier == id }) {
+                   realm?.delete(cartItemToDelete)
+               }
+           }
+       }
 }
 
 // MARK: Private Methods (Realtime Database)

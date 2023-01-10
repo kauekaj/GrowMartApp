@@ -45,6 +45,7 @@ class CartViewController: BaseViewController {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
         cartItems = loadCartItemsFromRealm()
+        cartView?.reloadTableView()
     }
     
 }
@@ -58,51 +59,59 @@ extension CartViewController {
                      price: item.price)
         }
     }
+    
+    private func removeCartItemFromRealm(id: String) {
+        try! realm.write {
+            let cartItemToDelete = realm.objects(RealmCartItem.self).where({ $0.identifier == id })
+            realm.delete(cartItemToDelete)
+            
+        }
+    }
 }
 
 extension CartViewController: CartViewDelegate {
- 
+    
     func numberOfRows() -> Int {
         cartItems?.count ?? 0
     }
     
-    func getCartCellType(at index: Int) -> CartCellType? {
-//        guard let cartItems = cartItems, index < cartItems.count else {
-//                    return nil
-//                }
-//
-//                return cartItems[index]
-        return nil
-    }
+//    func getCartCellType(at index: Int) -> CartCellType? {
+//        //        guard let cartItems = cartItems, index < cartItems.count else {
+//        //                    return nil
+//        //                }
+//        //
+//        //                return cartItems[index]
+//        return nil
+//    }
     
     func getCartItem(at index: Int) -> CartItem? {
         guard let cartItems = cartItems, index < cartItems.count else {
-                    return nil
-                }
-                
-                return cartItems[index]
+            return nil
+        }
+        
+        return cartItems[index]
     }
     
     func getTotal() -> String {
         var total: Double = 0
-                
-                cartItems?.forEach { item in
-//                    total += item.getPrice()
-                }
-                
-                let formatter = NumberFormatter()
-                formatter.locale = Locale.current // USA: Locale(identifier: "en_US")
-                formatter.numberStyle = .decimal
-                let totalFormatted = formatter.string(from: NSNumber(value: total)) ?? ""
-                
-                return "R$ \(totalFormatted)"
+        
+        cartItems?.forEach { item in
+            total += item.getPriceAsDouble()
+        }
+        
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current // USA: Locale(identifier: "en_US")
+        formatter.numberStyle = .decimal
+        let totalFormatted = formatter.string(from: NSNumber(value: total)) ?? ""
+        
+        return "R$ \(totalFormatted)"
     }
     
     func getButtonTitle() -> String {
-//        guard let buttonTitle = cells.first(where: { $0.cellType == .button })?.data as? String else {
-//            return ""
-//        }
-//
+        //        guard let buttonTitle = cells.first(where: { $0.cellType == .button })?.data as? String else {
+        //            return ""
+        //        }
+        
         return ""
     }
     
@@ -111,8 +120,9 @@ extension CartViewController: CartViewDelegate {
     }
     
     func remove(cartItem: CartItem) {
-//        removeCartItemFromRealm(id: cartItem.identifier ?? "")
-//                cartItems?.removeAll { $0.identifier == cartItem.identifier }
-                cartView?.reloadTableView()
+        guard let identifier = cartItem.identifier else { return }
+        removeCartItemFromRealm(id: identifier)
+        cartItems?.removeAll(where: { $0.identifier == identifier})
+        cartView?.reloadTableView()
     }
 }
