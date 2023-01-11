@@ -53,6 +53,21 @@ class LoginViewTests: BaseTests {
         XCTAssertFalse(loginViewSpy.didTapFacebookLoginCalled)
         XCTAssertTrue(loginViewSpy.didTapGoogleLoginCalled)
     }
+    
+    // Exemplo de teste de clousure(bloco)
+//    func testX() {
+//        let view = LoginView()
+//        var didSuccessBlockExecuted = false
+//
+//        view.successBlock = {
+//            didSuccessBlockExecuted = true
+//        }
+//
+//        view.callSuccessBlock()
+//
+//        XCTAssertTrue(didSuccessBlockExecuted)
+//
+//    }
 }
 
 // MARK: - LoginViewDelegate

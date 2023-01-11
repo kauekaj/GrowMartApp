@@ -35,7 +35,21 @@ class LoginViewController: UIViewController {
     
     // MARK: - Private Methods
     private func setupView() {
-        loginView.delegate = self
+//        loginView.delegate = self
+        
+        loginView.didTapLoginBlock = { [weak self] login, pass in
+            self?.authUser(login: login, password: pass)
+        }
+        
+        loginView.didTapFacebookLoginBlock = { [weak self] in
+            self?.navigationController?.pushViewController(TabBarViewController(), animated: true)
+
+        }
+        
+        loginView.didTapGoogleLoginBlock = { [weak self] in
+            self?.navigationController?.pushViewController(TabBarViewController(), animated: true)
+        }
+        
         view.addSubview(loginView)
         
         NSLayoutConstraint.activate([

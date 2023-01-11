@@ -17,6 +17,10 @@ class LoginView: UIView {
     // MARK: - Public Properties
     weak var delegate: LoginViewDelegate?
 
+    var didTapFacebookLoginBlock: (() -> Void)?
+    var didTapGoogleLoginBlock: (() -> Void)?
+    var didTapLoginBlock: ((String, String) -> Void)?
+    
     // MARK: - Private Properties
     private lazy var stackView: UIStackView = {
         let element = UIStackView()
@@ -132,17 +136,25 @@ class LoginView: UIView {
     func didTapLogin() {
         delegate?.didTapLogin(login: loginTextField.text ?? "",
                               password: passwordTextField.text ?? "")
+        didTapLoginBlock?(loginTextField.text ?? "", passwordTextField.text ?? "")
     }
 
     @objc
     private func didTapFacebookLogin() {
         delegate?.didTapFacebookLogin()
+        
+        //Exemplo de chamada com clousure
+        didTapFacebookLoginBlock?()
     }
 
     @objc
     private func didTapGoogleLogin() {
         delegate?.didTapGoogleLogin()
+        
+        //Exemplo de chamada com clousure
+        didTapGoogleLoginBlock?()
     }
+    
 }
 
 // MARK: - View Code
