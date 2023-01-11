@@ -55,7 +55,7 @@ extension ProductDetailViewController: ProductDetailViewDelegate {
     func didTapAddToCart() {
         print("didTapAddToCart")
         guard let product = product else { return }
-        DataManager.shared.addFCartItem(product)
+        DataManager.shared.addCartItem(product)
     }
     
     func didTapShare() {

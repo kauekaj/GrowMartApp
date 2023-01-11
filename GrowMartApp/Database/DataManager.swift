@@ -124,7 +124,18 @@ class DataManager {
         }
     }
     
-    func addFCartItem(_ product: ProductResponse) {
+    func loadCartItem() -> [CartItem] {
+        switch source {
+        case .coreData:
+            return []
+        case .realm:
+            return loadCartItemsFromRealm()
+        case .realtimeDatabase:
+            return []
+        }
+    }
+    
+    func addCartItem(_ product: ProductResponse) {
         switch source {
         case .coreData:
             break

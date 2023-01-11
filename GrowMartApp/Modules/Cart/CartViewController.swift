@@ -99,12 +99,7 @@ extension CartViewController: CartViewDelegate {
             total += item.getPriceAsDouble()
         }
         
-        let formatter = NumberFormatter()
-        formatter.locale = Locale.current // USA: Locale(identifier: "en_US")
-        formatter.numberStyle = .decimal
-        let totalFormatted = formatter.string(from: NSNumber(value: total)) ?? ""
-        
-        return "R$ \(totalFormatted)"
+        return total.asMoney()
     }
     
     func getButtonTitle() -> String {
