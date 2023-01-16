@@ -126,6 +126,7 @@
 		96D16DE728CCC40200B65B23 /* CartFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D16DE628CCC40200B65B23 /* CartFooterView.swift */; };
 		96D16DE928CCC57400B65B23 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D16DE828CCC57400B65B23 /* BaseViewController.swift */; };
 		96D16DED28CCC95400B65B23 /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D16DEC28CCC95400B65B23 /* CatalogView.swift */; };
+		96E33ED92975D11B00E5CDFB /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E33ED82975D11B00E5CDFB /* CatalogViewModel.swift */; };
 		96F66EF228EAF7AE00A795E2 /* CarouselPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F66EF128EAF7AE00A795E2 /* CarouselPhotosCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -261,6 +262,7 @@
 		96D16DE628CCC40200B65B23 /* CartFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFooterView.swift; sourceTree = "<group>"; };
 		96D16DE828CCC57400B65B23 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		96D16DEC28CCC95400B65B23 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
+		96E33ED82975D11B00E5CDFB /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
 		96F66EF128EAF7AE00A795E2 /* CarouselPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPhotosCell.swift; sourceTree = "<group>"; };
 		E221A0884F2BD3A51D09F027 /* Pods-GrowMartApp-GrowMartAppTests.mock.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowMartApp-GrowMartAppTests.mock.xcconfig"; path = "Target Support Files/Pods-GrowMartApp-GrowMartAppTests/Pods-GrowMartApp-GrowMartAppTests.mock.xcconfig"; sourceTree = "<group>"; };
 		E6E35110097D65EE99A215E6 /* Pods_GrowMartApp_GrowMartAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrowMartApp_GrowMartAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -847,6 +849,7 @@
 				96B1C27528D28118003AA7ED /* Cell */,
 				96D16DEC28CCC95400B65B23 /* CatalogView.swift */,
 				969A85A628D1E219009059C2 /* CatalogViewController.swift */,
+				96E33ED82975D11B00E5CDFB /* CatalogViewModel.swift */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -1088,6 +1091,7 @@
 				9698BF0F28E21331008DFF41 /* CheckboxCell.swift in Sources */,
 				9646A3B5293A62F0004DCA72 /* RealtimeDatabaseFavorite.swift in Sources */,
 				96A28E3228DB52CE00D39621 /* InfoDataView.swift in Sources */,
+				96E33ED92975D11B00E5CDFB /* CatalogViewModel.swift in Sources */,
 				96C2DFEC28EB4AF200819AE5 /* PhotoCell.swift in Sources */,
 				96B9835028B59A9E00073871 /* LoginView.swift in Sources */,
 				96A58E3228E764EA00A71090 /* ProductDataView.swift in Sources */,

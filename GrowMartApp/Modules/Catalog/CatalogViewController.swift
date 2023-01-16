@@ -16,9 +16,7 @@ class CatalogViewController: BaseViewController {
         return element
     }()
     
-    private lazy var networkManager = NetworkManager(router: Router())
-    private var products = [ProductResponse]()
-    private var favorites = [Favorite]()
+    private let viewModel: CatalogViewModel = .init()
     
     // MARK: - View Life Cycle
     
@@ -28,17 +26,10 @@ class CatalogViewController: BaseViewController {
         addCartButton()
         loadFavorites()
         callService()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(favoritesUpdatedNotification),
-                                               name: Notification.Name("FavoritesUpdated"),
-                                               object: nil)
+
     }
     
-    deinit {
-          NotificationCenter.default.removeObserver(self,
-                                                    name: Notification.Name("FavoritesUpdated"),
-                                                    object: nil)
-      }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,55 +40,20 @@ class CatalogViewController: BaseViewController {
         super.loadView()
         view = catalogView
     }
+        
     
-    // MARK: - Private Methods
-    
-    @objc
-    func favoritesUpdatedNotification(_ notification: NSNotification) {
-           if let favorites = notification.userInfo?["favorites"] as? [Favorite] {
-               self.favorites = favorites
-           } else {
-               loadFavorites()
-           }
-           
-           catalogView.reloadData()
-       }
-    
-    
-    private func loadFavorites() {
-        favorites = DataManager.shared.loadFavorites()
-    }
-    
-    private func callService() {
-        networkManager.execute(endpoint: ProductsApi.list(page: 1)) { [weak self] (response: Result<ProductsResponse, NetworkResponse>) in
-            guard let safeSelf = self else { return }
-            
-            switch response {
-            case let .success(data):
-                guard let products = data.entries else {
-                    // Apresentar estado de erro
-                    return
-                }
-                
-                safeSelf.products.append(contentsOf: products)
-                safeSelf.catalogView.reloadData()
-            case .failure:
-                // Apresentar estado de erro
-                break
-            }
-        }
-    }
+ 
     
     private func addFavorite(id: String) {
-        guard let product = products.first(where: { $0.id == id }) else {
-            return
-        }
-        
-        DataManager.shared.addFavorite(product)
+//        guard let product = products.first(where: { $0.id == id }) else {
+//            return
+//        }
+//
+//        DataManager.shared.addFavorite(product)
     }
     
     private func removeFavorite(id: String) {
-        DataManager.shared.removeFavorite(id: id)
+//        DataManager.shared.removeFavorite(id: id)
     }
     
 }
@@ -113,15 +69,18 @@ class CatalogViewController: BaseViewController {
         }
         
         func numberOfItems() -> Int {
-            products.count
+            viewModel.getNumberOfItems()
         }
         
         func getProduct(at index: Int) -> ProductResponse? {
-            guard index < products.count else {
-                return nil
-            }
+//            guard index < products.count else {
+//                return nil
+//            }
+//
+//            return products[index]
             
-            return products[index]
+            viewModel.getProduct(at: index)
+
         }
         
         func didSelectCategory(index: Int, name: String) {
@@ -133,7 +92,9 @@ class CatalogViewController: BaseViewController {
         }
         
         func isFavorite(id: String) -> Bool {
-            favorites.compactMap { $0.identifier }.contains(id)
+//            favorites.compactMap { $0.identifier }.contains(id)
+            
+            viewModel.isFavorite(id: id)
         }
         
         func didTapFilterButton() {
