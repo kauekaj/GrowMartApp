@@ -36,19 +36,21 @@ class CatalogViewController: BaseViewController {
         super.loadView()
         view = catalogView
     }
-        
+    
     // MARK: - Private Methods
-
+    
     private func setupViewModel() {
         viewModel.loadData()
+        viewModel.delegate = self
         
-        viewModel.bindProductsUpdated = {
-            self.catalogView.reloadData()
-        }
-        
-        viewModel.bindFavoritesUpdated = {
-            self.catalogView.reloadData()
-        }
+        // EXEMPLO UTILIZANDO CLOUSURE
+//        viewModel.bindProductsUpdated = {
+//            self.catalogView.reloadData()
+//        }
+//
+//        viewModel.bindFavoritesUpdated = {
+//            self.catalogView.reloadData()
+//        }
     }
     
     private func addFavorite(id: String) {
@@ -60,38 +62,49 @@ class CatalogViewController: BaseViewController {
     }
     
 }
-    // MARK: - CatalogViewDelegate
+// MARK: - CatalogViewDelegate
 
-    extension CatalogViewController: CatalogViewDelegate {
-        func didTapFavorite(id: String, isFavorite: Bool) {
-            if isFavorite {
-                addFavorite(id: id)
-            } else {
-                removeFavorite(id: id)
-            }
-        }
-        
-        func numberOfItems() -> Int {
-            viewModel.getNumberOfItems()
-        }
-        
-        func getProduct(at index: Int) -> ProductForCatalog? {
-            viewModel.getProduct(at: index)
-        }
-        
-        func didSelectCategory(index: Int, name: String) {
-            catalogView.reloadData()
-        }
-        
-        func didTapProduct(at index: Int) {
-            navigationController?.pushViewController(ProductDetailViewController(), animated: true)
-        }
-        
-        func isFavorite(id: String) -> Bool {
-            viewModel.isFavorite(id: id)
-        }
-        
-        func didTapFilterButton() {
-            print("didTapFilterButton")
+extension CatalogViewController: CatalogViewDelegate {
+    func didTapFavorite(id: String, isFavorite: Bool) {
+        if isFavorite {
+            addFavorite(id: id)
+        } else {
+            removeFavorite(id: id)
         }
     }
+    
+    func numberOfItems() -> Int {
+        viewModel.getNumberOfItems()
+    }
+    
+    func getProduct(at index: Int) -> ProductForCatalog? {
+        viewModel.getProduct(at: index)
+    }
+    
+    func didSelectCategory(index: Int, name: String) {
+        catalogView.reloadData()
+    }
+    
+    func didTapProduct(at index: Int) {
+        navigationController?.pushViewController(ProductDetailViewController(), animated: true)
+    }
+    
+    func isFavorite(id: String) -> Bool {
+        viewModel.isFavorite(id: id)
+    }
+    
+    func didTapFilterButton() {
+        print("didTapFilterButton")
+    }
+}
+
+extension CatalogViewController: CatalogViewModelDelegate {
+    func bindProductsUpdated() {
+        self.catalogView.reloadData()
+    }
+    
+    func bindFavoritesUpdated() {
+        self.catalogView.reloadData()
+    }
+    
+}

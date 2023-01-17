@@ -14,19 +14,28 @@ struct ProductForCatalog {
     let price: String?
 }
 
+protocol CatalogViewModelDelegate: AnyObject {
+    func bindProductsUpdated()
+    func bindFavoritesUpdated()
+}
+
 final class CatalogViewModel {
+    
+    weak var delegate: CatalogViewModelDelegate?
     
     private lazy var networkManager = NetworkManager(router: Router())
     
     private var products = [ProductForCatalog]() {
         didSet {
-            bindProductsUpdated()
+            delegate?.bindProductsUpdated()
+//            bindProductsUpdated()
         }
     }
     
     private var favorites = [Favorite]() {
         didSet {
-            bindFavoritesUpdated()
+            delegate?.bindFavoritesUpdated()
+//            bindFavoritesUpdated()
         }
     }
     
