@@ -79,7 +79,7 @@ public class CatalogItemCell: UICollectionViewCell {
     }
     
     // MARK: - Public Methods
-    func setup(with product: ProductResponse, isFavorite: Bool) {
+    func setup(with product: ProductForCatalog, isFavorite: Bool) {
         favoriteButton.productId = product.id ?? ""
         favoriteButton.isFavorite = isFavorite
 

@@ -46,6 +46,31 @@ struct ProductResponse: Codable, Equatable {
     let brand: String?
     let otherInfos: String?
     let seller: SellerResponse?
+    
+    init(id: String? = nil,
+            name: String? = nil,
+            image: String? = nil,
+            price: String? = nil,
+            category: CategoryResponse? = nil,
+            description: String? = nil,
+            size: String? = nil,
+            condition: String? = nil,
+            brand: String? = nil,
+            otherInfos: String? = nil,
+            seller: SellerResponse? = nil
+       ) {
+           self.id = id
+           self.name = name
+           self.image = image
+           self.price = price
+           self.category = category
+           self.description = description
+           self.size = size
+           self.condition = condition
+           self.brand = brand
+           self.otherInfos = otherInfos
+           self.seller = seller
+       }
 }
 
 struct SellerResponse: Codable, Equatable {

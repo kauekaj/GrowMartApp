@@ -9,7 +9,7 @@ import UIKit
 
 protocol CatalogViewDelegate: AnyObject {
     func numberOfItems() -> Int
-    func getProduct(at index: Int) -> ProductResponse?
+    func getProduct(at index: Int) -> ProductForCatalog?
 
     func didTapProduct(at index: Int)
     func didSelectCategory(index: Int, name: String)

@@ -24,12 +24,8 @@ class CatalogViewController: BaseViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
         addCartButton()
-        loadFavorites()
-        callService()
-
+        setupViewModel()
     }
-    
-
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,19 +37,26 @@ class CatalogViewController: BaseViewController {
         view = catalogView
     }
         
-    
- 
+    // MARK: - Private Methods
+
+    private func setupViewModel() {
+        viewModel.loadData()
+        
+        viewModel.bindProductsUpdated = {
+            self.catalogView.reloadData()
+        }
+        
+        viewModel.bindFavoritesUpdated = {
+            self.catalogView.reloadData()
+        }
+    }
     
     private func addFavorite(id: String) {
-//        guard let product = products.first(where: { $0.id == id }) else {
-//            return
-//        }
-//
-//        DataManager.shared.addFavorite(product)
+        viewModel.addFavorite(id: id)
     }
     
     private func removeFavorite(id: String) {
-//        DataManager.shared.removeFavorite(id: id)
+        viewModel.removeFavorite(id: id)
     }
     
 }
@@ -72,15 +75,8 @@ class CatalogViewController: BaseViewController {
             viewModel.getNumberOfItems()
         }
         
-        func getProduct(at index: Int) -> ProductResponse? {
-//            guard index < products.count else {
-//                return nil
-//            }
-//
-//            return products[index]
-            
+        func getProduct(at index: Int) -> ProductForCatalog? {
             viewModel.getProduct(at: index)
-
         }
         
         func didSelectCategory(index: Int, name: String) {
@@ -92,8 +88,6 @@ class CatalogViewController: BaseViewController {
         }
         
         func isFavorite(id: String) -> Bool {
-//            favorites.compactMap { $0.identifier }.contains(id)
-            
             viewModel.isFavorite(id: id)
         }
         

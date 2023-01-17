@@ -50,6 +50,42 @@ final class CatalogViewModel {
     
     // MARK: - Public Methods
     
+    func loadData() {
+        loadFavorites()
+        callService()
+    }
+    
+    func getNumberOfItems() -> Int {
+        products.count
+    }
+    
+    func getProduct(at index: Int) -> ProductForCatalog? {
+        guard index < products.count else {
+            return nil
+        }
+        
+        return products[index]
+    }
+    
+    func isFavorite(id: String) -> Bool {
+        favorites.compactMap { $0.identifier }.contains(id)
+    }
+    
+    func addFavorite(id: String) {
+        guard let product = products.first(where: { $0.id == id }) else {
+            return
+        }
+        
+        DataManager.shared.addFavorite(.init(id: product.id,
+                                             name: product.name,
+                                             image: product.image,
+                                             price: product.price))
+    }
+    
+    func removeFavorite(id: String) {
+        DataManager.shared.removeFavorite(id: id)
+    }
+    
     // MARK: - Private Methods
     
     @objc
@@ -66,7 +102,7 @@ final class CatalogViewModel {
     }
     
     private func callService() {
-        networkManager.execute(endpoint: ProductsApi.list(page: 1)) { [weak self] (response: Result<ProductForCatalog, NetworkResponse>) in
+        networkManager.execute(endpoint: ProductsApi.list(page: 1)) { [weak self] (response: Result<ProductsResponse, NetworkResponse>) in
             guard let safeSelf = self else { return }
             
             switch response {
@@ -76,8 +112,14 @@ final class CatalogViewModel {
                     return
                 }
                 
-                safeSelf.products.append(contentsOf: products)
-//                safeSelf.bindProductsUpdated()
+                let productsForCatalog = products.map { item in
+                    ProductForCatalog(id: item.id,
+                                      name: item.name,
+                                      image: item.image,
+                                      price: item.price)
+                }
+                
+                safeSelf.products.append(contentsOf: productsForCatalog)
             case .failure:
                 // Apresentar estado de erro
                 break
