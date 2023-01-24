@@ -99,6 +99,7 @@
 		96A28E3C28DB5C7000D39621 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3B28DB5C7000D39621 /* Profile.swift */; };
 		96A475D2298042F7006EDE39 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A475D1298042F7006EDE39 /* AppCoordinator.swift */; };
 		96A475D4298046A4006EDE39 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A475D3298046A4006EDE39 /* LoginCoordinator.swift */; };
+		96A475D62980516D006EDE39 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A475D52980516D006EDE39 /* TabCoordinator.swift */; };
 		96A58E2B28E75EAA00A71090 /* BaseViewWithTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E2A28E75EAA00A71090 /* BaseViewWithTableView.swift */; };
 		96A58E3228E764EA00A71090 /* ProductDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E3128E764EA00A71090 /* ProductDataView.swift */; };
 		96A58E3428E7669D00A71090 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E3328E7669D00A71090 /* AddProductViewController.swift */; };
@@ -237,6 +238,7 @@
 		96A28E3B28DB5C7000D39621 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		96A475D1298042F7006EDE39 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		96A475D3298046A4006EDE39 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		96A475D52980516D006EDE39 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		96A58E2A28E75EAA00A71090 /* BaseViewWithTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewWithTableView.swift; sourceTree = "<group>"; };
 		96A58E3128E764EA00A71090 /* ProductDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataView.swift; sourceTree = "<group>"; };
 		96A58E3328E7669D00A71090 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
@@ -717,6 +719,7 @@
 				96A09E37297C1DC000FA137A /* Coordinator.swift */,
 				96A475D1298042F7006EDE39 /* AppCoordinator.swift */,
 				96A475D3298046A4006EDE39 /* LoginCoordinator.swift */,
+				96A475D52980516D006EDE39 /* TabCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1181,6 +1184,7 @@
 				96C2DFEA28EB4A3E00819AE5 /* AddPhotoCell.swift in Sources */,
 				96D16DED28CCC95400B65B23 /* CatalogView.swift in Sources */,
 				96A914C128C8B1FD008ABFB1 /* UIButton.Configuration+Extension.swift in Sources */,
+				96A475D62980516D006EDE39 /* TabCoordinator.swift in Sources */,
 				96A28E3628DB596B00D39621 /* HeaderView.swift in Sources */,
 				96040E8928B432230029B0D7 /* SceneDelegate.swift in Sources */,
 				96974439290EC6C300E447AC /* HomeEndpoint.swift in Sources */,
