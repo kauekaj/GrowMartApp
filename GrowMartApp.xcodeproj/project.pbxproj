@@ -90,6 +90,7 @@
 		96A0180F28DA7EF300B19AB8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0180E28DA7EF300B19AB8 /* ProfileView.swift */; };
 		96A0181128DA7F0400B19AB8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */; };
 		96A06BE328DB7AF100846A4D /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A06BE228DB7AF000846A4D /* UITableViewCell+Extensions.swift */; };
+		96A09E38297C1DC000FA137A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A09E37297C1DC000FA137A /* Coordinator.swift */; };
 		96A28E3228DB52CE00D39621 /* InfoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3128DB52CE00D39621 /* InfoDataView.swift */; };
 		96A28E3428DB534F00D39621 /* LabelValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3328DB534F00D39621 /* LabelValueView.swift */; };
 		96A28E3628DB596B00D39621 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3528DB596B00D39621 /* HeaderView.swift */; };
@@ -225,6 +226,7 @@
 		96A0180E28DA7EF300B19AB8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		96A0181028DA7F0400B19AB8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		96A06BE228DB7AF000846A4D /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		96A09E37297C1DC000FA137A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		96A28E3128DB52CE00D39621 /* InfoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDataView.swift; sourceTree = "<group>"; };
 		96A28E3328DB534F00D39621 /* LabelValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelValueView.swift; sourceTree = "<group>"; };
 		96A28E3528DB596B00D39621 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -705,6 +707,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		96A09E36297C1CD000FA137A /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				96A09E37297C1DC000FA137A /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		96A58E2C28E7613C00A71090 /* Product */ = {
 			isa = PBXGroup;
 			children = (
@@ -830,6 +840,7 @@
 		96D16DEA28CCC92D00B65B23 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				96A09E36297C1CD000FA137A /* Coordinator */,
 				965EEA25291515DF006E4A39 /* Favorites */,
 				9697F99D290C89EE00E91687 /* ProductDetail */,
 				96A58E2C28E7613C00A71090 /* Product */,
@@ -1147,6 +1158,7 @@
 				969B9D8F28C3892E0065A0DE /* CartView.swift in Sources */,
 				969A627828FD61F000879028 /* NetworkManager.swift in Sources */,
 				969B2DB1290AB5F1008DEED2 /* NetworkLogger.swift in Sources */,
+				96A09E38297C1DC000FA137A /* Coordinator.swift in Sources */,
 				969950FE290E8A2300529F2A /* ProductsEndpoint.swift in Sources */,
 				96D16DE728CCC40200B65B23 /* CartFooterView.swift in Sources */,
 				9697398728F6260E00AA029F /* CategoryButtonCell.swift in Sources */,
