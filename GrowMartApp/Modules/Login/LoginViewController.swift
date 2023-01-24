@@ -18,6 +18,8 @@ class LoginViewController: UIViewController {
         case api = "API"
     }
     
+    var loginFinishedClosure: (() -> Void)?
+    
     // MARK: - Private Properties
     private lazy var loginView: LoginView = {
         let element = LoginView()
@@ -58,6 +60,12 @@ class LoginViewController: UIViewController {
             loginView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             loginView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    private func finishLogin() {
+        DispatchQueue.main.async {
+            self.loginFinishedClosure?()
+        }
     }
     
     private func authUser(login: String, password: String) {
@@ -112,10 +120,7 @@ class LoginViewController: UIViewController {
     }
     
     private func showHomeScreen() {
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(TabBarViewController(),
-                                                          animated: true)
-        }
+        finishLogin()
     }
     
     private func persistUserInfo(user: AuthResponse) {
@@ -147,13 +152,11 @@ extension LoginViewController: LoginViewDelegate {
     
     func didTapFacebookLogin() {
         print("didTapFacebookLogin")
-        let controller = TabBarViewController()
-        navigationController?.pushViewController(controller, animated: true)
+        finishLogin()
     }
     
     func didTapGoogleLogin() {
         print("didTapGoogleLogin")
-        let controller = TabBarViewController()
-        navigationController?.pushViewController(controller, animated: true)
+        finishLogin()
     }
 }

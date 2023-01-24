@@ -31,13 +31,10 @@ class AppCoordinator: AppCoordinatorProtocol {
     }
     
     func showLoginFlow() {
-        
-        let controller = LoginViewController()
-        navigationController.pushViewController(controller, animated: true)
-//        let loginCoodinator = LoginCoordinator(navigationController)
-//        loginCoodinator.finishDelegate = self
-//        loginCoodinator.start()
-//        childCoordinators.append(loginCoodinator)
+        let loginCoodinator = LoginCoordinator(navigationController)
+        loginCoodinator.finishDelegate = self
+        loginCoodinator.start()
+        childCoordinators.append(loginCoodinator)
     }
     
     func showMainFlow() {

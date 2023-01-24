@@ -98,6 +98,7 @@
 		96A28E3A28DB5C6700D39621 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3928DB5C6700D39621 /* EditProfileViewController.swift */; };
 		96A28E3C28DB5C7000D39621 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A28E3B28DB5C7000D39621 /* Profile.swift */; };
 		96A475D2298042F7006EDE39 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A475D1298042F7006EDE39 /* AppCoordinator.swift */; };
+		96A475D4298046A4006EDE39 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A475D3298046A4006EDE39 /* LoginCoordinator.swift */; };
 		96A58E2B28E75EAA00A71090 /* BaseViewWithTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E2A28E75EAA00A71090 /* BaseViewWithTableView.swift */; };
 		96A58E3228E764EA00A71090 /* ProductDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E3128E764EA00A71090 /* ProductDataView.swift */; };
 		96A58E3428E7669D00A71090 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A58E3328E7669D00A71090 /* AddProductViewController.swift */; };
@@ -235,6 +236,7 @@
 		96A28E3928DB5C6700D39621 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		96A28E3B28DB5C7000D39621 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		96A475D1298042F7006EDE39 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		96A475D3298046A4006EDE39 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		96A58E2A28E75EAA00A71090 /* BaseViewWithTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewWithTableView.swift; sourceTree = "<group>"; };
 		96A58E3128E764EA00A71090 /* ProductDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataView.swift; sourceTree = "<group>"; };
 		96A58E3328E7669D00A71090 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
@@ -714,6 +716,7 @@
 			children = (
 				96A09E37297C1DC000FA137A /* Coordinator.swift */,
 				96A475D1298042F7006EDE39 /* AppCoordinator.swift */,
+				96A475D3298046A4006EDE39 /* LoginCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1185,6 +1188,7 @@
 				9697F9A5290C91AF00E91687 /* SellerView.swift in Sources */,
 				9699C18F28C8D19D00481568 /* CartItemCell.swift in Sources */,
 				9698BF0D28E20ABC008DFF41 /* DoubleCustomTextFieldCell.swift in Sources */,
+				96A475D4298046A4006EDE39 /* LoginCoordinator.swift in Sources */,
 				969A627C28FD666000879028 /* JSONParameterEncoder.swift in Sources */,
 				969B2DAD290AB5A3008DEED2 /* HTTPTask.swift in Sources */,
 				9698CC8D28E3090A00E9DBB7 /* BaseView.swift in Sources */,
