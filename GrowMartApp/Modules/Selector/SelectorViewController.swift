@@ -8,6 +8,12 @@
 import UIKit
 
 class SelectorViewController: BaseViewController {
+    
+    var didSelectCategoryClosure: ((_ id: String) -> Void)?
+    
+    // PARA EXEMPLIFICAR UMA FUNCIONALIDADE DE LOGOUT
+    var logoutClosure: (() -> Void)?
+
     // MARK: - Private Properties
     private lazy var selectorView: SelectorView = {
         let element = SelectorView()
@@ -90,7 +96,8 @@ class SelectorViewController: BaseViewController {
 
 extension SelectorViewController: SelectorViewDelegate {
     func didSelectCategory(id: String) {
-        let controller = CatalogViewController()
-        navigationController?.pushViewController(controller, animated: true)
+//        logoutClosure?()
+        
+        didSelectCategoryClosure?(id)
     }
 }

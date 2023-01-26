@@ -19,7 +19,6 @@ class DataManagerTests: BaseTests {
     override func setUp() {
         super.setUp()
         setupCoreData()
-        
     }
     
     override func tearDown() {

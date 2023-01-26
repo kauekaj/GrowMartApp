@@ -44,12 +44,12 @@ class LoginViewController: UIViewController {
         }
         
         loginView.didTapFacebookLoginBlock = { [weak self] in
-            self?.navigationController?.pushViewController(TabBarViewController(), animated: true)
-
+//            self?.navigationController?.pushViewController(TabBarViewController(), animated: true)
+            self?.loginFinishedClosure?()
         }
         
         loginView.didTapGoogleLoginBlock = { [weak self] in
-            self?.navigationController?.pushViewController(TabBarViewController(), animated: true)
+//            self?.navigationController?.pushViewController(TabBarViewController(), animated: true)
         }
         
         view.addSubview(loginView)
@@ -70,43 +70,44 @@ class LoginViewController: UIViewController {
     
     private func authUser(login: String, password: String) {
         
-        let authenticationTypeConfig = AppDelegate.sharedAppDelegate.remoteConfig.configValue(forKey: "ft_authentication_type").stringValue
-
-        if authenticationTypeConfig == AuthenticationType.api.rawValue {
-            networkManager.execute(
-                endpoint: AuthApi.auth(login: login, password: password)) { [weak self] (response: Result<AuthResponse?, NetworkResponse>) in
-                    guard let safeSelf = self else { return }
-                    
-                    switch response {
-                    case let .success(data):
-                        guard let userData = data else {
-                            // Apresentar estado de erro
-                            return
-                        }
-                        
-                        safeSelf.persistUserInfo(user: userData)
-                        safeSelf.showHomeScreen()
-                    case .failure:
-                        // Apresentar estado de erro
-                        break
-                    }
-                }
-        } else {
-            Auth.auth().signIn(withEmail: login, password: password) { [weak self] authResult, error in
-                guard let safeself = self,
-                      error == nil,
-                      let user = authResult?.user else {
-                    self?.showLoginError()
-                    return
-                }
-                
-                safeself.persistUserInfo(user: .init(id: user.uid,
-                                                     name: user.displayName,
-                                                     email: user.email,
-                                                     phone: user.phoneNumber))
-                safeself.showHomeScreen()
-            }
-        }
+        self.showHomeScreen()
+//        let authenticationTypeConfig = AppDelegate.sharedAppDelegate.remoteConfig.configValue(forKey: "ft_authentication_type").stringValue
+//
+//        if authenticationTypeConfig == AuthenticationType.api.rawValue {
+//            networkManager.execute(
+//                endpoint: AuthApi.auth(login: login, password: password)) { [weak self] (response: Result<AuthResponse?, NetworkResponse>) in
+//                    guard let safeSelf = self else { return }
+//
+//                    switch response {
+//                    case let .success(data):
+//                        guard let userData = data else {
+//                            // Apresentar estado de erro
+//                            return
+//                        }
+//
+//                        safeSelf.persistUserInfo(user: userData)
+//                        safeSelf.showHomeScreen()
+//                    case .failure:
+//                        // Apresentar estado de erro
+//                        break
+//                    }
+//                }
+//        } else {
+//            Auth.auth().signIn(withEmail: login, password: password) { [weak self] authResult, error in
+//                guard let safeself = self,
+//                      error == nil,
+//                      let user = authResult?.user else {
+//                    self?.showLoginError()
+//                    return
+//                }
+//
+//                safeself.persistUserInfo(user: .init(id: user.uid,
+//                                                     name: user.displayName,
+//                                                     email: user.email,
+//                                                     phone: user.phoneNumber))
+//                safeself.showHomeScreen()
+//            }
+//        }
     }
     
     private func showLoginError() {

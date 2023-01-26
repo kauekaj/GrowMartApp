@@ -63,7 +63,6 @@
 		969950FE290E8A2300529F2A /* ProductsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969950FD290E8A2300529F2A /* ProductsEndpoint.swift */; };
 		96995101290E999C00529F2A /* product-detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 96995100290E999C00529F2A /* product-detail.json */; };
 		96995102290E99A600529F2A /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 969950FF290E8CBC00529F2A /* products.json */; };
-		9699511F2913CC4A0030E8FE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9699511E2913CC4A0030E8FE /* TabBarController.swift */; };
 		969951212913CDD30030E8FE /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969951202913CDD30030E8FE /* UIImage+Extensions.swift */; };
 		969951242913D4EE0030E8FE /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969951232913D4EE0030E8FE /* FavoriteButton.swift */; };
 		969951282913D8860030E8FE /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 969951272913D8860030E8FE /* categories.json */; };
@@ -202,7 +201,6 @@
 		969950FD290E8A2300529F2A /* ProductsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsEndpoint.swift; sourceTree = "<group>"; };
 		969950FF290E8CBC00529F2A /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		96995100290E999C00529F2A /* product-detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "product-detail.json"; sourceTree = "<group>"; };
-		9699511E2913CC4A0030E8FE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		969951202913CDD30030E8FE /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		969951232913D4EE0030E8FE /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		969951272913D8860030E8FE /* categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
@@ -586,7 +584,6 @@
 				96D16DE828CCC57400B65B23 /* BaseViewController.swift */,
 				9698CC8C28E3090A00E9DBB7 /* BaseView.swift */,
 				96A58E2A28E75EAA00A71090 /* BaseViewWithTableView.swift */,
-				9699511E2913CC4A0030E8FE /* TabBarController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1178,7 +1175,6 @@
 				96A58E3C28E76D8E00A71090 /* UITextField+Extensions.swift in Sources */,
 				96040E8728B432230029B0D7 /* AppDelegate.swift in Sources */,
 				9692A82628D27B6400D040AA /* CategoriesSegmentedControl.swift in Sources */,
-				9699511F2913CC4A0030E8FE /* TabBarController.swift in Sources */,
 				965EEA2A2915166E006E4A39 /* FavoritesViewController.swift in Sources */,
 				96A58E3E28E76DEE00A71090 /* PickerView.swift in Sources */,
 				96C2DFEA28EB4A3E00819AE5 /* AddPhotoCell.swift in Sources */,

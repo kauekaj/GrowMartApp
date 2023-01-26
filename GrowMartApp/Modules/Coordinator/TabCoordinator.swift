@@ -160,7 +160,6 @@ class TabCoordinator: NSObject, TabCoordinatorProtocol {
         guard let page = TabBarPage.init(index: tabBarController.selectedIndex) else {
             return .home
         }
-        
         return page
     }
 }
@@ -178,12 +177,14 @@ extension TabCoordinator {
         switch page {
         case .home:
             let controller = SelectorViewController()
-//            controller.didSelectCategoryClosure = { [weak self] _ in
-//                self?.selectPage(.sell)
-//            }
-//            controller.logoutClosure = { [weak self] in
-//                self?.finish()
-//            }
+            controller.didSelectCategoryClosure = { [weak self] _ in
+                self?.selectPage(.sell)
+            }
+            
+            // PARA EXEMPLIFICAR UMA FUNCIONALIDADE DE LOGOUT
+            controller.logoutClosure = { [weak self] in
+                self?.finish()
+            }
             navController.pushViewController(controller, animated: true)
         case .sell:
             let controller = CatalogViewController()
