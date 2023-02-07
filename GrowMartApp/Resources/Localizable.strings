@@ -1,0 +1,10 @@
+
+// LOGIN
+
+"facebookButtonTitle"="ENTRAR COM FACEBOOK";
+"googleButtonTitle"="ENTRAR COM GOOGLE";
+"alertTitle"="Erro!";
+"alertMessage"="Dados inválidos, tente novamente.";
+"alertButtonTitle"="Ok";
+
+// PROFILE
