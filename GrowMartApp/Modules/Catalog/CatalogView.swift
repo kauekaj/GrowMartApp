@@ -32,7 +32,7 @@ public class CatalogView: UIView {
         element.borderStyle = .roundedRect
         element.layer.cornerRadius = 5
         element.font = .nunito(style: .regular, size: 18)
-        element.rightView = UIImageView(image: UIImage(named: "search"))
+        element.rightView = UIImageView(image: Asset.Images.search.image)
         element.rightViewMode = .always
         return element
     }()

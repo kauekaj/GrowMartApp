@@ -23,7 +23,7 @@ public final class ProfileView: BaseView {
     
     private lazy var headerView: HeaderView = {
         let element = HeaderView(title: "meu perfil",
-                                 icon: UIImage(named: "profile"),
+                                 icon: Asset.Images.profile.image,
                                  roundedIcon: true)
         element.translatesAutoresizingMaskIntoConstraints = false
         element.delegate = self

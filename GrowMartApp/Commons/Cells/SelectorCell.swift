@@ -29,7 +29,7 @@ public final class SelectorCell: UITableViewCell {
         element.layer.borderColor = UIColor(rgb: 0x252828) .cgColor
         element.layer.borderWidth = 1
         element.layer.cornerRadius = 5
-        element.rightView = UIImageView(image: UIImage(named: "arrow-down"))
+        element.rightView = UIImageView(image: Asset.Images.arrowDown.image)
         return element
     }()
         

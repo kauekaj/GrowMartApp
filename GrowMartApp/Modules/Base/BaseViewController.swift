@@ -22,18 +22,15 @@ class BaseViewController: UIViewController {
 
         navigationController.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem()
 
-        let image = UIImage(named: "navigation-icon")
         let imageView = UIImageView(frame: .init(x: 0, y: 0, width: 142, height: 29))
-        imageView.image = image
+        imageView.image = Asset.Images.navigationIcon.image
         imageView.contentMode = .scaleAspectFit
         navigationItem.titleView = imageView
     }
     
     // MARK: - Internal Methods
     internal func addCartButton() {
-        guard let image = UIImage(named: "cart")?.withRenderingMode(.alwaysOriginal) else {
-            return
-        }
+        let image = Asset.Images.cart.image.withRenderingMode(.alwaysOriginal)
         
         navigationItem.rightBarButtonItem = .init(image: image,
                                                   style: .plain,

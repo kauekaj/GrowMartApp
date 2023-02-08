@@ -71,10 +71,10 @@ extension AppDelegate {
     }
     
     private func setupNavigation() {
-        let backButtonBackgroundImage = UIImage(named: "Arrow")!.withRenderingMode(.alwaysOriginal)
+        let backIndicatorImage = Asset.Images.arrow.image.withRenderingMode(.alwaysOriginal)
         let barAppearance = UINavigationBar.appearance()
-        barAppearance.backIndicatorImage = backButtonBackgroundImage
+        barAppearance.backIndicatorImage = backIndicatorImage
         barAppearance.backIndicatorImage?.withTintColor(.black)
-        barAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
+        barAppearance.backIndicatorTransitionMaskImage = backIndicatorImage
     }
 }

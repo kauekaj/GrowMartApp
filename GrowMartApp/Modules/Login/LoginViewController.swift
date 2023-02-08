@@ -111,11 +111,11 @@ class LoginViewController: UIViewController {
     }
     
     private func showLoginError() {
-        let alert = UIAlertController(title: "Erro!",
-                                      message: "Dados inválidos, tente novamente.",
+        let alert = UIAlertController(title: Strings.alertTitle,
+                                      message: Strings.alertMessage,
                                       preferredStyle: .alert)
         
-        alert.addAction(.init(title: "Ok", style: .cancel, handler: nil))
+        alert.addAction(.init(title: Strings.alertButtonTitle, style: .cancel, handler: nil))
         
         present(alert, animated: true, completion: nil)
     }

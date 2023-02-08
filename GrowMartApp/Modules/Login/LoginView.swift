@@ -35,7 +35,7 @@ class LoginView: UIView {
         element.translatesAutoresizingMaskIntoConstraints = false
         element.layer.masksToBounds = true
         element.contentMode = .scaleAspectFit
-        element.image = UIImage(named: "growmart")
+        element.image = Asset.Images.growmart.image
         return element
     }()
 
@@ -44,7 +44,7 @@ class LoginView: UIView {
         element.translatesAutoresizingMaskIntoConstraints = false
         element.layer.masksToBounds = true
         element.contentMode = .scaleAspectFit
-        element.image = UIImage(named: "sacolas")
+        element.image = Asset.Images.sacolas.image
         return element
     }()
     
@@ -101,9 +101,9 @@ class LoginView: UIView {
         element.layer.cornerRadius = 8
         element.addTarget(self, action: #selector(didTapFacebookLogin), for: .touchUpInside)
         element.configuration = .makeWith(backgroundColor: .init(rgb: 0x4267B2),
-                                          title: "ENTRAR COM FACEBOOK",
+                                          title: Strings.facebookButtonTitle,
                                           font: .nunito(style: .semiBold, size: 12),
-                                          icon: UIImage(named: "facebook-logo"))
+                                          icon: Asset.Images.facebookLogo.image)
         return element
     }()
 
@@ -114,9 +114,9 @@ class LoginView: UIView {
         element.layer.cornerRadius = 8
         element.addTarget(self, action: #selector(didTapGoogleLogin), for: .touchUpInside)
         element.configuration = .makeWith(backgroundColor: .init(rgb: 0xDB4437),
-                                          title: "ENTRAR COM GOOGLE",
+                                          title: Strings.googleButtonTitle,
                                           font: .nunito(style: .semiBold, size: 12),
-                                          icon: UIImage(named: "google-logo"))
+                                          icon: Asset.Images.googleLogo.image)
         return element
     }()
 

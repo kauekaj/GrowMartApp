@@ -268,7 +268,7 @@ extension EditProfileView: UITableViewDataSource, UITableViewDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false
         
         let header = HeaderView(title: "editar perfil",
-                                icon: UIImage(named: "edit-profile"))
+                                icon: Asset.Images.editProfile.image)
         header.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(header)
         
