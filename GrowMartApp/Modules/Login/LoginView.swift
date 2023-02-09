@@ -51,7 +51,7 @@ class LoginView: UIView {
     private lazy var loginTextField: RightIconTextField = {
         let element = RightIconTextField()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.layer.borderColor = UIColor(rgb: 0x25282B).cgColor
+        element.layer.borderColor = Asset.Colors.darkBlue.color.cgColor
         element.layer.borderWidth = 1
         element.layer.cornerRadius = 5
         element.font = .nunito(style: .regular, size: 18)
@@ -62,7 +62,7 @@ class LoginView: UIView {
     private lazy var passwordTextField: RightIconTextField = {
         let element = RightIconTextField()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.layer.borderColor = UIColor(rgb: 0x25282B).cgColor
+        element.layer.borderColor = Asset.Colors.darkBlue.color.cgColor
         element.layer.borderWidth = 1
         element.layer.cornerRadius = 5
         element.font = .nunito(style: .regular, size: 18)
@@ -76,7 +76,7 @@ class LoginView: UIView {
         element.translatesAutoresizingMaskIntoConstraints = false
         element.layer.cornerRadius = 5
         element.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
-        element.configuration = .makeWith(backgroundColor: .init(rgb: 0xFFC13B),
+        element.configuration = .makeWith(backgroundColor: Asset.Colors.baseYellow.color,
                                           title: "entrar",
                                           font: .nunito(style: .regular, size: 18))
         element.configuration?.baseForegroundColor = .black
@@ -100,7 +100,7 @@ class LoginView: UIView {
         element.setTitleColor(.white, for: .normal)
         element.layer.cornerRadius = 8
         element.addTarget(self, action: #selector(didTapFacebookLogin), for: .touchUpInside)
-        element.configuration = .makeWith(backgroundColor: .init(rgb: 0x4267B2),
+        element.configuration = .makeWith(backgroundColor: Asset.Colors.baseBlue.color,
                                           title: Strings.facebookButtonTitle,
                                           font: .nunito(style: .semiBold, size: 12),
                                           icon: Asset.Images.facebookLogo.image)
@@ -113,7 +113,7 @@ class LoginView: UIView {
         element.setTitleColor(.white, for: .normal)
         element.layer.cornerRadius = 8
         element.addTarget(self, action: #selector(didTapGoogleLogin), for: .touchUpInside)
-        element.configuration = .makeWith(backgroundColor: .init(rgb: 0xDB4437),
+        element.configuration = .makeWith(backgroundColor: Asset.Colors.baseRed.color,
                                           title: Strings.googleButtonTitle,
                                           font: .nunito(style: .semiBold, size: 12),
                                           icon: Asset.Images.googleLogo.image)

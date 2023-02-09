@@ -14,7 +14,7 @@ public class AddPhotoCell: UICollectionViewCell {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.font = .nunito(style: .semiBold, size: 16)
-        element.textColor = UIColor(rgb: 0xFF6E40)
+        element.textColor = Asset.Colors.lightRed.color
         element.numberOfLines = 2
         element.textAlignment = .center
         element.text = "adicionar\nfoto"
@@ -26,7 +26,7 @@ public class AddPhotoCell: UICollectionViewCell {
         let element = UIImageView()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.image = .init(named: "add-photo")
-        element.tintColor = UIColor(rgb: 0xFF6E40)
+        element.tintColor = Asset.Colors.lightRed.color
         element.isUserInteractionEnabled = false
         return element
     }()
@@ -63,8 +63,8 @@ extension AddPhotoCell: ViewCodable {
     }
 
     public func setupAdditionalConfiguration() {
-        contentView.backgroundColor = UIColor(rgb: 0xE8E8E8)
-        contentView.layer.borderColor = UIColor(rgb: 0xFF6E40).cgColor
+        contentView.backgroundColor = Asset.Colors.lightGray.color
+        contentView.layer.borderColor = Asset.Colors.lightRed.color.cgColor
         contentView.layer.borderWidth = 1
         contentView.layer.cornerRadius = 5
         contentView.clipsToBounds = true

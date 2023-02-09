@@ -11,7 +11,7 @@ class FavoriteButton: UIButton {
     var productId = ""
     var isFavorite = false {
         didSet {
-            let color: UIColor = isFavorite ? .init(rgb: 0xFFC13B) : .white
+            let color: UIColor = isFavorite ? Asset.Colors.baseYellow.color : .white
             setImage(.makeWith(systemImage: .starFill, color: color), for: .normal)
         }
     }

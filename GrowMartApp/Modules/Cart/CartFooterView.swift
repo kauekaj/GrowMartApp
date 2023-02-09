@@ -20,7 +20,7 @@ public final class CartFooterView: UIView {
     private lazy var lineView: UIView = {
         let element = UIView()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = UIColor(rgb: 0xFF6E40)
+        element.backgroundColor = Asset.Colors.lightRed.color
         return element
     }()
     
@@ -40,7 +40,7 @@ public final class CartFooterView: UIView {
         element.translatesAutoresizingMaskIntoConstraints = false
         element.layer.cornerRadius = 5
         element.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-        element.configuration = .makeWith(backgroundColor: .init(rgb: 0xFFC13B),
+        element.configuration = .makeWith(backgroundColor: Asset.Colors.baseYellow.color,
                                           title: "check-out",
                                           font: .nunito(style: .semiBold, size: 18))
         return element

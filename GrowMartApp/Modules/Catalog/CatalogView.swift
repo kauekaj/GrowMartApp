@@ -85,7 +85,7 @@ public class CatalogView: UIView {
         element.translatesAutoresizingMaskIntoConstraints = false
         element.layer.cornerRadius = 5
         element.addTarget(self, action: #selector(didTapFilterButton), for: .touchUpInside)
-        element.configuration = .makeWith(backgroundColor: .init(rgb: 0xFFC13B),
+        element.configuration = .makeWith(backgroundColor: Asset.Colors.baseYellow.color,
                                           title: "filtros",
                                           font: .nunito(style: .semiBold, size: 18),
                                           icon: .makeWith(systemImage: .sliderHorizontal3, color: .white),

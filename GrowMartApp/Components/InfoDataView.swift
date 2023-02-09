@@ -21,7 +21,7 @@ class InfoDataView: UIStackView {
         element.translatesAutoresizingMaskIntoConstraints = false
         element.font = .nunito(style: .bold, size: 14)
         element.textColor = .white
-        element.backgroundColor = .init(rgb: 0x1E3D59)
+        element.backgroundColor = Asset.Colors.midBlue.color
         element.numberOfLines = 1
         element.textAlignment = .center
         return element
@@ -30,7 +30,7 @@ class InfoDataView: UIStackView {
     private lazy var lineView: UIView = {
         let element = UIView()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = UIColor(rgb: 0xE8E8E8)
+        element.backgroundColor = Asset.Colors.lightGray.color
         return element
     }()
     
@@ -127,7 +127,7 @@ extension InfoDataView: ViewCodable {
         layer.cornerRadius = 5
         clipsToBounds = true
         layer.borderWidth = 1
-        layer.borderColor = UIColor(rgb: 0x2B577F).cgColor
+        layer.borderColor = Asset.Colors.lightBlue.color.cgColor
         alignment = .center
         
         isLayoutMarginsRelativeArrangement = true

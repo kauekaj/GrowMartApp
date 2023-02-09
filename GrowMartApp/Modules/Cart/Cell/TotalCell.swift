@@ -14,7 +14,7 @@ public final class TotalCell: UITableViewCell {
     private lazy var lineView: UIView = {
         let element = UIView()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = UIColor(rgb: 0xFF6E40)
+        element.backgroundColor = Asset.Colors.lightRed.color
         return element
     }()
 

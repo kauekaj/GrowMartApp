@@ -14,7 +14,7 @@ public class PhotoCell: UICollectionViewCell {
         element.translatesAutoresizingMaskIntoConstraints = false
         element.layer.masksToBounds = true
         element.contentMode = .scaleAspectFill
-        element.backgroundColor = .init(rgb: 0xf3f6f4)
+        element.backgroundColor = Asset.Colors.extraLightGray.color
         return element
     }()
 

@@ -40,7 +40,7 @@ class SellerView: UIStackView {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.font = .nunito(style: .regular, size: 12)
-        element.textColor = .init(rgb: 0xA0A4A8)
+        element.textColor = Asset.Colors.gray.color
         element.numberOfLines = 1
         return element
     }()
@@ -96,7 +96,7 @@ extension SellerView: ViewCodable {
         layer.cornerRadius = 5
         clipsToBounds = true
         layer.borderWidth = 1
-        layer.borderColor = UIColor(rgb: 0x1E3D59).cgColor
+        layer.borderColor = Asset.Colors.midBlue.color.cgColor
         
         isLayoutMarginsRelativeArrangement = true
         directionalLayoutMargins = .init(top: 0, leading: 16, bottom: 0, trailing: 16)

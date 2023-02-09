@@ -23,14 +23,14 @@ public final class EditProfileView: UIView {
     private lazy var lineView: UIView = {
         let element = UIView()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = UIColor(rgb: 0xE8E8E8)
+        element.backgroundColor = Asset.Colors.lightGray.color
         return element
     }()
     
     private lazy var yellowBarView: UIView = {
         let element = UIView()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = UIColor(rgb: 0xFFC13B)
+        element.backgroundColor = Asset.Colors.baseYellow.color
         return element
     }()
     

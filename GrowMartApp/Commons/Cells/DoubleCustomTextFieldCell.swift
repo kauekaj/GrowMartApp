@@ -59,7 +59,7 @@ public final class DoubleCustomTextFieldCell: UITableViewCell {
     private lazy var leftLineView: UIView = {
         let element = UIView()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = UIColor(rgb: 0x1E3D59)
+        element.backgroundColor = Asset.Colors.midBlue.color
         return element
     }()
     
@@ -94,7 +94,7 @@ public final class DoubleCustomTextFieldCell: UITableViewCell {
     private lazy var rightLineView: UIView = {
         let element = UIView()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = UIColor(rgb: 0x1E3D59)
+        element.backgroundColor = Asset.Colors.midBlue.color
         return element
     }()
         

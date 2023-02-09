@@ -47,7 +47,7 @@ public final class ProfileView: BaseView {
         element.setTitleColor(.black, for: .normal)
         element.configuration = .makeWith(backgroundColor: .white,
                                           font: .nunito(style: .regular, size: 18))
-        element.layer.borderColor = UIColor(rgb: 0xFFC13B).cgColor
+        element.layer.borderColor = Asset.Colors.baseYellow.color.cgColor
         element.layer.borderWidth = 1
         element.layer.cornerRadius = 5
         return element

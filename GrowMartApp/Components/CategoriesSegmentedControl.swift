@@ -43,9 +43,9 @@ class CategoriesSegmentedControl: UISegmentedControl {
     private func color(for state: UIControl.State) -> UIColor {
         switch state {
         case .selected, [.selected, .highlighted]:
-            return UIColor(rgb: 0xFFC13B)
+            return Asset.Colors.baseYellow.color
         case .highlighted:
-            return UIColor(rgb: 0xFFC13B).withAlphaComponent(0.5)
+            return Asset.Colors.baseYellow.color.withAlphaComponent(0.5)
         default:
             return .clear
         }

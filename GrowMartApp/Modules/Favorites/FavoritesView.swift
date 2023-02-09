@@ -22,7 +22,7 @@ public class FavoritesView: BaseView {
     // MARK: - Private Properties
     private lazy var headerView: HeaderView = {
         let element = HeaderView(title: "favoritos",
-                                 icon: .makeWith(systemImage: .starFill, color: UIColor(rgb: 0xFF6E40)),
+                                 icon: .makeWith(systemImage: .starFill, color: Asset.Colors.lightRed.color),
                                  roundedIcon: false)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element

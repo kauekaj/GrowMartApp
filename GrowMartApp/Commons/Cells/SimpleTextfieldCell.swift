@@ -22,7 +22,7 @@ public final class SimpleTextfieldCell: UITableViewCell {
         let element = RightIconTextField()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.borderStyle = .roundedRect
-        element.layer.borderColor = UIColor(rgb: 0x252828) .cgColor
+        element.layer.borderColor = Asset.Colors.darkBlue.color.cgColor
         element.layer.borderWidth = 1
         element.layer.cornerRadius = 5
         element.font = .nunito(style: .regular, size: 18)

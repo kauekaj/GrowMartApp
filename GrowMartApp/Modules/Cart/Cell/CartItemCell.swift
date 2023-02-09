@@ -25,7 +25,7 @@ class CartItemCell: UITableViewCell {
         element.backgroundColor = .white
         element.layer.cornerRadius = 5
         element.layer.borderWidth = 1
-        element.layer.borderColor = UIColor(rgb: 0xFFC13B).cgColor
+        element.layer.borderColor = Asset.Colors.baseYellow.color.cgColor
         element.clipsToBounds = true
         return element
     }()
@@ -36,7 +36,7 @@ class CartItemCell: UITableViewCell {
         element.layer.masksToBounds = true
         element.contentMode = .scaleAspectFit
         element.layer.borderWidth = 1
-        element.layer.borderColor = UIColor(rgb: 0xFFC13B).cgColor
+        element.layer.borderColor = Asset.Colors.baseYellow.color.cgColor
         return element
     }()
 
@@ -54,7 +54,7 @@ class CartItemCell: UITableViewCell {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.font = .nunito(style: .regular, size: 16)
-        element.textColor = UIColor(rgb: 0xA0A4A8)
+        element.textColor = Asset.Colors.gray.color
         element.numberOfLines = 0
         element.textAlignment = .left
         return element
@@ -64,7 +64,7 @@ class CartItemCell: UITableViewCell {
         let element = UIButton()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.setTitle("remover", for: .normal)
-        element.setTitleColor(.init(rgb: 0x4267B2), for: .normal)
+        element.setTitleColor(Asset.Colors.baseYellow.color, for: .normal)
         element.addTarget(self, action: #selector(didTapRemoveButton), for: .touchUpInside)
 //        element.configuration = .makeWith(backgroundColor: .clear,
 //                                          title: "remover",

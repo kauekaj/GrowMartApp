@@ -20,7 +20,7 @@ class CategoryButton: UIControl {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.font = UIFont.nunito(style: .extraBold, size: 25)
-        element.textColor = UIColor(rgb: 0xFF6E40)
+        element.textColor = Asset.Colors.lightRed.color
         element.textAlignment = .center
         return element
     }()
@@ -113,7 +113,7 @@ extension CategoryButton: ViewCodable {
     }
 
     func setupAdditionalConfiguration() {
-        backgroundColor = UIColor(rgb: 0xF5F0E1)
+        backgroundColor = Asset.Colors.lightYellow.color
         layer.cornerRadius = 35
     }
 }

@@ -28,7 +28,7 @@ public class CatalogItemCell: UICollectionViewCell {
     private lazy var containerView: UIView = {
         let element = UIView()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = UIColor(rgb: 0xA0A4A8)
+        element.backgroundColor = Asset.Colors.gray.color
         return element
     }()
 
@@ -128,7 +128,7 @@ extension CatalogItemCell: ViewCodable {
 
     public func setupAdditionalConfiguration() {
         contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor(rgb: 0xA0A4A8).cgColor
+        contentView.layer.borderColor = Asset.Colors.gray.color.cgColor
         contentView.layer.cornerRadius = 5
         contentView.clipsToBounds = true
     }

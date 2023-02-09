@@ -107,7 +107,7 @@ public final class ProductDetailView: BaseView {
         element.tintColor = .black
         element.setTitle("adicionar a sacolinha", for: .normal)
         element.setTitleColor(.black, for: .normal)
-        element.configuration = .makeWith(backgroundColor: UIColor(rgb: 0xFFC13B),
+        element.configuration = .makeWith(backgroundColor: Asset.Colors.baseYellow.color,
                                           font: .nunito(style: .medium, size: 18))
         element.layer.cornerRadius = 5
         return element

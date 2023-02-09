@@ -22,7 +22,7 @@ public final class ButtonCell: UITableViewCell {
         element.translatesAutoresizingMaskIntoConstraints = false
         element.layer.cornerRadius = 5
         element.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-        element.configuration = .makeWith(backgroundColor: .init(rgb: 0xFFC13B),
+        element.configuration = .makeWith(backgroundColor: Asset.Colors.baseYellow.color,
                                           title: "check-out",
                                           font: .nunito(style: .semiBold, size: 18))
         return element

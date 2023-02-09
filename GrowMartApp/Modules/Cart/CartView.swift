@@ -28,7 +28,7 @@ public final class CartView: UIView {
     private lazy var lineView: UIView = {
         let element = UIView()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = UIColor(rgb: 0xE8E8E8)
+        element.backgroundColor = Asset.Colors.lightGray.color
         return element
     }()
     

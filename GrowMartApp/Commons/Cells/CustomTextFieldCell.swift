@@ -40,7 +40,7 @@ public final class CustomTextFieldCell: UITableViewCell {
         private lazy var lineView: UIView = {
             let element = UIView()
             element.translatesAutoresizingMaskIntoConstraints = false
-            element.backgroundColor = UIColor(rgb: 0x1E3D59)
+            element.backgroundColor = Asset.Colors.midBlue.color
             return element
         }()
     

@@ -26,7 +26,7 @@ public final class SelectorCell: UITableViewCell {
         element.font = .nunito(style: .regular, size: 18)
         element.delegate = self
         element.rightViewMode = .always
-        element.layer.borderColor = UIColor(rgb: 0x252828) .cgColor
+        element.layer.borderColor = Asset.Colors.darkBlue.color.cgColor
         element.layer.borderWidth = 1
         element.layer.cornerRadius = 5
         element.rightView = UIImageView(image: Asset.Images.arrowDown.image)

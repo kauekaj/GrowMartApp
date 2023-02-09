@@ -77,26 +77,29 @@ enum TabBarPage {
     }
     
     func getSelectedIcon() -> UIImage? {
+        let color = Asset.Colors.midBlue.color
         switch self {
         case .home:
-            return getTabIcon(name: "home", color: 0x1E3D59)
+            return getTabIcon(name: "home", color: color)
         case .sell:
-            return getTabIcon(name: "catalog", color: 0x1E3D59)
+            return getTabIcon(name: "catalog", color: color)
         case .cart:
-            return getTabIcon(name: "cart", color: 0x1E3D59)
+            return getTabIcon(name: "cart", color: color)
         case .favorites:
-            return getTabIcon(systemImage: .starFill, color: 0x1E3D59)
+            return getTabIcon(systemImage: .starFill, color: color)
         case .profile:
-            return getTabIcon(name: "profile", color: 0x1E3D59)
+            return getTabIcon(name: "profile", color: color)
         }
     }
     
-    private func getTabIcon(name: String, color: Int = 0xA0A4A8) -> UIImage? {
-        return .makeWith(name: "tab-\(name)", color: .init(rgb: color))
+    private func getTabIcon(name: String,
+                            color: UIColor = Asset.Colors.gray.color) -> UIImage? {
+        return .makeWith(name: "tab-\(name)", color: color)
     }
     
-    private func getTabIcon(systemImage: UIImage.SystemImage, color: Int = 0xA0A4A8) -> UIImage? {
-        return .makeWith(systemImage: systemImage, color: .init(rgb: color))
+    private func getTabIcon(systemImage: UIImage.SystemImage,
+                            color: UIColor = Asset.Colors.gray.color) -> UIImage? {
+        return .makeWith(systemImage: systemImage, color: color)
     }
 }
 
@@ -217,12 +220,12 @@ extension TabCoordinator {
                                  y: 0.0,
                                  width: UIScreen.main.bounds.width,
                                  height: 0.5)
-        topBorder.backgroundColor = UIColor(rgb: 0x999999).cgColor
+        topBorder.backgroundColor = Asset.Colors.gray.color.cgColor
         tabBarController.tabBar.layer.addSublayer(topBorder)
         tabBarController.tabBar.clipsToBounds = true
 
         UITabBarItem.appearance().setTitleTextAttributes([
-            NSAttributedString.Key.foregroundColor: UIColor(rgb: 0x1E3D59)
+            NSAttributedString.Key.foregroundColor: Asset.Colors.midBlue.color
         ], for: .selected)
         
         navigationController.viewControllers = [tabBarController]

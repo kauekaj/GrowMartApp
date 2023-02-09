@@ -103,7 +103,7 @@ extension SelectorView: UITableViewDataSource, UITableViewDelegate {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.nunito(style: .extraBold, size: 30)
-        label.textColor = UIColor(rgb: 0x1E3D59)
+        label.textColor = Asset.Colors.midBlue.color
         label.text = "O que você quer comprar?"
         label.numberOfLines = 0
         label.textAlignment = .left

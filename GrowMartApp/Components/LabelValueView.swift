@@ -16,7 +16,7 @@ class LabelValueView: UIStackView {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.font = .nunito(style: .medium, size: 12)
-        element.textColor = .init(rgb: 0xA0A4A8)
+        element.textColor = Asset.Colors.gray.color
         element.numberOfLines = 1
         return element
     }()

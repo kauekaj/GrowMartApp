@@ -31,9 +31,9 @@ public final class CarouselPhotosCell: UITableViewCell {
         element.translatesAutoresizingMaskIntoConstraints = false
         element.isUserInteractionEnabled = true
         element.layer.cornerRadius = 5
-        element.layer.borderColor = UIColor(rgb: 0xFF6E40).cgColor
+        element.layer.borderColor = Asset.Colors.lightRed.color.cgColor
         element.layer.borderWidth = 1
-        element.backgroundColor = UIColor(rgb: 0xE8E8E8)
+        element.backgroundColor = Asset.Colors.lightGray.color
         element.addTarget(self, action: #selector(didTapAddPhotoButton(_:)), for: .touchUpInside)
         return element
     }()
@@ -42,7 +42,7 @@ public final class CarouselPhotosCell: UITableViewCell {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.font = .nunito(style: .medium, size: 20)
-        element.textColor = UIColor(rgb: 0xFF6E40)
+        element.textColor = Asset.Colors.lightRed.color
         element.numberOfLines = 1
         element.textAlignment = .center
         element.text = "adicionar foto"
@@ -54,7 +54,7 @@ public final class CarouselPhotosCell: UITableViewCell {
         let element = UIImageView()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.image = .init(named: "add-photo")
-        element.tintColor = UIColor(rgb: 0xFF6E40)
+        element.tintColor = Asset.Colors.lightRed.color
         element.isUserInteractionEnabled = false
         return element
     }()

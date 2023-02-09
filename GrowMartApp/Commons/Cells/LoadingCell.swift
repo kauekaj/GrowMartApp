@@ -15,7 +15,7 @@ final class LoadingCell: UITableViewCell {
         element.translatesAutoresizingMaskIntoConstraints = false
         element.text = "Carregando categorias..."
         element.font = .nunito(style: .bold, size: 18)
-        element.textColor = .init(rgb: 0xFF6E40)
+        element.textColor = Asset.Colors.lightRed.color
         element.numberOfLines = 0
         element.textAlignment = .center
         return element
