@@ -46,7 +46,7 @@ public final class ProfileView: BaseView {
         element.setTitle("editar dados", for: .normal)
         element.setTitleColor(.black, for: .normal)
         element.configuration = .makeWith(backgroundColor: .white,
-                                          font: .nunito(style: .regular, size: 18))
+                                          font: FontFamily.Nunito.regular.font(size: 18))
         element.layer.borderColor = Asset.Colors.baseYellow.color.cgColor
         element.layer.borderWidth = 1
         element.layer.cornerRadius = 5

@@ -39,6 +39,7 @@
 		9686998728BD82020060F512 /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */; };
 		969081B129945AFA00530ABE /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969081AF29945AFA00530ABE /* Strings.swift */; };
 		969081B329945BA300530ABE /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969081B229945BA300530ABE /* Assets.swift */; };
+		969081B529952EE800530ABE /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969081B429952EE800530ABE /* Fonts.swift */; };
 		9692A82628D27B6400D040AA /* CategoriesSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */; };
 		969346162926DBA5000B72F3 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969346152926DBA5000B72F3 /* Favorite.swift */; };
 		969575B8291D34C20088BA44 /* RealmFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969575B7291D34C20088BA44 /* RealmFavorite.swift */; };
@@ -181,6 +182,7 @@
 		9686998528BD82020060F512 /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		969081AF29945AFA00530ABE /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		969081B229945BA300530ABE /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		969081B429952EE800530ABE /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		9692A82528D27B6400D040AA /* CategoriesSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSegmentedControl.swift; sourceTree = "<group>"; };
 		969346152926DBA5000B72F3 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		969575B7291D34C20088BA44 /* RealmFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFavorite.swift; sourceTree = "<group>"; };
@@ -764,6 +766,7 @@
 		96A9A15529941F9F004B6B69 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				969081B429952EE800530ABE /* Fonts.swift */,
 				969081B229945BA300530ABE /* Assets.swift */,
 				969081AF29945AFA00530ABE /* Strings.swift */,
 			);
@@ -1179,6 +1182,7 @@
 				96040E8B28B432230029B0D7 /* LoginViewController.swift in Sources */,
 				965EEA2F2915186A006E4A39 /* CoreDataStack.swift in Sources */,
 				96BD138E28D3347000406BB4 /* UIImageView+Extensions.swift in Sources */,
+				969081B529952EE800530ABE /* Fonts.swift in Sources */,
 				96B1C27728D2813A003AA7ED /* CatalogItemCell.swift in Sources */,
 				965EEA2829151640006E4A39 /* FavoritesView.swift in Sources */,
 				96C2DFEE28EB4C1100819AE5 /* UICollectionViewCell.swift in Sources */,

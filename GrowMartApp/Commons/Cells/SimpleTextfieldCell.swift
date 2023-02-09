@@ -25,7 +25,8 @@ public final class SimpleTextfieldCell: UITableViewCell {
         element.layer.borderColor = Asset.Colors.darkBlue.color.cgColor
         element.layer.borderWidth = 1
         element.layer.cornerRadius = 5
-        element.font = .nunito(style: .regular, size: 18)
+        element.font = FontFamily.Nunito.regular.font(size: 18)
+//        element.font = .nunito(style: .regular, size: 18)
         element.delegate = self
         return element
     }()

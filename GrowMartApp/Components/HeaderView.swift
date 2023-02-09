@@ -23,7 +23,8 @@ class HeaderView: UIView {
     private lazy var label: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .extraBold, size: 22)
+//        element.font = .nunito(style: .extraBold, size: 22)
+        element.font = FontFamily.Nunito.extraBold.font(size: 22)
         element.textColor = .black
         element.numberOfLines = 1
         element.textAlignment = .left

@@ -31,7 +31,8 @@ public class CatalogView: UIView {
         element.placeholder = "buscar"
         element.borderStyle = .roundedRect
         element.layer.cornerRadius = 5
-        element.font = .nunito(style: .regular, size: 18)
+        element.font = FontFamily.Nunito.regular.font(size: 18)
+//        element.font = .nunito(style: .regular, size: 18)
         element.rightView = UIImageView(image: Asset.Images.search.image)
         element.rightViewMode = .always
         return element

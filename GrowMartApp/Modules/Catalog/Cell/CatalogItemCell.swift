@@ -35,7 +35,8 @@ public class CatalogItemCell: UICollectionViewCell {
     private lazy var priceLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .medium, size: 14)
+        element.font = FontFamily.Nunito.medium.font(size: 14)
+//        element.font = .nunito(style: .medium, size: 14)
         element.textColor = .white
         element.numberOfLines = 1
         element.textAlignment = .left
@@ -45,7 +46,8 @@ public class CatalogItemCell: UICollectionViewCell {
     private lazy var nameLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .regular, size: 10)
+        element.font = FontFamily.Nunito.regular.font(size: 10)
+//        element.font = .nunito(style: .regular, size: 10)
         element.textColor = .white
         element.numberOfLines = 1
         element.textAlignment = .left

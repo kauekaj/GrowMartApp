@@ -43,7 +43,8 @@ class CartItemCell: UITableViewCell {
     private lazy var nameLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .medium, size: 16)
+        element.font = FontFamily.Nunito.medium.font(size: 16)
+//        element.font = .nunito(style: .medium, size: 16)
         element.textColor = .black
         element.numberOfLines = 0
         element.textAlignment = .left
@@ -53,7 +54,8 @@ class CartItemCell: UITableViewCell {
     private lazy var priceLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .regular, size: 16)
+        element.font = FontFamily.Nunito.regular.font(size: 16)
+//        element.font = .nunito(style: .regular, size: 16)
         element.textColor = Asset.Colors.gray.color
         element.numberOfLines = 0
         element.textAlignment = .left

@@ -54,7 +54,8 @@ class LoginView: UIView {
         element.layer.borderColor = Asset.Colors.darkBlue.color.cgColor
         element.layer.borderWidth = 1
         element.layer.cornerRadius = 5
-        element.font = .nunito(style: .regular, size: 18)
+        element.font = FontFamily.Nunito.regular.font(size: 18)
+//        element.font = .nunito(style: .regular, size: 18)
         element.placeholder = "login"
         return element
     }()
@@ -65,7 +66,8 @@ class LoginView: UIView {
         element.layer.borderColor = Asset.Colors.darkBlue.color.cgColor
         element.layer.borderWidth = 1
         element.layer.cornerRadius = 5
-        element.font = .nunito(style: .regular, size: 18)
+        element.font = FontFamily.Nunito.regular.font(size: 18)
+//        element.font = .nunito(style: .regular, size: 18)
         element.isSecureTextEntry = true
         element.placeholder = "senha"
         return element
@@ -86,7 +88,8 @@ class LoginView: UIView {
     private lazy var otherLoginOptionsLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .extraBold, size: 22)
+        element.font = FontFamily.Nunito.extraBold.font(size: 22)
+//        element.font = .nunito(style: .extraBold, size: 22)
         element.textColor = .black
         element.numberOfLines = 1
         element.textAlignment = .center

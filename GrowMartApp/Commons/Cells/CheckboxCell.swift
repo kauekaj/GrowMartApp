@@ -35,7 +35,8 @@ public final class CheckboxCell: UITableViewCell {
     private lazy var label: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .regular, size: 12)
+        element.font = FontFamily.Nunito.regular.font(size: 12)
+//        element.font = .nunito(style: .regular, size: 12)
         element.textColor = .black
         element.numberOfLines = 0
         element.textAlignment = .left

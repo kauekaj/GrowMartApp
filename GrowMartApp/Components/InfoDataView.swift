@@ -19,7 +19,8 @@ class InfoDataView: UIStackView {
     private lazy var titleLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .bold, size: 14)
+        element.font = FontFamily.Nunito.bold.font(size: 14)
+//        element.font = .nunito(style: .bold, size: 14)
         element.textColor = .white
         element.backgroundColor = Asset.Colors.midBlue.color
         element.numberOfLines = 1
@@ -37,7 +38,8 @@ class InfoDataView: UIStackView {
     private lazy var footerTitleLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .bold, size: 12)
+        element.font = FontFamily.Nunito.bold.font(size: 12)
+//        element.font = .nunito(style: .bold, size: 12)
         element.textColor = .black
         element.numberOfLines = 0
         return element
@@ -46,7 +48,8 @@ class InfoDataView: UIStackView {
     private lazy var footerMessageLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .regular, size: 12)
+        element.font = FontFamily.Nunito.regular.font(size: 12)
+//        element.font = .nunito(style: .regular, size: 12)
         element.textColor = .black
         element.numberOfLines = 0
         return element

@@ -15,7 +15,8 @@ class LabelValueView: UIStackView {
     private lazy var leftLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .medium, size: 12)
+        element.font = FontFamily.Nunito.medium.font(size: 12)
+//        element.font = .nunito(style: .medium, size: 12)
         element.textColor = Asset.Colors.gray.color
         element.numberOfLines = 1
         return element
@@ -24,7 +25,8 @@ class LabelValueView: UIStackView {
     private lazy var rightLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .regular, size: 12)
+        element.font = FontFamily.Nunito.regular.font(size: 12)
+//        element.font = .nunito(style: .regular, size: 12)
         element.textColor = .black
         element.numberOfLines = 0
         return element

@@ -41,7 +41,7 @@ public final class CarouselPhotosCell: UITableViewCell {
     private lazy var addPhotoLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .medium, size: 20)
+        element.font = FontFamily.Nunito.medium.font(size: 20)
         element.textColor = Asset.Colors.lightRed.color
         element.numberOfLines = 1
         element.textAlignment = .center

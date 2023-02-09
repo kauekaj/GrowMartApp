@@ -30,7 +30,8 @@ class SellerView: UIStackView {
     private lazy var nameLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .bold, size: 18)
+        element.font = FontFamily.Nunito.bold.font(size: 12)
+//        element.font = .nunito(style: .bold, size: 18)
         element.textColor = .black
         element.numberOfLines = 1
         return element
@@ -39,7 +40,8 @@ class SellerView: UIStackView {
     private lazy var memberSinceLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .regular, size: 12)
+        element.font = FontFamily.Nunito.regular.font(size: 12)
+//        element.font = .nunito(style: .regular, size: 12)
         element.textColor = Asset.Colors.gray.color
         element.numberOfLines = 1
         return element
@@ -48,7 +50,8 @@ class SellerView: UIStackView {
     private lazy var salesLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .regular, size: 14)
+        element.font = FontFamily.Nunito.regular.font(size: 14)
+//        element.font = .nunito(style: .regular, size: 14)
         element.textColor = .black
         element.numberOfLines = 1
         return element

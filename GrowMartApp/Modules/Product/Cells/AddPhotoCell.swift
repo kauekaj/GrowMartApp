@@ -13,7 +13,8 @@ public class AddPhotoCell: UICollectionViewCell {
     private lazy var addPhotoLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .semiBold, size: 16)
+        element.font = FontFamily.Nunito.semiBold.font(size: 16)
+//        element.font = .nunito(style: .semiBold, size: 16)
         element.textColor = Asset.Colors.lightRed.color
         element.numberOfLines = 2
         element.textAlignment = .center

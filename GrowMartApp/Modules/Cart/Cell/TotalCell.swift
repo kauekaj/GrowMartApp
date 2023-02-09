@@ -21,7 +21,8 @@ public final class TotalCell: UITableViewCell {
     private lazy var label: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .regular, size: 18)
+        element.font = FontFamily.Nunito.regular.font(size: 18)
+//        element.font = .nunito(style: .regular, size: 18)
         element.numberOfLines = 1
         element.textAlignment = .right
         element.textColor = .black

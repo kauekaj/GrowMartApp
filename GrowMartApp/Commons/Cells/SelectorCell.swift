@@ -23,7 +23,8 @@ public final class SelectorCell: UITableViewCell {
         element.translatesAutoresizingMaskIntoConstraints = false
         element.borderStyle = .roundedRect
         element.tintColor = .black
-        element.font = .nunito(style: .regular, size: 18)
+        element.font = FontFamily.Nunito.regular.font(size: 18)
+//        element.font = .nunito(style: .regular, size: 18)
         element.delegate = self
         element.rightViewMode = .always
         element.layer.borderColor = Asset.Colors.darkBlue.color.cgColor

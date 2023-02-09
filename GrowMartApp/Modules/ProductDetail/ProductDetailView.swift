@@ -36,7 +36,8 @@ public final class ProductDetailView: BaseView {
     private lazy var nameLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .semiBold, size: 20)
+        element.font = FontFamily.Nunito.semiBold.font(size: 20)
+//        element.font = .nunito(style: .semiBold, size: 20)
         element.textColor = .black
         element.numberOfLines = 0
         element.textAlignment = .left
@@ -64,7 +65,8 @@ public final class ProductDetailView: BaseView {
     private lazy var priceLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .bold, size: 20)
+        element.font = FontFamily.Nunito.bold.font(size: 20)
+//        element.font = .nunito(style: .bold, size: 20)
         element.textColor = .black
         element.numberOfLines = 0
         element.textAlignment = .left
@@ -82,7 +84,8 @@ public final class ProductDetailView: BaseView {
     private lazy var descriptionTitleLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .medium, size: 18)
+        element.font = FontFamily.Nunito.medium.font(size: 18)
+//        element.font = .nunito(style: .medium, size: 18)
         element.textColor = .black
         element.numberOfLines = 0
         element.textAlignment = .left
@@ -93,7 +96,8 @@ public final class ProductDetailView: BaseView {
     private lazy var descriptionValueLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = .nunito(style: .regular, size: 16)
+        element.font = FontFamily.Nunito.regular.font(size: 16)
+//        element.font = .nunito(style: .regular, size: 16)
         element.textColor = .black
         element.numberOfLines = 0
         element.textAlignment = .left
@@ -108,7 +112,7 @@ public final class ProductDetailView: BaseView {
         element.setTitle("adicionar a sacolinha", for: .normal)
         element.setTitleColor(.black, for: .normal)
         element.configuration = .makeWith(backgroundColor: Asset.Colors.baseYellow.color,
-                                          font: .nunito(style: .medium, size: 18))
+                                          font: FontFamily.Nunito.medium.font(size: 18))
         element.layer.cornerRadius = 5
         return element
     }()

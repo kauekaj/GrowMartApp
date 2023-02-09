@@ -21,7 +21,8 @@ public final class CustomTextFieldCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
             let element = UILabel()
             element.translatesAutoresizingMaskIntoConstraints = false
-            element.font = .nunito(style: .medium, size: 14)
+            element.font = FontFamily.Nunito.medium.font(size: 14)
+//            element.font = .nunito(style: .medium, size: 14)
             element.textColor = .black
             element.numberOfLines = 0
             element.textAlignment = .left
@@ -32,7 +33,8 @@ public final class CustomTextFieldCell: UITableViewCell {
             let element = UITextField()
             element.translatesAutoresizingMaskIntoConstraints = false
             element.borderStyle = .none
-            element.font = .nunito(style: .regular, size: 16)
+            element.font = FontFamily.Nunito.regular.font(size: 16)
+//            element.font = .nunito(style: .regular, size: 16)
             element.delegate = self
             return element
         }()
